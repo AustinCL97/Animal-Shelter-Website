@@ -13,4 +13,6 @@ public interface PetsDao {
 
     Pets getPetsById(int petId);
 
+    Pets isAvailable(boolean isAvailable);
+
 }
