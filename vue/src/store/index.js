@@ -10,12 +10,12 @@ export function createStore(currentToken, currentUser) {
       pets: [
         {
           id: 1,
-          name: "Cora",
-          breed: "Alpaca",
+          name: "Kora",
+          breed: "Llama",
           color: "Black",
           age: "0",
           isAvailable: false,
-          description: "a rescued alpaca",
+          description: "the last of the great llama heist llamas",
           weight: "150",
           zip: 45371,
           city: "Tipp City",
