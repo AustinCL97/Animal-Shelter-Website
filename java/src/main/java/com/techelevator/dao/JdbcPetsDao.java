@@ -1,7 +1,9 @@
 package com.techelevator.dao;
 
+import com.techelevator.exception.DaoException;
 import com.techelevator.model.Pets;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -47,7 +49,7 @@ public class JdbcPetsDao implements PetsDao{
     }
 
     @Override
-    public Pets deleteListing(int petId) {
+    public Pets deletePet(int petId) {
 
         Pets deletedPets = null;
 
@@ -72,40 +74,71 @@ public class JdbcPetsDao implements PetsDao{
     }
 
     @Override
-    public Pets updatePets(int petId) {
+    public Pets updateListing(int petId) {
+        return null;
+    }
 
-        Pets updatePets = null;
+    @Override
+    public Pets updatePets(int petId, Pets updatedPets) {
 
         String sql = "UPDATE pets\n" +
                 "SET \n" +
                 "  pet_name = ?,\n" +
                 "  pet_breed = ?,\n" +
-                "  pet_color = '?,\n" +
+                "  pet_color = ?,\n" +
                 "  pet_age = ?,\n" +
                 "  is_available = ?,\n" +
                 "  pet_description = ?\n" +
                 "  pet_weight = ?,\n" +
-                "  zip_cde = ?,\n" +
+                "  zip_code = ?,\n" +
                 "  pet_city = ?,\n" +
                 "  pet_state = ?\n" +
                 "WHERE pet_id = ?";
 
         try{
-            int rowsAffected = jdbcTemplate.update(sql, petId);
-            updatePets = updatePets(petId);
+            int rowsAffected = jdbcTemplate.update(sql,
+                    updatedPets.getPetName(),
+                    updatedPets.getPetBreed(),
+                    updatedPets.getPetColor(),
+                    updatedPets.getPetAge(),
+                    updatedPets.isAvailable(),
+                    updatedPets.getPetDescription(),
+                    updatedPets.getPetWeight(),
+                    updatedPets.getZipCode(),
+                    updatedPets.getPetCity(),
+                    updatedPets.getPetState(),
+                    petId);
+
+            if(rowsAffected > 0){
+                return getPetsById(petId);
+            }else {
+                System.out.println("Pet with ID: " + petId + " not updated.");
+            }
         }catch(Exception ex){
             System.out.println("Something went wrong updating Pet record");
         }
 
 
-        return updatePets;
+        return null;
     }
 
     @Override
     public Pets getPetsById(int petId) {
+        Pets pets = null;
 
+        String sql = "SELECT ?\n" +
+                "FROM pets";
 
-        return null;
+        try{
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, petId);
+            if(results.next()){
+                pets = mapRowToUser(results);
+            }
+        }catch (CannotGetJdbcConnectionException ex){
+            throw new DaoException("Something went wrong getting pets by their ID", ex);
+        }
+
+        return pets;
     }
 
     private Pets mapRowToUser (SqlRowSet rs){
