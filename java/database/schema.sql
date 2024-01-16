@@ -30,19 +30,23 @@ CREATE TABLE pets (
 
 CREATE TABLE applications (
 	applicant_id SERIAL PRIMARY KEY,
+	user_id int NOT NULL,
 	app_email varchar (50),
 	app_name varchar (50),
 	app_phonenumber varchar(50),
 	status  varchar (25) DEFAULT 'pending',
 	application_date DATE,
-	approved_by varchar(50)
+	approved_by varchar(50),
+	CONSTRAINT FK_user_Id FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 
 CREATE TABLE adoptions (
 	adoption_id SERIAL,
 	pet_id INT REFERENCES pets(pet_id),
+	user_id int NOT NULL,
 	date_adopted DATE,
-	CONSTRAINT FK_adoptions FOREIGN KEY  (pet_id) REFERENCES pets(pet_id)
+	CONSTRAINT FK_adoptions FOREIGN KEY  (pet_id) REFERENCES pets(pet_id),
+	CONSTRAINT FK_user_Id FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 
 CREATE TABLE photos (
