@@ -1,5 +1,5 @@
 #!/bin/bash
-export PGPASSWORD='123qwe!@#QWE'
+export PGPASSWORD='postgres1'
 BASEDIR=$(dirname $0)
 DATABASE=final_capstone
 psql -U postgres -f "$BASEDIR/dropdb.sql" &&

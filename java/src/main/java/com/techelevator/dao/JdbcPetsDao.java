@@ -126,8 +126,7 @@ public class JdbcPetsDao implements PetsDao{
     public Pets getPetsById(int petId) {
         Pets pets = null;
 
-        String sql = "SELECT ?\n" +
-                "FROM pets";
+        String sql = "SELECT * FROM pets WHERE pet_id = ?";
 
         try{
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, petId);
@@ -141,6 +140,25 @@ public class JdbcPetsDao implements PetsDao{
         return pets;
     }
 
+    @Override
+    public Pets isAvailable(boolean isAvailable) {
+        Pets available = null;
+
+        String sql = "SELECT * FROM pets WHERE is_available = TRUE";
+
+        try{
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, isAvailable);
+            if(results.next()){
+                available = mapRowToUser(results);
+            }
+        }catch (Exception ex){
+            System.out.println("Something went wrong getting available pets");
+        }
+
+
+        return null;
+    }
+
     private Pets mapRowToUser (SqlRowSet rs){
         Pets pets = new Pets();
         pets.setPetId(rs.getInt("pet_id"));
@@ -151,7 +169,7 @@ public class JdbcPetsDao implements PetsDao{
         pets.setIsAvailable(rs.getBoolean("is_available"));
         pets.setPetDescription(rs.getString("pet_description"));
         pets.setPetWeight(rs.getInt("pet_weight"));
-        pets.setZipCode(rs.getInt("zip_code"));
+        pets.setZipCode(rs.getInt("pet_zip"));
         pets.setPetCity(rs.getString("pet_city"));
         pets.setPetState(rs.getString("pet_state"));
 
