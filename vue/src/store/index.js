@@ -5,7 +5,36 @@ export function createStore(currentToken, currentUser) {
   let store = _createStore({
     state: {
       token: currentToken || '',
-      user: currentUser || {}
+      user: currentUser || {},
+
+      pets: [
+        {
+          id: 1,
+          name: "Cora",
+          breed: "Alpaca",
+          color: "Black",
+          age: "0",
+          isAvailable: false,
+          description: "a rescued alpaca",
+          weight: "150",
+          zip: 45371,
+          city: "Tipp City",
+          state: "Ohio"
+        },
+        {
+          id: 2,
+          name: "Sampson",
+          breed: "German Shorthaired Pointer",
+          color: "Liver Tick",
+          age: "8",
+          isAvailable: false,
+          description: "an opinionated GSP",
+          weight: "90",
+          zip: 45309,
+          city: "Brookville",
+          state: "Ohio"
+        }
+      ]
     },
     mutations: {
       SET_AUTH_TOKEN(state, token) {
