@@ -35,7 +35,7 @@ CREATE TABLE applications (
 	app_name varchar (50),
 	app_phonenumber varchar(50),
 	status  varchar (25) DEFAULT 'pending',
-	application_date DATE,
+	application_date TIMESTAMP,
 	approved_by varchar(50),
 	CONSTRAINT FK_user_Id FOREIGN KEY (user_id) REFERENCES users (user_id)
 );

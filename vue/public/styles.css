@@ -1,3 +1,75 @@
-body{
-    background-color: rgb(127, 127, 211);
-}
+body { 
+    font-family: 'Arial', sans-serif;
+     background-color: rgb(168, 157, 142);
+     color: lightgray;
+     margin: 0;
+     background-image: url('./images/paw-prints.jpg');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+
+ }
+
+ header {
+     text-align: center;
+     background-color: darkslategrey;
+     color: #fff;
+ }
+
+ header img {
+     width: 95%;
+     height: auto;
+     max-height: 250px;
+     border-radius: 8px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ }
+
+ #nav {
+     text-align: center;
+     background-color: darkviolet;
+     padding: 10px;
+
+ }
+
+ #nav a {
+     color: #ecf0f1;    
+     text-decoration: none;
+     margin: 0 10px;
+     font-size: 18px;
+     transition: color 0.3s ease;
+ }
+
+ #nav a:hover {
+     color: whitesmoke;
+
+ }
+ .container {
+     text-align: center;
+     padding: 20px;
+ }
+
+ h1 {
+     color: rgb(107, 107, 107);
+     font-size: 36px;
+     margin-bottom: 20px;
+ }
+
+ p{
+     font-size: 20px;
+     line-height: 1.8;
+     color: rgb(12, 17, 3);
+ }
+
+ .button {
+     display: inline-block;
+     padding: 12px 24px;
+     margin-top: 20px;
+     background-color: darkred;
+     color: lime;
+     text-decoration: none;
+     border-radius: 5px;
+     transition: background-color 0.4s ease;
+ }
+ .button:hover {
+     background-color: #c0392b;
+ }
