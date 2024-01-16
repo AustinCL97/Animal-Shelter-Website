@@ -13,7 +13,7 @@ import java.util.List;
 public class JdbcApplicationsDao implements ApplicationsDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
-
+    @Override
     public Applications getAppByAppId(int applicationId){
         Applications applications = null;
         String sql = "SELECT * \n" +
@@ -30,6 +30,7 @@ public class JdbcApplicationsDao implements ApplicationsDao {
         }
         return applications;
     }
+    @Override
     public List<Applications> getAppsByUserId(int userId){
         List<Applications> applicationsList = new ArrayList<>();
         String sql = "SELECT * \n" +
@@ -46,7 +47,7 @@ public class JdbcApplicationsDao implements ApplicationsDao {
         }
         return applicationsList;
     }
-
+    @Override
     public void createApplication(Applications applications){
         String sql = "INSERT INTO applications(user_id,app_email,app_name,app_phonenumber,application_date)\n" +
                 "VALUES(?,?,?,?, NOW());";
@@ -60,6 +61,7 @@ public class JdbcApplicationsDao implements ApplicationsDao {
             System.out.println("Something went wrong creating an Application");
         }
     }
+    @Override
     public Applications approve(int applicationId, String admin){
         Applications applications = null;
         String sql = "UPDATE applications\n" +
@@ -77,6 +79,7 @@ public class JdbcApplicationsDao implements ApplicationsDao {
         }
         return applications;
     }
+    @Override
     public Applications reject(int applicationId, String admin){
         Applications applications = null;
         String sql = "UPDATE applications\n" +
