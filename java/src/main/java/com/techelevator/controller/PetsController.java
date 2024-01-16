@@ -4,6 +4,7 @@ import com.techelevator.dao.PetsDao;
 import com.techelevator.model.Pets;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 
 
@@ -20,8 +21,8 @@ public class PetsController {
     public Pets getPet(@PathVariable int petId){
         return petsDao.getPetsById(petId);
     }
-    @RequestMapping("/available")
-    public Pets availablePets(@RequestParam boolean isAvailable){
+    @GetMapping("/available")
+    public List<Pets> availablePets(@RequestParam boolean isAvailable){
         return petsDao.isAvailable(isAvailable);
     }
 

@@ -7,6 +7,8 @@ import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+import java.util.List;
+import java.util.ArrayList;
 
 @Component
 public class JdbcPetsDao implements PetsDao{
@@ -141,22 +143,22 @@ public class JdbcPetsDao implements PetsDao{
     }
 
     @Override
-    public Pets isAvailable(boolean isAvailable) {
-        Pets available = null;
+    public List<Pets> isAvailable(boolean isAvailable) {
+        List<Pets> available = new ArrayList<>();
 
-        String sql = "SELECT * FROM pets WHERE is_available = TRUE";
+        String sql = "SELECT * FROM pets WHERE is_available = ?";
 
         try{
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, isAvailable);
-            if(results.next()){
-                available = mapRowToUser(results);
+            while(results.next()){
+                available.add (mapRowToUser(results));
             }
         }catch (Exception ex){
             System.out.println("Something went wrong getting available pets");
         }
 
 
-        return null;
+        return available;
     }
 
     private Pets mapRowToUser (SqlRowSet rs){
@@ -166,13 +168,13 @@ public class JdbcPetsDao implements PetsDao{
         pets.setPetBreed(rs.getString("pet_breed"));
         pets.setPetColor(rs.getString("pet_color"));
         pets.setPetAge(rs.getInt("pet_age"));
-        pets.setIsAvailable(rs.getBoolean("is_available"));
+        pets.setAvailable(rs.getBoolean("is_available"));
         pets.setPetDescription(rs.getString("pet_description"));
         pets.setPetWeight(rs.getInt("pet_weight"));
         pets.setZipCode(rs.getInt("pet_zip"));
         pets.setPetCity(rs.getString("pet_city"));
         pets.setPetState(rs.getString("pet_state"));
-
+commi
         return pets;
     }
 

@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 import com.techelevator.model.Pets;
+import java.util.List;
 
 public interface PetsDao {
 
@@ -13,6 +14,6 @@ public interface PetsDao {
 
     Pets getPetsById(int petId);
 
-    Pets isAvailable(boolean isAvailable);
+    public List<Pets> isAvailable(boolean isAvailable);
 
 }
