@@ -8,6 +8,18 @@ public class Adoptions {
 
     private int petId;
 
+    private int userId;
+
+    private LocalDate dateAdopted;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
     public int getAdoptionId() {
         return adoptionId;
     }
@@ -32,5 +44,5 @@ public class Adoptions {
         this.petId = petId;
     }
 
-    private LocalDate dateAdopted;
+
 }

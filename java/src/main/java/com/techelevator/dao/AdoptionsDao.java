@@ -2,13 +2,15 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Adoptions;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface AdoptionsDao {
 
-    public List<Adoptions> getAdoptions(int petId);
+    public List<Adoptions> getAdoptions(int adoptionId);
 
-    public Adoptions getAdoption(int petId);
+    public Adoptions getAdoption(int adoptionId);
 
-    public Adoptions createAdoption(Adoptions adoption);
+    public Adoptions createAdoption(int petId, int userId, LocalDate date);
+
 }
