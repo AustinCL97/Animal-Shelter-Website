@@ -20,7 +20,8 @@ export function createStore(currentToken, currentUser) {
           zip: 45371,
           city: "Tipp City",
           state: "Ohio",
-          img: "src/images/yiayia.jpg"
+          img: "src/images/yiayia.jpg",
+          gallery: ""
         },
         {
           id: 2,
@@ -34,7 +35,8 @@ export function createStore(currentToken, currentUser) {
           zip: 45309,
           city: "Brookville",
           state: "Ohio",
-          img: "src/images/sampson.jpg"
+          img: "src/images/sampson.jpg",
+          gallery: ""
         }
       ]
     },
