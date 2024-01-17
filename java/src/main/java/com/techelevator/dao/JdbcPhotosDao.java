@@ -74,6 +74,20 @@ public class JdbcPhotosDao implements PhotosDao {
         return photos;
     }
 
+    @Override
+    public int removePhoto(int photoId) {
+        int numberRows = 0;
+
+        String sql = "DELETE FROM photos WHERE photo_id = ?;";
+
+        try{
+            numberRows = jdbcTemplate.update(sql, photoId);
+
+        }catch(Exception ex){
+            System.out.println("Something went wrong removing photo: " + ex.getMessage());
+        }
+        return numberRows;
+    }
 
 
     private Photos mapRowToPhotos(SqlRowSet results){

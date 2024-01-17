@@ -40,7 +40,7 @@ public class JdbcAdoptionsDao implements AdoptionsDao {
     public Adoptions getAdoption(int adoptionId) {
         Adoptions adoptions = null;
 
-        String sql = "SELECT adoption_id FROM adoptions WHERE adoption_id = ?;";
+        String sql = "SELECT adoption_id, pet_id, user_id, date_adopted FROM adoptions WHERE adoption_id = ?;";
 
         try{
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, adoptionId);
@@ -56,23 +56,19 @@ public class JdbcAdoptionsDao implements AdoptionsDao {
     }
 
     @Override
-    public Adoptions createAdoption(int petId, int userId, LocalDate date) {
+    public Adoptions createAdoption(Adoptions adoptions) {
         Adoptions newAdoptions = null;
 
-        String sql = "INSERT INTO adoptions VALUES (?, ?, ?) RETURNING adoption_id";
+        String sql = "INSERT INTO adoptions(pet_id, user_id, date_adopted) VALUES (?, ?, ?) RETURNING adoption_id";
 
         try {
-            int adoptionId = jdbcTemplate.queryForObject(sql, int.class, petId, userId, date);
+            int adoptionId = jdbcTemplate.queryForObject(sql, int.class, adoptions.getPetId(), adoptions.getUserId(), adoptions.getDateAdopted());
 
-           newAdoptions = new Adoptions();
-           newAdoptions.setAdoptionId(adoptionId);
-           newAdoptions.setPetId(petId);
-           newAdoptions.setUserId(userId);
-           newAdoptions.setDateAdopted(date);
+           newAdoptions = getAdoption(adoptionId);
 
 
         } catch (Exception ex){
-            System.out.println("Something went awry in creation");
+            System.out.println("Something went awry in creation of Adoption: " + ex.getMessage());
         }
 
         return newAdoptions;
