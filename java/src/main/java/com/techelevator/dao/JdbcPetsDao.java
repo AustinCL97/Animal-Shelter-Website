@@ -3,10 +3,13 @@ package com.techelevator.dao;
 import com.techelevator.exception.DaoException;
 import com.techelevator.model.Pets;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+import java.util.List;
+import java.util.ArrayList;
 
 @Component
 public class JdbcPetsDao implements PetsDao{
@@ -15,36 +18,28 @@ public class JdbcPetsDao implements PetsDao{
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public Pets createPet(String petName, String petBreed, String petColor,
-                          int petAge, boolean isAvailable, int petWeight, int zipCode,
-                          String petCity, String petState) {
+    public Pets createPet(Pets pet) {
 
         Pets newPet = null;
 
-        String sql = "INSERT INTO pets (pet_id, pet_name, pet_breed, pet_color, pet_age, is_available,\n" +
+        String sql = "INSERT INTO pets (pet_name, pet_breed, pet_color, pet_age, is_available,\n" +
                 "\t pet_description, pet_weight, pet_zip, pet_city, pet_state)\n" +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?,\n" +
-                "\t?,?, ?) RETURNING petId";
+                "\t?,?) RETURNING pet_id";
 
         try{
-            int petId = jdbcTemplate.queryForObject(sql, int.class, petName, petBreed, petColor, petAge, isAvailable,
-                        petWeight, zipCode, petCity, petState);
+            int petId = jdbcTemplate.queryForObject(sql, int.class,
+                    pet.getPetName(), pet.getPetBreed(), pet.getPetColor(), pet.getPetAge(),
+                    pet.isAvailable(), pet.getPetDescription(), pet.getPetWeight(), pet.getZipCode(),
+                    pet.getPetCity(), pet.getPetState());
 
-            newPet = new Pets();
-            newPet.setPetId(petId);
-            newPet.setPetName(petName);
-            newPet.setPetBreed(petBreed);
-            newPet.setPetAge(petAge);
-            newPet.setIsAvailable(isAvailable);
-            newPet.setPetWeight(petWeight);
-            newPet.setZipCode(zipCode);
-            newPet.setPetCity(petCity);
-            newPet.setPetState(petState);
+            newPet = new Pets(petId, pet.getPetName(), pet.getPetBreed(), pet.getPetColor(), pet.getPetAge(),
+                    pet.isAvailable(), pet.getPetDescription(), pet.getPetWeight(), pet.getZipCode(),
+                    pet.getPetCity(), pet.getPetState());
 
-        }catch (Exception ex) {
-            System.out.println("Something went wrong creating a new pet listing. Please try again");
+        }catch (EmptyResultDataAccessException ex) {
+            System.out.println("No data found. Please check the input parameters.");
         }
-
         return newPet;
     }
 
@@ -88,7 +83,7 @@ public class JdbcPetsDao implements PetsDao{
                 "  pet_color = ?,\n" +
                 "  pet_age = ?,\n" +
                 "  is_available = ?,\n" +
-                "  pet_description = ?\n" +
+                "  pet_description = ?,\n" +
                 "  pet_weight = ?,\n" +
                 "  zip_code = ?,\n" +
                 "  pet_city = ?,\n" +
@@ -141,23 +136,24 @@ public class JdbcPetsDao implements PetsDao{
     }
 
     @Override
-    public Pets isAvailable(boolean isAvailable) {
-        Pets available = null;
+    public List<Pets> isAvailable(boolean isAvailable) {
+        List<Pets> available = new ArrayList<>();
 
-        String sql = "SELECT * FROM pets WHERE is_available = TRUE";
+        String sql = "SELECT * FROM pets WHERE is_available = ?";
 
         try{
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, isAvailable);
-            if(results.next()){
-                available = mapRowToUser(results);
+            while(results.next()){
+                available.add (mapRowToUser(results));
             }
         }catch (Exception ex){
             System.out.println("Something went wrong getting available pets");
         }
 
 
-        return null;
+        return available;
     }
+
 
     private Pets mapRowToUser (SqlRowSet rs){
         Pets pets = new Pets();
@@ -166,7 +162,7 @@ public class JdbcPetsDao implements PetsDao{
         pets.setPetBreed(rs.getString("pet_breed"));
         pets.setPetColor(rs.getString("pet_color"));
         pets.setPetAge(rs.getInt("pet_age"));
-        pets.setIsAvailable(rs.getBoolean("is_available"));
+        pets.setAvailable(rs.getBoolean("is_available"));
         pets.setPetDescription(rs.getString("pet_description"));
         pets.setPetWeight(rs.getInt("pet_weight"));
         pets.setZipCode(rs.getInt("pet_zip"));
