@@ -31,7 +31,7 @@ public class PetsController {
     }
 
     @PostMapping("/addNew")
-    public Pets createPet(@RequestBody Pets pet) {
+    public Pets createPetListing(@RequestBody Pets pet) {
         return petsDao.createPet(pet);
     }
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="form" v-on:submit.prevent="addPet">
+  <div class="form" v-on:submit.prevent="addPet()">
     <form>
         <div>
             <label>Pet Name:</label>
@@ -61,31 +61,20 @@ export default {
     },
 
     methods:{
+       
         addPet(){
-            const petId = this.$route.params.petId;
-
-            if(petId){
-                PetService.updatePetListing(this.pet)
-                .then(
-                    (response) => {
-                        alert("Listing Updated!")
-                        this.$router.push({name: 'pets'})
-                    }
-                )
-            } else {
-                PetService.createPetListing(this.pet)
-                .then(
-                    (response) => {
-                        alert("Listing Added!")
-                        this.$router.push({name: 'pets'})
-                    }
-                )
-            }
+            PetService.createPetListing(this.pet, this.$route.params.petId).then(
+                (response) => {
+                    this.$router.push({name: "pets"})
+                }
+            )
         },
+     
+    }
 
         
     }
-}
+
 </script>
 
 <style>
