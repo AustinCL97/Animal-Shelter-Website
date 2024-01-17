@@ -59,11 +59,11 @@ const routes = [
     }
   },
   {
-    path:"new-pet",
+    path:"/new-pet",
     name: "newPet",
     component: NewPetView,
     meta: {
-      requiresAuth: true
+      requiresAuth: false
     }
   }
 ];
