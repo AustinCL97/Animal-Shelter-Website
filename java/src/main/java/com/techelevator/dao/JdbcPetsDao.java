@@ -70,9 +70,26 @@ public class JdbcPetsDao implements PetsDao{
 
     @Override
     public Pets updateListing(int petId) {
+        boolean updatedAvailability = false;
 
+        String updateQuery = "UPDATE pets\n" +
+                "SET is_available = ?\n" +
+                "WHERE pet_id = ?";
 
-        return null;
+        try{
+            int rowsAffected = jdbcTemplate.update(updateQuery, updatedAvailability, petId);
+
+            if (rowsAffected > 0) {
+                return getPetsById(petId);
+            } else {
+                System.out.println("Pet with ID: " + petId + " not updated.");
+                return null;
+            }
+        } catch (Exception ex) {
+            System.out.println("Something went wrong updating pet listing.");
+            ex.printStackTrace();
+            return null;            
+        }
     }
 
     @Override
