@@ -21,7 +21,7 @@ public class JdbcPhotosDao implements PhotosDao {
     public Photos addPhoto(Photos photos) {
         Photos newPhotos = null;
 
-        String sql = "INSERT INTO photos VALUES( ?, ?) returning photo_id";
+        String sql = "INSERT INTO photos(photo_URL, pet_id) VALUES( ?, ?) returning photo_id";
 
         try{
             int photoId = jdbcTemplate.queryForObject(sql, int.class, photos.getPhotoUrl(), photos.getPetId());
