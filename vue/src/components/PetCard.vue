@@ -1,11 +1,11 @@
 <template>
   <div class="card">
-    <h2>{{ pet.name }}</h2>
-    <h3>{{ pet.breed }}</h3>
+    <h2>{{ pet.petName }}</h2>
+    <h3>{{ pet.petBreed }}</h3>
     <img class="photo" :src="pet.img" alt="pet photo">
-    <p>{{ pet.city }}</p>
-    <p>{{ pet.state }} {{ pet.zip }}</p>
-    <p>{{ pet.description }}</p>
+    <p>{{ pet.petCity }}</p>
+    <p>{{ pet.petState }} {{ pet.zipCode }}</p>
+    <p>{{ pet.petDescription }}</p>
 
     <div class="buttons">
         <button class="adopt">ADOPT ME</button>
