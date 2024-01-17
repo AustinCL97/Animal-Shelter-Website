@@ -26,4 +26,9 @@ public class PetsController {
         return petsDao.isAvailable(isAvailable);
     }
 
+    @PostMapping("/addNew")
+    public Pets createPet(@RequestBody Pets pet) {
+        return petsDao.createPet(pet);
+    }
+   
 }
