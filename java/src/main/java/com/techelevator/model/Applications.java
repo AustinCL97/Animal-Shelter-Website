@@ -15,12 +15,12 @@ public class Applications {
     private LocalDateTime createdDate;
     private String approvedBy;
     public Applications(){}
-    public Applications(int userId,String appEmail, String appName, String appPhoneNumber, LocalDateTime createdDate){
+    public Applications(int userId,String appEmail, String appName, String appPhoneNumber){
         this.userId = userId;
         this.appEmail = appEmail;
         this.appName = appName;
         this.appPhoneNumber = appPhoneNumber;
-        this.createdDate = createdDate;
+
     }
 
     public int getApplicationId() {

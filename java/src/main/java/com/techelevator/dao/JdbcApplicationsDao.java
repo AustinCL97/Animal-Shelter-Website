@@ -48,18 +48,19 @@ public class JdbcApplicationsDao implements ApplicationsDao {
         return applicationsList;
     }
     @Override
-    public void createApplication(Applications applications){
+    public int createApplication(Applications applications){
         String sql = "INSERT INTO applications(user_id,app_email,app_name,app_phonenumber,application_date)\n" +
-                "VALUES(?,?,?,?, NOW());";
-
+                "VALUES(?,?,?,?, NOW()) RETURNING applicant_id;";
+        int applicationId = 0;
         try{
-            int applicationId = 0;
-            applicationId = jdbcTemplate.queryForObject(sql, int.class, applications.getUserId(),applications.getAppEmail(),applications.getAppName(),applications.getAppPhoneNumber());
-            applications.setApplicationId(applicationId);
+
+            applicationId = jdbcTemplate.queryForObject(sql, Integer.class, applications.getUserId(),applications.getAppEmail(),applications.getAppName(),applications.getAppPhoneNumber());
+
 
         } catch (Exception e){
             System.out.println("Something went wrong creating an Application");
         }
+        return applicationId;
     }
     @Override
     public Applications approve(int applicationId, String admin){
@@ -93,9 +94,26 @@ public class JdbcApplicationsDao implements ApplicationsDao {
             }
 
         } catch (Exception e) {
-            System.out.println("Something went wrong rejected an Application");
+            System.out.println("Something went wrong rejecting an Application");
         }
         return applications;
+    }
+    @Override
+    public List<Applications> getAllVolunteers(){
+        List<Applications> volunteers = new ArrayList<>();
+        String sql = "SELECT *\n" +
+                "FROM applications\n" +
+                "WHERE status = 'Approved'";
+        try{
+            SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql);
+            while(rowSet.next()){
+                volunteers.add(mapRowToApplication(rowSet));
+            }
+
+        } catch (Exception e) {
+            System.out.println("Something went wrong getting volunteers list");
+        }
+        return volunteers;
     }
 
     private Applications mapRowToApplication(SqlRowSet rs){

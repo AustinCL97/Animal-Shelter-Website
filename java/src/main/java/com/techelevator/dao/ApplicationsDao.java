@@ -7,8 +7,9 @@ import java.util.List;
 public interface ApplicationsDao {
     Applications getAppByAppId(int applicationId);
     List<Applications> getAppsByUserId(int userId);
-    void createApplication(Applications applications);
+    int createApplication(Applications applications);
     Applications approve(int applicationId, String admin);
     Applications reject(int applicationId, String admin);
+    List<Applications> getAllVolunteers();
 
 }
