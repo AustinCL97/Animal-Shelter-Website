@@ -6,6 +6,8 @@
 
 <script>
 import PetCard from '../components/PetCard.vue';
+import PetService from '../services/PetService.js';
+
 
 export default {
   computed: {
@@ -13,7 +15,14 @@ export default {
         return this.$store.state.pets
     }
   },
-    components:{PetCard}
+    components:{PetCard},
+   created() {
+     PetService.getAdoptablePets().then(
+       (response) => {
+         this.$store.commit("SET_PETS", response.data)
+       }
+     )
+   }
 }
 </script>
 

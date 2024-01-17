@@ -27,8 +27,7 @@ public class PetsController {
         return petsDao.getPetsById(petId);
     }
     @GetMapping("/available")
-    public List<Pets> availablePets(@RequestParam boolean isAvailable){
-        return petsDao.isAvailable(isAvailable);
+    public List<Pets> availablePets(){ return petsDao.isAvailable(true);
     }
 
     @PostMapping("/addNew")
