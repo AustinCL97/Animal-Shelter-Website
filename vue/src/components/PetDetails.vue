@@ -1,8 +1,9 @@
 <template>
   <section>
     <h2>Pet Details for {{ pet.name }}</h2>
+
     <h3>Name: {{ pet.name }}</h3>
-    <img :src="pet.img"/>
+    <img :src="pet.img" :alt="pet.name"/>
     <h3>ID: {{ pet.petId }}</h3>
     <h3>Breed:{{ pet.breed }}</h3>
     <h3>Color: {{ pet.color }}</h3>
@@ -22,7 +23,8 @@ export default {
             type:Boolean,
             default: false
         }
-    }
+    },
+
 }
 </script>
 
