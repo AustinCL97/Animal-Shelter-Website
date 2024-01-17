@@ -1,5 +1,5 @@
 <template>
-  <div class="form">
+  <div class="form" v-on:submit.prevent="addPet">
     <form>
         <div>
             <label>Pet Name:</label>
@@ -19,16 +19,13 @@
         </div>
         <div class="radio">
             <label for="available">Available</label>
-            <input type="radio" id="available" v-bind="pet.isAvailable" value="true">
+            <input name="isAvailable" type="radio" id="available" v-bind="pet.isAvailable" value="true">
 
             <label for="unavailable">Unavailable</label>
-            <input type="radio" id="unavailable" v-bind="pet.isAvailable" value="false">
-            label
+            <input name="isAvailable" type="radio" id="unavailable" v-bind="pet.isAvailable" value="false">
+            
         </div>
-        <div>
-            <label>Description:</label>
-            <input v-model="pet.description" type="textarea">
-        </div>
+       
         <div>
             <label>Weight</label>
             <input v-model="pet.weight" type="number">
@@ -45,7 +42,11 @@
             <label>State:</label>
             <input v-model="pet.state" type="text">
         </div>
-        
+        <div>
+            <label>Description:</label>
+            <input v-model="pet.description" type="textarea" rows="5" cols="33" maxlength="10000">
+        </div>
+        <input type="submit">
     </form>
   </div>
 </template>
