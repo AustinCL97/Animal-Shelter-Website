@@ -11,5 +11,6 @@ public interface ApplicationsDao {
     Applications approve(int applicationId, String admin);
     Applications reject(int applicationId, String admin);
     List<Applications> getAllVolunteers();
+    List<Applications> getAllPending();
 
 }

@@ -55,6 +55,10 @@ public class ApplicationsController {
         String rejected = "The application for " + applications.getAppName() + " has been rejected.";
         return rejected;
     }
+    @RequestMapping(path = API_BASE_PATH + "pending", method = RequestMethod.GET)
+    public List<Applications> pendingList(){
+        return applicationsDao.getAllPending();
+    }
 
 
     private String formatApplication(Applications applications){

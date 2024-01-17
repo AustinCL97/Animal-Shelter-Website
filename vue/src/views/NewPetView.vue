@@ -3,19 +3,19 @@
     <form>
         <div>
             <label>Pet Name:</label>
-            <input v-model="pet.name" type="text">
+            <input v-model="pet.petName" type="text">
         </div>
         <div>
             <label>Breed:</label>
-            <input v-model="pet.breed" type="text">
+            <input v-model="pet.petBreed" type="text">
         </div>
         <div>
             <label>Color:</label>
-            <input v-model="pet.color" type="text">
+            <input v-model="pet.petColor" type="text">
         </div>
         <div>
             <label>Age in Years:</label>
-            <input v-model="pet.age" type="number">
+            <input v-model="pet.petAge" type="number">
         </div>
         <div class="radio">
             <label for="available">Available</label>
@@ -28,23 +28,23 @@
        
         <div>
             <label>Weight</label>
-            <input v-model="pet.weight" type="number">
+            <input v-model="pet.petWeight" type="number">
         </div>
         <div>
             <label>ZIP Code:</label>
-            <input v-model="pet.zip" type="number">
+            <input v-model="pet.zipCode" type="number">
         </div>
         <div>
             <label>City:</label>
-            <input v-model="pet.city" type="text">
+            <input v-model="pet.petCity" type="text">
         </div>
         <div>
             <label>State:</label>
-            <input v-model="pet.state" type="text">
+            <input v-model="pet.petState" type="text">
         </div>
         <div>
             <label>Description:</label>
-            <input v-model="pet.description" type="textarea" rows="5" cols="33" maxlength="10000">
+            <input v-model="pet.petDescription" type="textarea" rows="5" cols="33" maxlength="10000">
         </div>
         <input type="submit">
     </form>

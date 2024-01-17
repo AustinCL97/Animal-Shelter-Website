@@ -115,6 +115,24 @@ public class JdbcApplicationsDao implements ApplicationsDao {
         }
         return volunteers;
     }
+    @Override
+    public List<Applications> getAllPending(){
+        List<Applications> applicationsList = new ArrayList<>();
+        String sql = "SELECT *\n" +
+                "FROM applications\n" +
+                "WHERE status = 'pending'";
+        try{
+            SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql);
+            while(rowSet.next()){
+                applicationsList.add(mapRowToApplication(rowSet));
+            }
+
+        } catch (Exception e) {
+            System.out.println("Something went wrong getting volunteers list");
+        }
+
+        return applicationsList;
+    }
 
     private Applications mapRowToApplication(SqlRowSet rs){
         Applications applications = new Applications();
