@@ -18,18 +18,15 @@ public class JdbcPhotosDao implements PhotosDao {
 
 
     @Override
-    public Photos createPhoto(String photoUrl, int petId) {
+    public Photos addPhoto(Photos photos) {
         Photos newPhotos = null;
 
         String sql = "INSERT INTO photos VALUES( ?, ?) returning photo_id";
 
         try{
-            int photoId = jdbcTemplate.queryForObject(sql, int.class, photoUrl, petId);
+            int photoId = jdbcTemplate.queryForObject(sql, int.class, photos.getPhotoUrl(), photos.getPetId());
 
-            newPhotos = new Photos();
-            newPhotos.setPhotoId(photoId);
-            newPhotos.setPhotoUrl(photoUrl);
-            newPhotos.setPetId(petId);
+            newPhotos = getPhoto(photoId);
 
         } catch (Exception ex){
             System.out.println("Something went Awry creating photo: ");
@@ -41,7 +38,7 @@ public class JdbcPhotosDao implements PhotosDao {
     public Photos getPhoto(int photoId) {
         Photos photos = null;
 
-        String sql = "SELECT photo_id FROM photos WHERE photo_id = ?;";
+        String sql = "SELECT photo_URL, photo_id, pet_id FROM photos WHERE photo_id = ?;";
 
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, photoId);

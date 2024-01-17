@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface PhotosDao {
 
-    public Photos createPhoto(String photoUrl, int petId);
+    public Photos addPhoto(Photos photos);
 
     public Photos getPhoto(int photoId);
 
