@@ -88,7 +88,7 @@ public class JdbcPetsDao implements PetsDao{
         } catch (Exception ex) {
             System.out.println("Something went wrong updating pet listing.");
             ex.printStackTrace();
-            return null;            
+            return null;
         }
     }
 

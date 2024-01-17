@@ -6,7 +6,7 @@ const http = axios.create(
 
 export default {
     getAdoptablePets(){
-        const url = 'adoptions/pets';
+        const url = 'pets/available';
         return http.get(url);
     },
     getSuccessStories(){
