@@ -56,6 +56,9 @@ export function createStore(currentToken, currentUser) {
         state.token = '';
         state.user = {};
         axios.defaults.headers.common = {};
+      },
+      SET_PETS(state, pets) {
+        state.pets = pets;
       }
     },
   });
