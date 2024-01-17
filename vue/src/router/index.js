@@ -7,6 +7,7 @@ import LoginView from '../views/LoginView.vue';
 import LogoutView from '../views/LogoutView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import PetView from '../views/PetView.vue';
+import NewPetView from '../views/NewPetView.vue'
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -55,6 +56,14 @@ const routes = [
     component: PetView ,
     meta: {
       requiresAuth: false
+    }
+  },
+  {
+    path:"new-pet",
+    name: "newPet",
+    component: NewPetView,
+    meta: {
+      requiresAuth: true
     }
   }
 ];
