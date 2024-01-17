@@ -74,6 +74,8 @@ public class JdbcPhotosDao implements PhotosDao {
         return photos;
     }
 
+
+
     private Photos mapRowToPhotos(SqlRowSet results){
         Photos photos = new Photos();
 

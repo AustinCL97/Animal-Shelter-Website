@@ -13,13 +13,16 @@
   </div>
 </template>
 
-<script>
+<script> 
+import PetService from '../services/PetService.js'
 export default {
+    methods: {
+      
+    },
+
     props:{
         pet: Object
     },
-   
-
   
 }
 </script>
