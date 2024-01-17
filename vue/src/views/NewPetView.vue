@@ -17,9 +17,13 @@
             <label>Age in Years:</label>
             <input v-model="pet.age" type="number">
         </div>
-        <div>
-            <label>Available to Adopt?</label>
-            <input v-model="pet.isAvailable" type="radio">
+        <div class="radio">
+            <label for="available">Available</label>
+            <input type="radio" id="available" v-bind="pet.isAvailable" value="true">
+
+            <label for="unavailable">Unavailable</label>
+            <input type="radio" id="unavailable" v-bind="pet.isAvailable" value="false">
+            label
         </div>
         <div>
             <label>Description:</label>

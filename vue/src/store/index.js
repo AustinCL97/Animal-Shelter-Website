@@ -10,16 +10,17 @@ export function createStore(currentToken, currentUser) {
       pets: [
         {
           id: 1,
-          name: "Kora",
-          breed: "Llama",
-          color: "Black",
-          age: "0",
+          name: "YiaYia",
+          breed: "Alpaca",
+          color: "White/Beige",
+          age: "8",
           isAvailable: false,
-          description: "the last of the great llama heist llamas",
-          weight: "150",
+          description: "A spirited and spunky alpaca rescued from a breeder",
+          weight: "106",
           zip: 45371,
           city: "Tipp City",
-          state: "Ohio"
+          state: "Ohio",
+          img: "src/images/yiayia.jpg"
         },
         {
           id: 2,
@@ -32,7 +33,8 @@ export function createStore(currentToken, currentUser) {
           weight: "90",
           zip: 45309,
           city: "Brookville",
-          state: "Ohio"
+          state: "Ohio",
+          img: "src/images/sampson.jpg"
         }
       ]
     },
