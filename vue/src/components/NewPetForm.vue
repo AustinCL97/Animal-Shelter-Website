@@ -5,14 +5,17 @@
                 <label>Pet Name:</label>
                 <input v-model="pet.petName" type="text">
             </div>
+
             <div>
                 <label>Breed:</label>
                 <input v-model="pet.petBreed" type="text">
             </div>
+
             <div>
                 <label>Color:</label>
                 <input v-model="pet.petColor" type="text">
             </div>
+            
             <div>
                 <label>Age in Years:</label>
                 <input v-model="pet.petAge" type="number">
