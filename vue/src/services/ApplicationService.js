@@ -21,8 +21,8 @@ export default {
         return axios.delete(id);
     },
 
-    approveApplication(volunteer){
-        const url = 'approve/' //THIS IS A PLACEHOLDER
+    approveApplication(id, volunteer){
+        const url = '/Applications/' + id + '/approve'
         return axios.put(url, volunteer)
     }
 

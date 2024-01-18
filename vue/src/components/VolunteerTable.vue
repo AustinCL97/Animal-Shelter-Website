@@ -4,11 +4,13 @@
     <table id="volunteers">
         <thead>
             <tr>
+                <th>Select</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone Number</th>
                 <th>Status</th>
                 <th>Approve</th>
+               
             </tr>
         </thead>
         <tbody>
@@ -26,7 +28,11 @@
                 <input v-model="filter.phone" type="text" id="phoneNumberFilter">
             </td>
             <td>
-                <input v-model="filter.status" type="text" id="statusFilter">
+                <select id="statusFilter" v-model="filter.status">
+                    <option value>Show All</option>
+                    <option value="pending">pending</option>
+                    <option value="Approved">approved</option>
+                </select>
             </td>
             </tr>
             <tr
@@ -35,14 +41,14 @@
             v-bind:volunteer="volunteer"
             >
             <td>
-                <input type="checkbox" v-model="selectedVolunteerIds" v-bind:id="volunteer.id" v-bind:value="volunteer.id">
+                <input type="checkbox" v-model="selectedVolunteerIds" v-bind:id="volunteer.applicationId" v-bind:value="volunteer.applicationId">
             </td>
                 <td>{{ volunteer.appName }}</td>
                 <td>{{ volunteer.appEmail }}</td>
                 <td>{{ volunteer.appPhoneNumber }}</td>
                 <td>{{ volunteer.status }}</td>
                 <td>
-                    <button>Approve</button>
+                    <button v-on:click="approve(volunteer)" v-show="volunteer.status != 'Approved'">Approve</button>
                 </td>
             </tr>
         </tbody>
@@ -72,11 +78,7 @@ export default {
     },
 
     created() {
-        ApplicationService.getApplications().then(
-            (response) => {
-                this.$store.commit("SET_VOLUNTEERS", response.data)
-            }
-        )
+       this.refresh();
     },
     computed: {
         volunteers(){
@@ -118,12 +120,20 @@ export default {
                 }
             )
         },
-        approve(){
-            ApplicationService.approveApplication().then(
+        approve(volunteer){
+            let id = volunteer.applicationId
+            ApplicationService.approveApplication(id, volunteer).then(
                 (response) => {
-                    this.$router.push({name: 'admin'})
+                    this.refresh();
                 }
             )
+        },
+        refresh(){
+            ApplicationService.getApplications().then(
+            (response) => {
+                this.$store.commit("SET_VOLUNTEERS", response.data)
+            }
+        )
         }
     }
 }
