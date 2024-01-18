@@ -117,6 +117,22 @@ public class JdbcApplicationsDao implements ApplicationsDao {
         return volunteers;
     }
     @Override
+    public List<Applications> getAllApplications(){
+        List<Applications> volunteers = new ArrayList<>();
+        String sql = "SELECT *\n" +
+                "FROM applications\n";
+        try{
+            SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql);
+            while(rowSet.next()){
+                volunteers.add(mapRowToApplication(rowSet));
+            }
+
+        } catch (Exception e) {
+            System.out.println("Something went wrong getting applications list");
+        }
+        return volunteers;
+    }
+    @Override
     public List<Applications> getAllPending(){
         List<Applications> applicationsList = new ArrayList<>();
         String sql = "SELECT *\n" +
