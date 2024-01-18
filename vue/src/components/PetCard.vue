@@ -15,13 +15,17 @@
 
 <script> 
 import PetService from '../services/PetService.js'
+import PhotoService from '../services/PhotoService.js'
+
 export default {
+
     methods: {
       
     },
 
     props:{
-        pet: Object
+        pet: Object, 
+        photo
     },
 }
 </script>

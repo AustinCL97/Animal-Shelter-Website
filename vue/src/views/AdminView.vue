@@ -16,6 +16,7 @@
         <div>
             <div>Add/Update Pet</div>
             <new-pet-form></new-pet-form>
+            <add-photo-form-vue></add-photo-form-vue>
         </div>
 
         <div>User/Admin Management</div>
@@ -27,11 +28,13 @@
 <script>
 import NewPetForm from '../components/NewPetForm.vue'
 import VolunteerTable from '../components/VolunteerTable.vue'
+import AddPhotoFormVue from '../components/AddPhotoForm.vue'
 
 export default {
     components: {
         NewPetForm,
-        VolunteerTable
+        VolunteerTable,
+        AddPhotoFormVue
     },
     data() {
         return {

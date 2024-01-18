@@ -29,9 +29,8 @@ export default {
         const url = 'pets/with-photos/${photoId}';
         return http.get(url);
     },
-
     addPetPhoto(photo){
         const url = 'photos/add'
-        return http.post(photo)
+        return http.post(url, photo)
     }
 }

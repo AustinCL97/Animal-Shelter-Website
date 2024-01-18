@@ -1,15 +1,15 @@
 <template>
-  <div class="photo-form">
+  <div class="photo-form" v-on:submit="addPhoto()">
     <form>
         <div>
             <label>Photo URL:</label>
-            <input type="text" v-bind="newPhoto.photoUrl">
+            <input type="text" v-model="newPhoto.photoUrl">
         </div>
         <div>
             <label>Pet ID</label>
-            <input type="text" v-bind="newPhoto.petId">
+            <input type="text" v-model="newPhoto.petId">
         </div>
-        <input type="submit">
+        <input type="submit" v-on:click.prevent="addPhoto()">
     </form>
   </div>
 </template>
@@ -24,13 +24,12 @@ export default {
    },
    methods: {
     addPhoto(){
-        PetService.addPetPhoto(this.newPhoto).then(
+        PetService.addPetPhoto(this.newPhoto, this.$route.params.photoId).then(
             (response) => {
                 this.$router.push({ name: "pets" })
             }
         )
 
-        
     }
    }
 }

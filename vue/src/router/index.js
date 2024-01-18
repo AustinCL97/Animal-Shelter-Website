@@ -8,7 +8,7 @@ import LogoutView from '../views/LogoutView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import PetView from '../views/PetView.vue';
 import AdminView from '../views/AdminView.vue';
-
+import AddPhotoForm from '../components/AddPhotoForm.vue';
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -62,6 +62,14 @@ const routes = [
     name: "admin",
     component: AdminView,
 
+  },
+  {
+    path:"/addPhoto",
+    name: "addPhoto",
+    component: AddPhotoForm,
+    meta: {
+      requiresAuth: false
+    }
   },
 
 
