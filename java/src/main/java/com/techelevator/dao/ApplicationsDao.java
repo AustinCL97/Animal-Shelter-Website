@@ -13,6 +13,7 @@ public interface ApplicationsDao {
     List<Applications> getAllVolunteers();
     List<Applications> getAllPending();
     String promoteToAdmin(int userId);
+    List<Applications> getAllApplications();
 
 
 }

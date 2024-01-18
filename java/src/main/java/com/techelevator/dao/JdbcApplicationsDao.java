@@ -104,8 +104,7 @@ public class JdbcApplicationsDao implements ApplicationsDao {
     public List<Applications> getAllVolunteers(){
         List<Applications> volunteers = new ArrayList<>();
         String sql = "SELECT *\n" +
-                "FROM applications\n" +
-                "WHERE status = 'Approved'";
+                "FROM applications\n";
         try{
             SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql);
             while(rowSet.next()){
@@ -114,6 +113,22 @@ public class JdbcApplicationsDao implements ApplicationsDao {
 
         } catch (Exception e) {
             System.out.println("Something went wrong getting volunteers list");
+        }
+        return volunteers;
+    }
+    @Override
+    public List<Applications> getAllApplications(){
+        List<Applications> volunteers = new ArrayList<>();
+        String sql = "SELECT *\n" +
+                "FROM applications\n";
+        try{
+            SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql);
+            while(rowSet.next()){
+                volunteers.add(mapRowToApplication(rowSet));
+            }
+
+        } catch (Exception e) {
+            System.out.println("Something went wrong getting applications list");
         }
         return volunteers;
     }
