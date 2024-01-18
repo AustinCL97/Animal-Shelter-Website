@@ -17,16 +17,16 @@
                 <input type="checkbox" >
             </td>
             <td>
-                <input type="text" id="firstNameFilter">
+                <input v-model="filter.name" type="text" id="firstNameFilter">
             </td>
             <td>
-                <input type="text" id="emailFilter">
+                <input v-model="filter.email" type="text" id="emailFilter">
             </td>
             <td>
-                <input type="text" id="phoneNumberFilter">
+                <input v-model="filter.phone" type="text" id="phoneNumberFilter">
             </td>
             <td>
-                <input type="checkbox" id="statusFilter">
+                <input v-model="filter.status" type="text" id="statusFilter">
             </td>
             </tr>
             <tr
