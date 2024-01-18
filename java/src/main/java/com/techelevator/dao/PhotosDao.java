@@ -8,10 +8,12 @@ import java.util.List;
 
 public interface PhotosDao {
 
-    public Photos createPhoto(String name, int petId, LocalDate date);
+    public Photos addPhoto(Photos photos);
 
     public Photos getPhoto(int photoId);
 
-    public List<Photos> getPhotos(int adoptionId);
+    public List<Photos> getPhotos(int petId);
+
+    public int removePhoto(int photoId);
 
 }

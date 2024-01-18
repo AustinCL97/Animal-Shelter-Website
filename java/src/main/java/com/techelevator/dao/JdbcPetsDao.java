@@ -33,7 +33,11 @@ public class JdbcPetsDao implements PetsDao{
                     pet.isAvailable(), pet.getPetDescription(), pet.getPetWeight(), pet.getZipCode(),
                     pet.getPetCity(), pet.getPetState());
 
+<<<<<<< HEAD
             newPet = new Pets(pet.getPetName(), pet.getPetBreed(), pet.getPetColor(), pet.getPetAge(),
+=======
+            newPet = new  Pets(petId, pet.getPetName(), pet.getPetBreed(), pet.getPetColor(), pet.getPetAge(),
+>>>>>>> 0390deae26cd0a89af51adbda5d15b6b6b929720
                     pet.isAvailable(), pet.getPetDescription(), pet.getPetWeight(), pet.getZipCode(),
                     pet.getPetCity(), pet.getPetState());
 
