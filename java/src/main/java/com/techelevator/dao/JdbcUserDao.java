@@ -87,6 +87,19 @@ public class JdbcUserDao implements UserDao {
         }
         return newUser;
     }
+    public int getUserIdByName(String username){
+        int userId = 0;
+        String sql = "SELECT user_id\n" +
+                "FROM users\n" +
+                "WHERE username = ?;";
+        try{
+            userId = jdbcTemplate.queryForObject(sql, Integer.class, username);
+
+        } catch (Exception e) {
+            System.out.println("Something went wrong getting the user Id");
+        }
+        return userId;
+    }
 
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();

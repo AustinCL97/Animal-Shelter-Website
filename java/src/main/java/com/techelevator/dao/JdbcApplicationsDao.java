@@ -13,6 +13,8 @@ import java.util.List;
 public class JdbcApplicationsDao implements ApplicationsDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
+    @Autowired
+    private UserDao userDao;
     @Override
     public Applications getAppByAppId(int applicationId){
         Applications applications = null;
@@ -133,6 +135,7 @@ public class JdbcApplicationsDao implements ApplicationsDao {
 
         return applicationsList;
     }
+
 
     private Applications mapRowToApplication(SqlRowSet rs){
         Applications applications = new Applications();

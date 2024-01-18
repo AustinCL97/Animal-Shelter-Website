@@ -36,7 +36,10 @@ public class ApplicationsController {
     }
 
     @RequestMapping(path = API_BASE_PATH + "apply", method = RequestMethod.POST)
-    public String applyToBeVolunteer(@RequestBody Applications applications){
+    public String applyToBeVolunteer(@RequestBody Applications applications, Principal principal){
+        String username = principal.getName();
+        int userId = userDao.getUserIdByName(username);
+        applications.setUserId(userId);
         applicationsDao.createApplication(applications);
         String success = "Your application has been submitted";
         return success;
@@ -59,6 +62,7 @@ public class ApplicationsController {
     public List<Applications> pendingList(){
         return applicationsDao.getAllPending();
     }
+
 
 
     private String formatApplication(Applications applications){

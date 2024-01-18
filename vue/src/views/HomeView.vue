@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import ApplicationForm from '../views/ApplicationForm.vue'
+import ApplicationForm from '../components/ApplicationForm.vue'
 import PetView from '@/views/PetView.vue';
 export default {
   components: {
