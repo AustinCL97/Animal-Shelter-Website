@@ -25,9 +25,9 @@
                 volunteer:{}
             }
         },
-        methods: {
-            createApplication()
-        }
+        // methods: {
+        //     createApplication()
+        // }
     };
     </script>
     
