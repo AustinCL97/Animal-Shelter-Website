@@ -14,7 +14,7 @@
         <tbody>
             <tr>
             <td>
-                <input type="checkbox" v-model="selectedVolunteerIds" v-bind:id="volunteer.id" v-bind:value="volunteer.id">
+                <input type="checkbox" >
             </td>
             <td>
                 <input type="text" id="firstNameFilter">
@@ -34,6 +34,9 @@
             v-bind:key="volunteer.userId"
             v-bind:volunteer="volunteer"
             >
+            <td>
+                <input type="checkbox" v-model="selectedVolunteerIds" v-bind:id="volunteer.id" v-bind:value="volunteer.id">
+            </td>
                 <td>{{ volunteer.appName }}</td>
                 <td>{{ volunteer.appEmail }}</td>
                 <td>{{ volunteer.appPhoneNumber }}</td>
