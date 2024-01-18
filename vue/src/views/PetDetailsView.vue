@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Pet Details for: {{ $route.params.pet.name }}</h2>
+    <h2>Pet Details for: {{ $route.params.pet.petName }}</h2>
     <PetDetails :pet="findPet"/>
   </div>
 </template>
