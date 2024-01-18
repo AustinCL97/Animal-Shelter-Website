@@ -120,7 +120,7 @@ export default {
         },
         approve(){
             ApplicationService.approveApplication().then(
-                (reponse) => {
+                (response) => {
                     this.$router.push({name: 'admin'})
                 }
             )
