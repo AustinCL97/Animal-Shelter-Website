@@ -7,7 +7,7 @@ public class Pets {
     private String petBreed;
     private String petColor;
     private int petAge;
-    private boolean isAvailable;
+    private boolean available;
     private String petDescription;
     private int petWeight;
     private int zipCode;
@@ -20,7 +20,7 @@ public class Pets {
         this.petBreed = petBreed;
         this.petColor = petColor;
         this.petAge = petAge;
-        this.isAvailable = isAvailable;
+        this.available = isAvailable;
         this.petDescription = petDescription;
         this.petWeight = petWeight;
         this.zipCode = zipCode;
@@ -75,12 +75,13 @@ public class Pets {
         this.petAge = petAge;
     }
 
+
     public boolean isAvailable() {
-        return isAvailable;
+        return available;
     }
 
     public void setAvailable(boolean available) {
-        isAvailable = available;
+        this.available = available;
     }
 
     public String getPetDescription() {

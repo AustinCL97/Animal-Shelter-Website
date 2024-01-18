@@ -12,13 +12,9 @@
         <div>Volunteer and Admin List</div>
 
         <div>
-            <div>Add Pet</div>
+            <div>Add/Update Pet</div>
             <new-pet-form></new-pet-form>
         </div>
-
-
-        <div>Update Pet</div>
-        <!--create update pet card-->
 
         <div>User/Admin Management</div>
         <!--second table to VIEW who the admins are - admin only status-->

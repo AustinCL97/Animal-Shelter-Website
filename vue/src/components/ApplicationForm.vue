@@ -16,8 +16,6 @@
     <input type="submit" />
 </form>    
 
-
-  
 </template>
 
 <script>
