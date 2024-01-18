@@ -38,7 +38,9 @@ export function createStore(currentToken, currentUser) {
           img: "src/images/sampson.jpg",
           gallery: ""
         }
-      ]
+      ],
+
+      volunteers: []
     },
     mutations: {
       SET_AUTH_TOKEN(state, token) {
@@ -59,6 +61,9 @@ export function createStore(currentToken, currentUser) {
       },
       SET_PETS(state, pets) {
         state.pets = pets;
+      },
+      SET_VOLUNTEERS(state, volunteers){
+        state.volunteers = volunteers;
       }
     },
   });
