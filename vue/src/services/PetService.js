@@ -24,6 +24,10 @@ export default {
     deletePetListing(id){
         const url = 'pets/' + id;
         return http.delete(url);
+    },
+    getAdoptablePetsWithPhotos(photoId){
+        const url = 'pets/with-photos/${photoId}';
+        return http.get(url);
     }
 
 
