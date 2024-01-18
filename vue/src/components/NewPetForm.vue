@@ -17,6 +17,7 @@
                 <label>Age in Years:</label>
                 <input v-model="pet.petAge" type="number">
             </div>
+           
             <div class="radio">
                 <label for="available">Available</label>
                 <input name="isAvailable" type="radio" id="available" v-bind="pet.isAvailable" value="true">
