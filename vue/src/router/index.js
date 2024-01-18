@@ -7,6 +7,7 @@ import LoginView from '../views/LoginView.vue';
 import LogoutView from '../views/LogoutView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import PetView from '../views/PetView.vue';
+import AddPhotoForm from '../components/AddPhotoForm.vue';
 
 
 /**
@@ -52,6 +53,14 @@ const routes = [
     path:"/pets",
     name: "pets",
     component: PetView ,
+    meta: {
+      requiresAuth: false
+    }
+  },
+  {
+    path:"/addPhoto",
+    name: "addPhoto",
+    component: AddPhotoForm ,
     meta: {
       requiresAuth: false
     }

@@ -45,4 +45,6 @@ export default {
     border-color: black;
     border-radius: 5px;
 }
+
+
 </style>

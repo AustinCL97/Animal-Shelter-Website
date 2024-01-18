@@ -19,7 +19,7 @@
    <section>
       <h2>Mission Statement</h2>
         <p>
-          Parker's Pet Animal Shelter is dedicated to providing a safe and loving <br>
+          Parker's Pets Animal Shelter is dedicated to providing a safe and loving <br>
           haven for animals in need. Our mission is to rescue, rehabilitate, and <br>
           re-home pets, fostering a compassionate community that values the well-being of <br>
           every animal. Through education, advocacy, and adoption services, we strive to <br>
