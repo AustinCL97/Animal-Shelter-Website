@@ -104,8 +104,7 @@ public class JdbcApplicationsDao implements ApplicationsDao {
     public List<Applications> getAllVolunteers(){
         List<Applications> volunteers = new ArrayList<>();
         String sql = "SELECT *\n" +
-                "FROM applications\n" +
-                "WHERE status = 'Approved'";
+                "FROM applications\n";
         try{
             SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql);
             while(rowSet.next()){

@@ -30,7 +30,7 @@
             </td>
             </tr>
             <tr
-            v-for="volunteer in filteredVolunteers"
+            v-for="volunteer in filteredList"
             v-bind:key="volunteer.userId"
             v-bind:volunteer="volunteer"
             >

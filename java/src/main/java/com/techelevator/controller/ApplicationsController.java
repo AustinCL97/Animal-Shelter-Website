@@ -19,10 +19,10 @@ public class ApplicationsController {
     @Autowired
     private UserDao userDao;
 
-    private static final String API_BASE_PATH = "/Applications/";
+    private static final String API_BASE_PATH = "/Applications";
     private static final DateTimeFormatter LOG_FORMAT = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
-    @RequestMapping(path = API_BASE_PATH + "{applicantId}", method = RequestMethod.GET)
+    @RequestMapping(path = API_BASE_PATH + "/{applicantId}", method = RequestMethod.GET)
     public String getAppStatusById(@PathVariable int applicantId, Principal principal){
         String status = "";
         Applications applications = applicationsDao.getAppByAppId(applicantId);
@@ -35,7 +35,7 @@ public class ApplicationsController {
         return applicationsDao.getAllVolunteers();
     }
 
-    @RequestMapping(path = API_BASE_PATH + "apply", method = RequestMethod.POST)
+    @RequestMapping(path = API_BASE_PATH + "/apply", method = RequestMethod.POST)
     public String applyToBeVolunteer(@RequestBody Applications applications, Principal principal){
         String username = principal.getName();
         int userId = userDao.getUserIdByName(username);
@@ -44,25 +44,25 @@ public class ApplicationsController {
         String success = "Your application has been submitted";
         return success;
     }
-    @RequestMapping(path = API_BASE_PATH + "{applicantId}" + "/approve", method = RequestMethod.PUT)
+    @RequestMapping(path = API_BASE_PATH + "/{applicantId}" + "/approve", method = RequestMethod.PUT)
     public String approveVolunteer(@PathVariable int applicantId,Principal principal){
         applicationsDao.approve(applicantId,principal.getName());
         Applications applications = applicationsDao.getAppByAppId(applicantId);
         String approved = "The application for " + applications.getAppName() + " has been approved!";
         return approved;
     }
-    @RequestMapping(path = API_BASE_PATH + "{applicantId}" + "/reject", method = RequestMethod.PUT)
+    @RequestMapping(path = API_BASE_PATH + "/{applicantId}" + "/reject", method = RequestMethod.PUT)
     public String rejectVolunteer(@PathVariable int applicantId,Principal principal){
         applicationsDao.reject(applicantId,principal.getName());
         Applications applications = applicationsDao.getAppByAppId(applicantId);
         String rejected = "The application for " + applications.getAppName() + " has been rejected.";
         return rejected;
     }
-    @RequestMapping(path = API_BASE_PATH + "pending", method = RequestMethod.GET)
+    @RequestMapping(path = API_BASE_PATH + "/pending", method = RequestMethod.GET)
     public List<Applications> pendingList(){
         return applicationsDao.getAllPending();
     }
-    @RequestMapping(path = API_BASE_PATH + "promote/" + "{userId}", method = RequestMethod.PUT)
+    @RequestMapping(path = API_BASE_PATH + "/promote/" + "{userId}", method = RequestMethod.PUT)
     public String promoteVolunteer(@PathVariable int userId){
         return applicationsDao.promoteToAdmin(userId);
     }
