@@ -17,8 +17,8 @@ export default {
         const url = 'pets/addNew';
         return http.post(url, pet);
     },
-    updatePetListing(pet){
-        const url = 'pets';
+    updatePetListing(pet, petId){
+        const url = 'pets/'+ petId;
         return http.put(url, pet);
     },
     deletePetListing(id){

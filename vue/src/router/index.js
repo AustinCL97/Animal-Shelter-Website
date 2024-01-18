@@ -62,7 +62,8 @@ const routes = [
     name: "admin",
     component: AdminView,
 
-  }
+  },
+
 
 ];
 

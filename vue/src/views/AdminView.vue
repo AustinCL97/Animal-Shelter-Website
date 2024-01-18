@@ -9,16 +9,14 @@
         no longer appears in the list of available pets (but the data should remain in the database).-->
         <!--As an admin, I want to be able to promote a volunteer to also be an admin.-->
         <!--Email Approved/Declined Volunteers-->
-        <div>Volunteer and Admin List</div>
-
-        <div>
-            <div>Add Pet</div>
-            <new-pet-form></new-pet-form>
+        <div>Volunteer and Admin List
+            <VolunteerTable></VolunteerTable>
         </div>
 
-
-        <div>Update Pet</div>
-        <!--create update pet card-->
+        <div>
+            <div>Add/Update Pet</div>
+            <new-pet-form></new-pet-form>
+        </div>
 
         <div>User/Admin Management</div>
         <!--second table to VIEW who the admins are - admin only status-->
@@ -28,9 +26,12 @@
 
 <script>
 import NewPetForm from '../components/NewPetForm.vue'
+import VolunteerTable from '../components/VolunteerTable.vue'
+
 export default {
     components: {
         NewPetForm,
+        VolunteerTable
     },
     data() {
         return {
