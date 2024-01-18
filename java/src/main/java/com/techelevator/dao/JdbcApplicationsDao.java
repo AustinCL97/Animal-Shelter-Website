@@ -135,6 +135,30 @@ public class JdbcApplicationsDao implements ApplicationsDao {
 
         return applicationsList;
     }
+    @Override
+    public String promoteToAdmin(int userId){
+        String promoted = "";
+        String sql = "UPDATE users\n" +
+                "SET role = 'ROLE_ADMIN'\n" +
+                "WHERE user_id IN (\n" +
+                "    SELECT user_id FROM applications\n" +
+                "    WHERE status = 'Approved' and user_id = ?\n" +
+                ");";
+        try{
+            int rowsAffected;
+            rowsAffected = jdbcTemplate.update(sql, userId);
+            if(rowsAffected == 0){
+                throw new Exception("no rows affected");
+            } else {
+                promoted += "Volunteer has been promoted";
+            }
+
+        } catch (Exception e) {
+            System.out.println("Something went wrong promoting a volunteer");
+        }
+
+        return promoted;
+    }
 
 
     private Applications mapRowToApplication(SqlRowSet rs){
