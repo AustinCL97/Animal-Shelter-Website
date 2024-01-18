@@ -14,7 +14,7 @@ export default {
         return http.get(url);
     },
     createPetListing(pet){
-        const url = 'pets';
+        const url = 'pets/addNew';
         return http.post(url, pet);
     },
     updatePetListing(pet){
@@ -24,6 +24,10 @@ export default {
     deletePetListing(id){
         const url = 'pets/' + id;
         return http.delete(url);
+    },
+    getAdoptablePetsWithPhotos(photoId){
+        const url = 'pets/with-photos/${photoId}';
+        return http.get(url);
     }
 
 

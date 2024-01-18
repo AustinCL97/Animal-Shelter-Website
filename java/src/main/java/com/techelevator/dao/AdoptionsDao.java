@@ -11,6 +11,8 @@ public interface AdoptionsDao {
 
     public Adoptions getAdoption(int adoptionId);
 
-    public Adoptions createAdoption(int petId, int userId, LocalDate date);
+    public Adoptions createAdoption(Adoptions adoptions);
+
+    public Adoptions updateAdoption(int adoptionId, Adoptions updatedAdoption);
 
 }
