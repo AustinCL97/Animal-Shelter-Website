@@ -3,7 +3,9 @@
     <h1>Welcome to Parker's Pets Animal Shelter</h1>
     <div v-if="!isLoggedIn">
       <router-link to="/login">Login Now</router-link> |
-      <router-link to="/register">Register</router-link>
+      <router-link to="/register">Register</router-link> |
+
+
     </div>
     <div>Available Pets</div>
 
