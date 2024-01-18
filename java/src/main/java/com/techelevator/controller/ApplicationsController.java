@@ -31,7 +31,11 @@ public class ApplicationsController {
     }
 
     @RequestMapping(path = API_BASE_PATH, method = RequestMethod.GET)
-    public List<Applications> volunteerDirectory(){
+    public List<Applications> applicationsDirectory(){
+        return applicationsDao.getAllApplications();
+    }
+    @RequestMapping(path = API_BASE_PATH + "volunteers", method = RequestMethod.GET)
+    public List<Applications> volunteersDirectory(){
         return applicationsDao.getAllVolunteers();
     }
 
