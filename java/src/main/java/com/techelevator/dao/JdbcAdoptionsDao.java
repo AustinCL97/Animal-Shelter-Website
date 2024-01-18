@@ -74,6 +74,26 @@ public class JdbcAdoptionsDao implements AdoptionsDao {
         return newAdoptions;
     }
 
+    @Override
+    public Adoptions updateAdoption(int adoptionId, Adoptions updatedAdoption) {
+
+        String sql = "UPDATE adoptions SET pet_id = ?, user_id = ?, date_adopted = ? WHERE adoption_id = ?;";
+
+        try{
+            int numberOfRows = jdbcTemplate.update(sql, updatedAdoption.getPetId(), updatedAdoption.getUserId(), updatedAdoption.getDateAdopted(), adoptionId);
+
+            if(numberOfRows > 0){
+                return getAdoption(adoptionId);
+            }else{
+                System.out.println("Adoption Record not updated with ID of: "+ adoptionId);
+            }
+
+        }catch(Exception ex){
+            System.out.println("Could not update Adoption record because : " + ex.getMessage());
+        }
+        return null;
+    }
+
     private Adoptions mapRowToAdoptions(SqlRowSet results) {
         Adoptions adoptions = new Adoptions();
 
