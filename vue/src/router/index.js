@@ -7,6 +7,7 @@ import LoginView from '../views/LoginView.vue';
 import LogoutView from '../views/LogoutView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import PetView from '../views/PetView.vue';
+import AdminView from '../views/AdminView.vue';
 
 
 /**
@@ -56,6 +57,12 @@ const routes = [
       requiresAuth: false
     }
   },
+  {
+    path: "/admin",
+    name: "admin",
+    component: AdminView,
+
+  }
 
 ];
 
