@@ -3,6 +3,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.PhotosDao;
 import com.techelevator.dao.UserDao;
+import com.techelevator.model.Adoptions;
 import com.techelevator.model.Photos;
 import com.techelevator.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,7 @@ public class PhotosController {
     public void removePhoto(@PathVariable int photoId){
         photosDao.removePhoto(photoId);
     }
+
 
 
 

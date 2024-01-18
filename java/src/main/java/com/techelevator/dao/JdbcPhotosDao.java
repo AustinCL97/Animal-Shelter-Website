@@ -75,18 +75,25 @@ public class JdbcPhotosDao implements PhotosDao {
     }
 
     @Override
-    public int removePhoto(int photoId) {
-        int numberRows = 0;
+    public Photos removePhoto(int photoId) {
+        Photos removedPhotos = null;
 
         String sql = "DELETE FROM photos WHERE photo_id = ?;";
 
         try{
-            numberRows = jdbcTemplate.update(sql, photoId);
+            int numberRows = jdbcTemplate.update(sql, photoId);
+
+            if(numberRows < 0){
+                removedPhotos = new Photos();
+                removedPhotos.setPhotoId(photoId);
+            }else{
+                System.out.println("Photo not found with ID of:" + photoId);
+            }
 
         }catch(Exception ex){
             System.out.println("Something went wrong removing photo: " + ex.getMessage());
         }
-        return numberRows;
+        return removedPhotos;
     }
 
 

@@ -14,6 +14,6 @@ public interface PhotosDao {
 
     public List<Photos> getPhotos(int petId);
 
-    public int removePhoto(int photoId);
+    public Photos removePhoto(int photoId);
 
 }

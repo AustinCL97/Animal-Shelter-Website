@@ -13,4 +13,6 @@ public interface AdoptionsDao {
 
     public Adoptions createAdoption(Adoptions adoptions);
 
+    public Adoptions updateAdoption(int adoptionId, Adoptions updatedAdoption);
+
 }
