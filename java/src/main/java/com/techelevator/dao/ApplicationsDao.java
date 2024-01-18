@@ -12,6 +12,7 @@ public interface ApplicationsDao {
     Applications reject(int applicationId, String admin);
     List<Applications> getAllVolunteers();
     List<Applications> getAllPending();
+    String promoteToAdmin(int userId);
 
 
 }
