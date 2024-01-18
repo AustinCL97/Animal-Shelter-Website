@@ -28,7 +28,10 @@ export default {
     getAdoptablePetsWithPhotos(photoId){
         const url = 'pets/with-photos/${photoId}';
         return http.get(url);
+    },
+
+    addPetPhoto(photo){
+        const url = 'photos/add'
+        return http.post(photo)
     }
-
-
 }
