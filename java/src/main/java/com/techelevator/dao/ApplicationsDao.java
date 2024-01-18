@@ -13,4 +13,5 @@ public interface ApplicationsDao {
     List<Applications> getAllVolunteers();
     List<Applications> getAllPending();
 
+
 }
