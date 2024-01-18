@@ -14,7 +14,7 @@ export default {
         return http.get(url);
     },
     createPetListing(pet){
-        const url = 'pets';
+        const url = 'pets/addNew';
         return http.post(url, pet);
     },
     updatePetListing(pet){

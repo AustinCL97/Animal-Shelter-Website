@@ -23,7 +23,6 @@ export default {
     props:{
         pet: Object
     },
-  
 }
 </script>
 

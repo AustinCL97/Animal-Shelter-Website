@@ -15,7 +15,7 @@ public class Pets {
     private String petState;
 
     public Pets(int petId, String petName, String petBreed, String petColor, int petAge, boolean isAvailable, String petDescription, int petWeight, int zipCode, String petCity, String petState) {
-        this.petId = petId;
+
         this.petName = petName;
         this.petBreed = petBreed;
         this.petColor = petColor;
@@ -30,6 +30,9 @@ public class Pets {
 
     public Pets() {
         
+    }
+
+    public Pets(String petName, String petBreed, String petColor, int petAge, boolean available, String petDescription, int petWeight, int zipCode, String petCity, String petState) {
     }
 
     public int getPetId() {

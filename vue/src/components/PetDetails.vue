@@ -1,16 +1,18 @@
 <template>
   <section>
     <h2>Pet Details for {{ pet.name }}</h2>
-    <h3>Name: {{ pet.name }}</h3>
-    <img :src="pet.img"/>
+
+    <h3>Name: {{ pet.petName }}</h3>
+
+    <img :src="pet.img" :alt="pet.petName"/>
     <h3>ID: {{ pet.petId }}</h3>
-    <h3>Breed:{{ pet.breed }}</h3>
-    <h3>Color: {{ pet.color }}</h3>
-    <h3>Age: {{ pet.age }}</h3>
+    <h3>Breed:{{ pet.petBreed }}</h3>
+    <h3>Color: {{ pet.petColor }}</h3>
+    <h3>Age: {{ pet.petAge }}</h3>
     <h3>Available: {{ pet.isAvailable }}</h3>
-    <h3>Weight: {{ pet.weight }}</h3>
-    <span>Location: {{ pet.city}}, {{pet.state}}, {{pet.zip}}</span>
-    <p>Description: {{ pet.description }}</p>
+    <h3>Weight: {{ pet.petWeight }}</h3>
+    <span>Location: {{ pet.petCity}}, {{pet.petState}}, {{pet.petZip}}</span>
+    <p>Description: {{ pet.petDescription }}</p>
   </section>
 </template>
 
@@ -22,7 +24,8 @@ export default {
             type:Boolean,
             default: false
         }
-    }
+    },
+
 }
 </script>
 
