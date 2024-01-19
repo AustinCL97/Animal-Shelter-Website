@@ -96,6 +96,11 @@ public class JdbcPhotosDao implements PhotosDao {
         return removedPhotos;
     }
 
+    @Override
+    public Photos updatePhoto(int photoId) {
+        return null;
+    }
+
 
     private Photos mapRowToPhotos(SqlRowSet results){
         Photos photos = new Photos();

@@ -16,4 +16,6 @@ public interface PhotosDao {
 
     public Photos removePhoto(int photoId);
 
+    public Photos updatePhoto(int photoId);
+
 }

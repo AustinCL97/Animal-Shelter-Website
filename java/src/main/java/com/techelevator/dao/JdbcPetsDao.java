@@ -104,7 +104,7 @@ public class JdbcPetsDao implements PetsDao{
                 "  is_available = ?,\n" +
                 "  pet_description = ?,\n" +
                 "  pet_weight = ?,\n" +
-                "  zip_code = ?,\n" +
+                "  pet_zip = ?,\n" +
                 "  pet_city = ?,\n" +
                 "  pet_state = ?\n" +
                 "WHERE pet_id = ?";
