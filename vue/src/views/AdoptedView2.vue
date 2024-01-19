@@ -3,16 +3,20 @@
         <h1>Celebrate our Adopted Animals</h1>
     </div>
     <div class="pet-list">
-      <PetCard v-for="pet in pets" v-bind:key="pet.id" v-bind:pet="pet" ></PetCard>
+      <pet-card v-for="pet in pets" v-bind:key="pet.id" v-bind:pet="pet" ></pet-card>
     </div>
   </template>
   <script>
-      import PetCard from '../components/PetCard.vue';
+  
+  
+  import PetCard from '../components/PetCard.vue';
   import PetService from '../services/PetService.js';
   
   
   export default {
-    
+    components:{
+        PetCard
+    },
     computed: {
       pets(){
           return this.$store.state.adopted.filter(pet => pet.available === false)
