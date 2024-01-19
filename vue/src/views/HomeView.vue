@@ -7,13 +7,10 @@
 
 
     </div>
+   
+
+   
     <h2>Available Pets</h2>
-
-    <section v-if="isLoggedIn">
-      <h2>Volunteer Application Form</h2>
-      <application-form></application-form>
-    </section>
-
    <pet-view></pet-view>
 
    <section>
