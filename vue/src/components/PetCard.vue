@@ -16,7 +16,7 @@
     <p>Pet Description: {{ pet.petDescription }}</p>
 
     <div class="buttons">
-      <button  class="adopt" >ADOPT ME</button>
+      <button v-show="pet.available === true" class="adopt" v-on:click="this.$router.push({name: 'details'})">ADOPT ME</button>
     </div>
   </div>
 </template>
@@ -24,6 +24,7 @@
 <script>
 import PetService from '../services/PetService.js'
 import PhotoService from '../services/PhotoService.js'
+import AdoptedView from '../views/AdoptedView.vue';
 
 export default {
   data() {
@@ -33,6 +34,7 @@ export default {
      
     }
   },
+
   computed: {
      
   },
@@ -49,6 +51,9 @@ export default {
     },
     setToFalse(){
       this.condition = false;
+    },
+    adoptPet(){
+
     }
   },
 

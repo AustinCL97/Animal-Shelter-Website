@@ -1,5 +1,9 @@
 <template>
+    <div>
+        <h1>Celebrate our Adopted Animals</h1>
+    </div>
     <div class="pet-list">
+     
       <PetCard v-for="pet in pets" v-bind:key="pet.id" v-bind:pet="pet" ></PetCard>
     </div>
   </template>
@@ -10,19 +14,22 @@
   
   
   export default {
+  
     computed: {
       pets(){
           return this.$store.state.adopted
       }
     },
-      components:{PetCard, },
+    
      created() {
        PetService.getAdoptedPets().then(
          (response) => {
            this.$store.commit("SET_ADOPTED", response.data)
          }
        )
-     }
+     },
+
+
   }
   </script>
   
