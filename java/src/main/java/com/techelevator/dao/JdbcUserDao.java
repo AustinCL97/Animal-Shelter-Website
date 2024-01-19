@@ -137,6 +137,24 @@ public class JdbcUserDao implements UserDao {
         }
         return adminList;
     }
+    @Override
+    public String revokeAdminRole(int userId){
+        String success = "Admin role has been revoked";
+        String sql = "update users\n" +
+                "Set role = 'ROLE_USER'\n" +
+                "WHERE user_id = ?;";
+        try{
+            int rowsAffected;
+            rowsAffected = jdbcTemplate.update(sql,userId);
+            if(rowsAffected == 0){
+                throw new Exception("no rows affected");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Something went wrong revoking a users admin role");
+        }
+        return success;
+    }
 
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
