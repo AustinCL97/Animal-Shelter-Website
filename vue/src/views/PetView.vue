@@ -82,7 +82,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .pet-list{
   display: flex;
   justify-content: space-evenly;
