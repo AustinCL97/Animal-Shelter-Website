@@ -7,9 +7,7 @@
 
 
     </div>
-   
 
-   
     <h2>Available Pets</h2>
    <pet-view></pet-view>
 
@@ -27,11 +25,11 @@
 </template>
 
 <script>
-import ApplicationForm from '../components/ApplicationForm.vue'
+
 import PetView from '@/views/PetView.vue';
 export default {
   components: {
-    ApplicationForm,
+    
     PetView,
   },
   computed: {
@@ -42,3 +40,18 @@ export default {
   }
 };
 </script>
+
+<style>
+  h1{
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+    background-color: green;
+  }
+
+  h2, p{
+    display: flex;
+    justify-content: center;
+  }
+</style>
+
