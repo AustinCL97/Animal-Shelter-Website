@@ -28,5 +28,9 @@ public class UserController {
     public String promoteToAdmin(@PathVariable int userId){
         return userDao.makeUserAdmin(userId);
     }
+    @RequestMapping(path = API_BASE_PATH + "/adopted" + "/{userId}", method = RequestMethod.GET)
+    public User getUserByUserId(@PathVariable int userId){
+        return userDao.getUserById(userId);
+    }
 
 }

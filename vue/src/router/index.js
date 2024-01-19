@@ -11,6 +11,8 @@ import AdminView from '../views/AdminView.vue';
 import AddPhotoForm from '../components/AddPhotoForm.vue';
 import ApplicationForm from '../components/ApplicationForm.vue';
 import ContactUs from '../components/ContactUs.vue';
+import AdoptedView from '../views/AdoptedView.vue';
+import PetDetailsView from '../views/PetDetailsView.vue';
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -85,6 +87,18 @@ const routes = [
     path:"/contactUs",
     name: "contactUs",
     component: ContactUs,
+
+  },
+  {
+    path:"/adopted",
+    name: "adopted",
+    component: AdoptedView,
+
+  },
+  {
+    path:"/details",
+    name: "details",
+    component: PetDetailsView,
 
   },
 

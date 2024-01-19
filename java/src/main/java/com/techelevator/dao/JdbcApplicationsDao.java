@@ -54,10 +54,16 @@ public class JdbcApplicationsDao implements ApplicationsDao {
         String sql = "INSERT INTO applications(user_id,app_email,app_name,app_phonenumber,application_date)\n" +
                 "VALUES(?,?,?,?, NOW()) RETURNING applicant_id;";
         int applicationId = 0;
+        List<Applications> applicationsList;
+        applicationsList = getAppsByUserId(applications.getUserId());
+
+
         try{
 
-            applicationId = jdbcTemplate.queryForObject(sql, Integer.class, applications.getUserId(),applications.getAppEmail(),applications.getAppName(),applications.getAppPhoneNumber());
+            if (applicationsList.size() < 1) {
 
+                applicationId = jdbcTemplate.queryForObject(sql, Integer.class, applications.getUserId(), applications.getAppEmail(), applications.getAppName(), applications.getAppPhoneNumber());
+            }
 
         } catch (Exception e){
             System.out.println("Something went wrong creating an Application");
@@ -173,6 +179,31 @@ public class JdbcApplicationsDao implements ApplicationsDao {
         }
 
         return promoted;
+    }
+    @Override
+    public String promoteToVolunteer(int userId){
+        String promoted = "";
+        String sql = "UPDATE users\n" +
+                "SET role = 'ROLE_VOLUNTEER'\n" +
+                "WHERE user_id IN (\n" +
+                "    SELECT user_id FROM applications\n" +
+                "    WHERE status = 'Approved' and user_id = ?\n" +
+                ");";
+        try{
+            int rowsAffected;
+            rowsAffected = jdbcTemplate.update(sql, userId);
+            if(rowsAffected == 0){
+                throw new Exception("no rows affected");
+            } else {
+                promoted += "Volunteer has been promoted";
+            }
+
+        } catch (Exception e) {
+            System.out.println("Something went wrong promoting a volunteer");
+        }
+
+        return promoted;
+
     }
 
 

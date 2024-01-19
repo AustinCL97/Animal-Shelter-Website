@@ -1,9 +1,7 @@
 <template>
   <section>
     <h2>Pet Details for {{ pet.name }}</h2>
-
     <h3>Name: {{ pet.petName }}</h3>
-
     <img :src="pet.img" :alt="pet.petName"/>
     <h3>ID: {{ pet.petId }}</h3>
     <h3>Breed:{{ pet.petBreed }}</h3>

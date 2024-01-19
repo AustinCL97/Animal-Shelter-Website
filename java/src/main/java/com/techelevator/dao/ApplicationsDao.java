@@ -14,6 +14,7 @@ public interface ApplicationsDao {
     List<Applications> getAllPending();
     String promoteToAdmin(int userId);
     List<Applications> getAllApplications();
+    String promoteToVolunteer(int userId);
 
 
 }
