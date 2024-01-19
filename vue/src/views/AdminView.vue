@@ -1,10 +1,10 @@
 <template>
     <div class="admin-container">
-        <!--As an admin, I want to see all pending volunteer applications and have the option to approve or decline them.
+        <!-- IN PROGRESS - As an admin, I want to see all pending volunteer applications and have the option to approve or decline them.
         Approving an application should create a new volunteer user (who will then be able to login).
         DONE - Declining an application should remove the application from list of pending applications, but not remove the data from the database.-->
-        <!--As an admin, I want to be able to search all applications (pending, approved and declined) by name-->
-        <!--STACI - As a volunteer or administrator, I want the ability to update all information about a pet, including the photo.-->
+        <!-- IN PROGRESS As an admin, I want to be able to search all applications (pending, approved and declined) by name-->
+        <!--STACI IN PROGRESS- As a volunteer or administrator, I want the ability to update all information about a pet, including the photo.-->
         <!--When a pet has been adopted, I need to be able to add information about who adopted it, and change its status so the listing 
         no longer appears in the list of available pets (but the data should remain in the database).-->
         <!--As an admin, I want to be able to promote a volunteer to also be an admin.-->

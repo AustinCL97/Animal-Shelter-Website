@@ -40,7 +40,8 @@ export function createStore(currentToken, currentUser) {
         }
       ],
 
-      volunteers: []
+      volunteers: [],
+      photo: []
     },
     mutations: {
       SET_AUTH_TOKEN(state, token) {
@@ -64,6 +65,9 @@ export function createStore(currentToken, currentUser) {
       },
       SET_VOLUNTEERS(state, volunteers){
         state.volunteers = volunteers;
+      },
+      SET_PHOTO(state, photo){
+        state.photo = photo;
       }
     },
   });

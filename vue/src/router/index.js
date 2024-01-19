@@ -9,6 +9,8 @@ import RegisterView from '../views/RegisterView.vue';
 import PetView from '../views/PetView.vue';
 import AdminView from '../views/AdminView.vue';
 import AddPhotoForm from '../components/AddPhotoForm.vue';
+import ApplicationForm from '../components/ApplicationForm.vue';
+import ContactUs from '../components/ContactUs.vue';
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -70,6 +72,20 @@ const routes = [
     meta: {
       requiresAuth: false
     }
+  },
+  {
+    path:"/volunteer",
+    name: "volunteer",
+    component: ApplicationForm,
+    meta: {
+      requiresAuth: false
+    }
+  },
+  {
+    path:"/contactUs",
+    name: "contactUs",
+    component: ContactUs,
+
   },
 
 
