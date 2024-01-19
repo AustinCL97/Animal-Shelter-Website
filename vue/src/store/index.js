@@ -6,7 +6,7 @@ export function createStore(currentToken, currentUser) {
     state: {
       token: currentToken || '',
       user: currentUser || {},
-
+      adopted: [],
       pets: [
         {
           id: 1,
@@ -23,21 +23,7 @@ export function createStore(currentToken, currentUser) {
           img: "src/images/yiayia.jpg",
           gallery: ""
         },
-        {
-          id: 2,
-          name: "Sampson",
-          breed: "German Shorthaired Pointer",
-          color: "Liver Tick",
-          age: "8",
-          isAvailable: false,
-          description: "an opinionated GSP",
-          weight: "90",
-          zip: 45309,
-          city: "Brookville",
-          state: "Ohio",
-          img: "src/images/sampson.jpg",
-          gallery: ""
-        }
+
       ],
 
       volunteers: [],
@@ -68,6 +54,9 @@ export function createStore(currentToken, currentUser) {
       },
       SET_PHOTO(state, photo){
         state.photo = photo;
+      },
+      SET_ADOPTED(state, adopted){
+        state.adopted = adopted;
       }
     },
   });

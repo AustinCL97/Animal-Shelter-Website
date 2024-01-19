@@ -32,5 +32,9 @@ export default {
     addPetPhoto(photo){
         const url = 'photos/add'
         return http.post(url, photo)
-    }
+    },
+    getAdoptedPets(){
+        const url = 'pets/adopted';
+        return http.get(url);
+    },
 }
