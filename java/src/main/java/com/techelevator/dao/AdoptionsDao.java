@@ -15,4 +15,6 @@ public interface AdoptionsDao {
 
     public Adoptions updateAdoption(int adoptionId, Adoptions updatedAdoption);
 
+    public Adoptions removeAdoption(int adoptionId);
+
 }

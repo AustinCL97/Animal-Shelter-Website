@@ -46,4 +46,9 @@ public class AdoptionsController {
         }
     }
 
+    @RequestMapping(path="/remove/{adoptionId}", method = RequestMethod.DELETE)
+    public void removePhoto(@PathVariable int adoptionId){
+        adoptionsDao.removeAdoption(adoptionId);
+    }
+
 }

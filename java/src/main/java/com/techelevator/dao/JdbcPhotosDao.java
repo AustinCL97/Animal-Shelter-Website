@@ -87,7 +87,7 @@ public class JdbcPhotosDao implements PhotosDao {
                 removedPhotos = new Photos();
                 removedPhotos.setPhotoId(photoId);
             }else{
-                System.out.println("Photo not found with ID of:" + photoId);
+                System.out.println("Photo not found with ID of: " + photoId);
             }
 
         }catch(Exception ex){
@@ -97,7 +97,19 @@ public class JdbcPhotosDao implements PhotosDao {
     }
 
     @Override
-    public Photos updatePhoto(int photoId) {
+    public Photos updatePhoto(int photoId, Photos updatedPhoto) {
+        String sql = "UPDATE photos SET photo_URL = ?, pet_id = ? WHERE photo_id = ?";
+
+        try{
+            int numberOfRows = jdbcTemplate.update(sql, updatedPhoto.getPhotoUrl(), updatedPhoto.getPetId(), photoId );
+
+            if(numberOfRows > 0){
+                return getPhoto(photoId);
+            }
+        }catch(Exception ex){
+            System.out.println("Something went awry updating the photo: " + ex.getMessage());
+
+        }
         return null;
     }
 

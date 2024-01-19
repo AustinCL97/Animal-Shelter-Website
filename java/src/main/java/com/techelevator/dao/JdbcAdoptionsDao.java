@@ -94,6 +94,28 @@ public class JdbcAdoptionsDao implements AdoptionsDao {
         return null;
     }
 
+    @Override
+    public Adoptions removeAdoption(int adoptionId) {
+        Adoptions removedAdoptions = null;
+
+        String sql = "DELETE FROM adoptions WHERE adoption_id = ?;";
+
+        try{
+            int numberRows = jdbcTemplate.update(sql, adoptionId);
+
+            if(numberRows < 0) {
+                removedAdoptions = new Adoptions();
+                removedAdoptions.setAdoptionId(adoptionId);
+            }else{
+                System.out.println("Adoption not found with the ID of: " +adoptionId);
+            }
+
+        }catch(Exception ex){
+            System.out.println("Something went awry removing adoption");
+        }
+        return removedAdoptions;
+    }
+
     private Adoptions mapRowToAdoptions(SqlRowSet results) {
         Adoptions adoptions = new Adoptions();
 
