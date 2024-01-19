@@ -32,6 +32,7 @@ export default {
     }
   },
   methods: {
+<<<<<<< HEAD
     nextPhoto() {
       const currentIndex = this.photos.indexOf(this.currentPhoto);
       const nextIndex = (currentIndex + 1) % this.photos.length;
@@ -42,6 +43,9 @@ export default {
       const prevIndex = (currentIndex - 1 + this.photos.length) % this.photos.length;
       this.currentPhoto = this.photos[prevIndex];
     }
+=======
+    
+>>>>>>> 52b6d8df9465cdf6a0757a05b8e9f27786e61b91
   },
 
   props: {
