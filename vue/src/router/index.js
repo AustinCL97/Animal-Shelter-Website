@@ -11,7 +11,7 @@ import AdminView from '../views/AdminView.vue';
 import AddPhotoForm from '../components/AddPhotoForm.vue';
 import ApplicationForm from '../components/ApplicationForm.vue';
 import ContactUs from '../components/ContactUs.vue';
-import AdoptedView from '../views/AdoptedView.vue';
+import AdoptedView from '../views/AdoptedView2.vue';
 import PetDetailsView from '../views/PetDetailsView.vue';
 
 /**
@@ -93,6 +93,9 @@ const routes = [
     path:"/adopted",
     name: "adopted",
     component: AdoptedView,
+    meta: {
+      requiresAuth: false
+    }
 
   },
   {

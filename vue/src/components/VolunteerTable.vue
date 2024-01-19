@@ -177,6 +177,7 @@ tr:nth-child(even){
 .table{
     overflow-y: scroll;
     max-height: 150px;
+   
 }
 
 table thead{
