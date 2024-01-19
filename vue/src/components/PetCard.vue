@@ -63,6 +63,7 @@ export default {
 
   props: {
     pet: Object,
+    
 
   },
   created() {
