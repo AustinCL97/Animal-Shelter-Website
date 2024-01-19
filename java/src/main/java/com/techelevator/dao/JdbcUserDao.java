@@ -87,6 +87,7 @@ public class JdbcUserDao implements UserDao {
         }
         return newUser;
     }
+    @Override
     public int getUserIdByName(String username){
         int userId = 0;
         String sql = "SELECT user_id\n" +
@@ -99,6 +100,42 @@ public class JdbcUserDao implements UserDao {
             System.out.println("Something went wrong getting the user Id");
         }
         return userId;
+    }
+    @Override
+    public String makeUserAdmin(int userId){
+        String success = "";
+        String sql = "update users\n" +
+                "Set role = 'ROLE_ADMIN'\n" +
+                "WHERE user_id = ?;";
+        try{
+            int rowsAffected;
+            rowsAffected = jdbcTemplate.update(sql,userId);
+            if(rowsAffected == 0){
+                throw new Exception("no rows affected");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Something went wrong promoting a user to Admin");
+        }
+        return success;
+
+    }
+    @Override
+    public List<User> getAdminList(){
+        List<User> adminList = new ArrayList<>();
+        String sql = "select *\n" +
+                "from users\n" +
+                "WHERE role = 'ROLE_ADMIN'";
+        try{
+            SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql);
+            while(rowSet.next()){
+                adminList.add(mapRowToUser(rowSet));
+            }
+
+        } catch (Exception e) {
+            System.out.println("Something went wrong getting the admin list");
+        }
+        return adminList;
     }
 
     private User mapRowToUser(SqlRowSet rs) {
