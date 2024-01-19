@@ -1,5 +1,6 @@
 <template>
   <div class="card">
+  
     <h2>Pet Name: {{ pet.petName }}</h2>
     <h3>Breed:{{ pet.petBreed }}</h3>
     <div class="photo-container">
@@ -32,7 +33,6 @@ export default {
     }
   },
   methods: {
-<<<<<<< HEAD
     nextPhoto() {
       const currentIndex = this.photos.indexOf(this.currentPhoto);
       const nextIndex = (currentIndex + 1) % this.photos.length;
@@ -43,9 +43,6 @@ export default {
       const prevIndex = (currentIndex - 1 + this.photos.length) % this.photos.length;
       this.currentPhoto = this.photos[prevIndex];
     }
-=======
-    
->>>>>>> 52b6d8df9465cdf6a0757a05b8e9f27786e61b91
   },
 
   props: {
@@ -53,14 +50,16 @@ export default {
 
   },
   created() {
+    if(this.pet.petId !== undefined) {
     PhotoService.listPhotos(this.pet.petId).then(
       (response) => {
         if (response.data.length > 0) {
-          this.photo = response.data;
+          this.photos = response.data;
+          this.currentPhoto = this.photos[0];
         }
-
       }
     )
+  }
   }
 }
 </script>
