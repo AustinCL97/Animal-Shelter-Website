@@ -72,16 +72,16 @@ VALUES ( 'Bobo', 'Pomeranian', 'White', '2', 'TRUE', 'Bobo is Cool', '6',
 	   				'33221','Chicago', 'IL') RETURNING pet_id;
 
 INSERT INTO photos (photo_url, pet_id)
-VALUES ('https://uploads-ssl.webflow.com/63464d3429ecebd6475caaf0/6359c61f36a20512ef5de371_63464d3429eceb3d1f5cb429_16.png', 5);
+VALUES ('https://uploads-ssl.webflow.com/63464d3429ecebd6475caaf0/6359c61f36a20512ef5de371_63464d3429eceb3d1f5cb429_16.png', 1);
 
 INSERT INTO photos (photo_url, pet_id)
-VALUES ('https://www.thesprucepets.com/thmb/b_dt6JpFxaD6ROMYy7nVmwuFars=/3504x0/filters:no_upscale():strip_icc()/Pomeranian-GettyImages-1014940472-a6ba0030958a4bbba0eee3e982ee9bc6.jpg', 6);
+VALUES ('https://www.thesprucepets.com/thmb/b_dt6JpFxaD6ROMYy7nVmwuFars=/3504x0/filters:no_upscale():strip_icc()/Pomeranian-GettyImages-1014940472-a6ba0030958a4bbba0eee3e982ee9bc6.jpg', 2);
 
 
 INSERT INTO photos (photo_url, pet_id)
-VALUES ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnyRyrOV_zdA7ywEOIhLofU1ho19ZAbb3L4xPVjHiXm8xRVKMa', 4);
+VALUES ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnyRyrOV_zdA7ywEOIhLofU1ho19ZAbb3L4xPVjHiXm8xRVKMa', 3);
 
 INSERT INTO photos (photo_url, pet_id)
-VALUES ('https://cdn.britannica.com/77/235277-050-E9162647/white-bull-terrier-dog.jpg', 4);
+VALUES ('https://cdn.britannica.com/77/235277-050-E9162647/white-bull-terrier-dog.jpg', 3);
 
 COMMIT TRANSACTION;

@@ -49,7 +49,8 @@
                 <label>Description:</label>
                 <input v-model="pet.petDescription" type="textarea" rows="5" cols="33" maxlength="10000">
             </div>
-            Pet Id:<input type="text" v-model="pet.petId">
+            Pet Id:<input type="number" v-model.number="pet.petId">
+
             <input type="submit" v-on:click.prevent="addPet()">
         </form>
     </div>
@@ -81,7 +82,7 @@ export default {
             }
         },
         updatePet(){
-            PetService.updatePetListing(this.pet, this.$route.params.petId).then(
+            PetService.updatePetListing(this.pet, this.pet.petId).then(
                 (response) =>{
                     this.$router.push({name: 'pets'})
                 }
