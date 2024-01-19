@@ -18,6 +18,7 @@ public interface UserDao {
     int getUserIdByName(String username);
     String makeUserAdmin(int userId);
     List<User> getAdminList();
+    String revokeAdminRole(int userId);
 
 
 }
