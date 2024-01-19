@@ -19,7 +19,11 @@
             <add-photo-form-vue></add-photo-form-vue>
         </div>
 
-        <div>User/Admin Management</div>
+        <div>User/Admin Management
+
+            <UserTable></UserTable>
+        </div>
+        
         <!--second table to VIEW who the admins are - admin only status-->
 
     </div>
@@ -29,12 +33,14 @@
 import NewPetForm from '../components/NewPetForm.vue'
 import VolunteerTable from '../components/VolunteerTable.vue'
 import AddPhotoFormVue from '../components/AddPhotoForm.vue'
+import UserTable from '../components/UserTable.vue'
 
 export default {
     components: {
         NewPetForm,
         VolunteerTable,
-        AddPhotoFormVue
+        AddPhotoFormVue,
+        UserTable
     },
     data() {
         return {

@@ -32,6 +32,10 @@ export default {
     rejectApplication(id, volunteer){
         const url = '/Applications/' + id + '/reject';
         return axios.put(url, volunteer)
+    },
+    getUsers(){
+        const url = 'users'
+        return axios.get(url)
     }
 
 }
