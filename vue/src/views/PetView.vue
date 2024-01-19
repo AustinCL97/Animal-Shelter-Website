@@ -1,7 +1,27 @@
 <template>
-  <div class="pet-list">
-    <PetCard v-for="pet in pets" v-bind:key="pet.id" v-bind:pet="pet"></PetCard>
+  <div class="search">
+    <span>
+      <label for="name-filter">Name</label>
+      <input v-model="filter.name" id="name-filter" type="text" class="">
+    </span>
+    <span>
+      <label for="breed-filter">Breed</label>
+      <input v-model="filter.breed" id="breed-filter" type="text">
+    </span>
+    <span>
+      <label for="color-filter">Color</label>
+      <input v-model="filter.color" id="color-filter" type="text">
+    </span>
+    <span>
+      <label for="age-filter">Age In Years</label>
+      <input v-model="filter.age" type="number">
+    </span>
   </div>
+
+  <div class="pet-list">
+    <PetCard v-for="pet in filteredList" v-bind:key="pet.petId" v-bind:pet="pet"></PetCard>
+  </div>
+  
 </template>
 
 <script>
@@ -10,9 +30,45 @@ import PetService from '../services/PetService.js';
 
 
 export default {
+  data(){
+    return{
+      filter: {
+        name: "",
+        breed: "",
+        color: "",
+        age: "",
+      }
+    }
+  },
   computed: {
     pets(){
         return this.$store.state.pets
+    },
+    filteredList(){
+      let filteredPets = this.$store.state.pets
+      if(this.filter.name != ""){
+        filteredPets = filteredPets.filter((pet) =>
+          pet.petName.toLowerCase().includes(this.filter.name.toLowerCase())
+        )
+      }
+      if(this.filter.breed != ""){
+        filteredPets = filteredPets.filter((pet) =>
+          pet.petBreed.toLowerCase().includes(this.filter.breed.toLowerCase())
+        )
+      }
+      if(this.filter.color != ""){
+        filteredPets = filteredPets.filter((pet) =>
+          pet.petColor.toLowerCase().includes(this.filter.color.toLowerCase())
+        )
+      }
+      if(this.filter.age != ""){
+        filteredPets = filteredPets.filter((pet) => 
+          pet.petAge === this.filter.age
+        )
+      }
+
+
+      return filteredPets;
     }
   },
     components:{PetCard},
@@ -31,5 +87,19 @@ export default {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+}
+.search{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #FFE5CA;
+}
+
+.search label{
+  display: block;
+  text-align: center;
+}
+.search span{
+  padding: 10px;
 }
 </style>

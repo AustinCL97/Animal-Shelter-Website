@@ -1,8 +1,9 @@
 <template>
   <div class="card">
   
-    <h2>Pet Name: {{ pet.petName }}</h2>
-    <h3>Breed:{{ pet.petBreed }}</h3>
+    <h2>{{ pet.petName }}</h2>
+    <h3>{{ pet.petBreed }}</h3>
+    <h3>{{ pet.petAge }} Years</h3>
     <div class="photo-container">
       <button @click="prevPhoto" class="arrow">❮</button>
     <div v-for="photo in photos" :key="photo.photoId" v-show="currentPhoto === photo">
@@ -11,10 +12,13 @@
 
     <button @click="nextPhoto" class="arrow">❯</button>
     </div>
-    <p>City: {{ pet.petCity }}</p>
-    <p>State: {{ pet.petState }} {{ pet.zipCode }}</p>
-    <p>Pet Description: {{ pet.petDescription }}</p>
-
+    <h4>{{ pet.petColor }}</h4>
+    <h5>{{ pet.petWeight }}lbs</h5>
+    <p>{{ pet.petCity }}</p>
+    <p>{{ pet.petState }} {{ pet.zipCode }}</p>
+    <div class="description">
+      <p>{{ pet.petDescription }}</p>
+    </div>
     <div class="buttons">
       <button class="adopt">ADOPT ME</button>
     </div>
@@ -69,7 +73,7 @@ export default {
   border: 2px solid black;
   border-radius: 5px;
   width: 450px;
-  height: 600px;
+  height: 750px;
   margin: 20px;
   text-align: center;
   background: lightgray;
@@ -88,6 +92,10 @@ export default {
   border: 2px black solid;
   display: block;
   margin: 0 auto;
+}
+.description{
+  overflow-y: scroll;
+  height: 100px;
 }
 
 .arrow {
