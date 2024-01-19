@@ -4,20 +4,20 @@
     <table id="volunteers">
         <thead>
             <tr>
-                <th>Select</th>
+                
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone Number</th>
                 <th>Status</th>
                 <th>Approve</th>
+                <th>Reject</th>
                
             </tr>
         </thead>
         <tbody>
-            <tr>
-            <td>
-                <input type="checkbox" >
-            </td>
+            
+            <tr class="search">
+     
             <td>
                 <input v-model="filter.name" type="text" id="firstNameFilter">
             </td>
@@ -32,32 +32,40 @@
                     <option value>Show All</option>
                     <option value="pending">pending</option>
                     <option value="Approved">approved</option>
+                    <option value="Rejected">rejected</option>
                 </select>
             </td>
+            <td>
+                <p></p>
+            </td>
+            <td>
+                <p></p>
+            </td>
             </tr>
+            
             <tr
             v-for="volunteer in filteredList"
             v-bind:key="volunteer.userId"
             v-bind:volunteer="volunteer"
             >
-            <td>
-                <input type="checkbox" v-model="selectedVolunteerIds" v-bind:id="volunteer.applicationId" v-bind:value="volunteer.applicationId">
-            </td>
+           
                 <td>{{ volunteer.appName }}</td>
                 <td>{{ volunteer.appEmail }}</td>
                 <td>{{ volunteer.appPhoneNumber }}</td>
                 <td>{{ volunteer.status }}</td>
                 <td>
                     <button v-on:click="approve(volunteer)" v-show="volunteer.status != 'Approved'">Approve</button>
+                    <button v-on:click="promote(volunteer.userId)" v-show="volunteer.status == 'Approved'">Make Admin</button>
+                </td>
+                <td>
+                    <button v-on:click="reject(volunteer)" v-show="volunteer.status != 'Approved' && volunteer.status != 'Rejected'">Reject</button>
+
                 </td>
             </tr>
         </tbody>
     </table>
     </div>
-    <div class="actions">
-        <button>Make Admin</button>
-        <button v-on:click="deleteApplication()">Delete Volunteer</button>
-    </div>
+
   </div>
 </template>
 
@@ -114,7 +122,7 @@ export default {
 
         //TODO: add functionality to grab id of selected volunteer
         delete(){
-            ApplicationService.deleteApplication().then(
+            ApplicationService.deleteApplication(this.selectedVolunteerIds).then(
                 (response) => {
                     this.$router.push({name: 'admin'})
                 }
@@ -128,17 +136,59 @@ export default {
                 }
             )
         },
+        reject(volunteer){
+            let id = volunteer.applicationId
+            ApplicationService.rejectApplication(id, volunteer).then(
+                (response) => {
+                    this.refresh();
+                }
+            )
+        },
         refresh(){
             ApplicationService.getApplications().then(
             (response) => {
                 this.$store.commit("SET_VOLUNTEERS", response.data)
             }
         )
+        },
+        promote(id){
+            
+            ApplicationService.makeAdmin(id).then(
+                (response) => {
+                    this.refresh();
+                }
+            )
         }
     }
 }
 </script>
 
 <style>
+tr:nth-child(even){
+    background-color: #d3d3d3;
+}
+.container{
+    border: 2px solid black;
+    border-radius: 5px;
+    height: 150px;
+    width: 775px;
+   
+}
+.table{
+    overflow-y: scroll;
+    max-height: 150px;
+}
+
+table thead{
+    top: 0%;
+    position: sticky;
+    background: white;
+}
+.search{
+    top: 20px;
+    position: sticky;
+    background: white;
+}
+
 
 </style>

@@ -19,12 +19,20 @@ public class User {
 
    public User() { }
 
-   public User(int id, String username, String password, String authorities) {
+   public User(int id, String username, String password, String name, String authorities) {
       this.id = id;
       this.username = username;
       this.password = password;
+      this.name = name;
       if (authorities != null) this.setAuthorities(authorities);
       this.activated = true;
+   }
+   public String getName() {
+      return name;
+   }
+
+   public void setName(String name) {
+      this.name = name;
    }
 
    public int getId() {
