@@ -46,7 +46,7 @@
                 <td>{{ user.id }}</td>
                 <td>{{ user.username }}</td>
                 <td>{{ user.name }}</td>
-                <td>{{ user.role }}</td>
+                <td>{{ user.authorities }}</td>
                 
             </tr>
         </tbody>
@@ -96,7 +96,7 @@ export default {
             }
             if(this.filter.role != ""){
                 filteredUsers = filteredUsers.filter((user) => 
-                    user.role.includes(this.filter.role)
+                    user.authorities.includes(this.filter.authorities)
                 )
             }
 
