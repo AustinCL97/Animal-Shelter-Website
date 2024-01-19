@@ -16,7 +16,7 @@
     <p>Pet Description: {{ pet.petDescription }}</p>
 
     <div class="buttons">
-      <button class="adopt">ADOPT ME</button>
+      <button  class="adopt" >ADOPT ME</button>
     </div>
   </div>
 </template>
@@ -29,8 +29,12 @@ export default {
   data() {
     return {
       photos: [],
-      currentPhoto: null
+      currentPhoto: null,
+     
     }
+  },
+  computed: {
+     
   },
   methods: {
     nextPhoto() {
@@ -42,6 +46,9 @@ export default {
       const currentIndex = this.photos.indexOf(this.currentPhoto);
       const prevIndex = (currentIndex - 1 + this.photos.length) % this.photos.length;
       this.currentPhoto = this.photos[prevIndex];
+    },
+    setToFalse(){
+      this.condition = false;
     }
   },
 

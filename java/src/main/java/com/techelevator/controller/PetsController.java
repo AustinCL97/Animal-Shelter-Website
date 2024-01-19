@@ -29,6 +29,9 @@ public class PetsController {
     @GetMapping("/available")
     public List<Pets> availablePets(){ return petsDao.isAvailable(true);
     }
+    @GetMapping("/adopted")
+    public List<Pets> adoptedPets(){ return petsDao.isAvailable(false);
+    }
 
     @PostMapping("/addNew")
     public Pets createPetListing(@RequestBody Pets pet) {
