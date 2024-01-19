@@ -52,11 +52,14 @@ export default {
   height: 600px;
   margin: 20px;
   text-align: center;
+  background: lightgray;
 }
 
 .photo {
   width: 200px;
   height: 300px;
   border-radius: 5px;
+  object-fit: cover;
+  border: 2px black solid;
 }
 </style>
