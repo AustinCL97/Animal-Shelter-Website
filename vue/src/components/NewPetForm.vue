@@ -81,7 +81,7 @@ export default {
             }
         },
         updatePet(){
-            PetService.updatePetListing(this.pet, this.pet.petId).then(
+            PetService.updatePetListing(this.pet, this.$route.params.petId).then(
                 (response) =>{
                     this.$router.push({name: 'pets'})
                 }

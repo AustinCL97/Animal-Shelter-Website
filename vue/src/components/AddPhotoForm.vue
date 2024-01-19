@@ -16,12 +16,14 @@
 
 <script>
 import PetService from '../services/PetService';
+import PhotoService from '../services/PhotoService';
 export default {
    data(){
     return {
         newPhoto: {}
     }
    },
+
    methods: {
     addPhoto(){
         PetService.addPetPhoto(this.newPhoto, this.$route.params.photoId).then(
@@ -29,8 +31,14 @@ export default {
                 this.$router.push({ name: "pets" })
             }
         )
-
-    }
+    },
+    created() {
+     PhotoService.getPhoto().then(
+       (response) => {
+         this.$store.commit("SET_PHOTOS", response.data)
+       }
+     )
+   }
    }
 }
 </script>
