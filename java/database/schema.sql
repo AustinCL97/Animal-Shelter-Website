@@ -10,6 +10,7 @@ CREATE TABLE users (
 	user_id SERIAL,
 	username varchar(50) NOT NULL UNIQUE,
 	password_hash varchar(200) NOT NULL,
+	name varchar (50) NOT NULL,
 	role varchar(50) NOT NULL,
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
@@ -55,6 +56,32 @@ CREATE TABLE photos (
 	pet_id INT REFERENCES pets(pet_id)
 );
 
+INSERT INTO pets (pet_name, pet_breed, pet_color, pet_age, is_available,
+				 pet_description, pet_weight, pet_zip, pet_city, pet_state)
+VALUES ( 'Coco', 'Terrier', 'Brown', '3', 'TRUE', 'Coco is Cool', '12',
+	   				'44440','Mineral Ridge', 'OH') RETURNING pet_id;
 
+INSERT INTO pets (pet_name, pet_breed, pet_color, pet_age, is_available,
+				 pet_description, pet_weight, pet_zip, pet_city, pet_state)
+VALUES ( 'Khaleesi', 'Boston Terrier', 'Black', '5', 'TRUE', 'Khaleesi is Cool', '12',
+	   				'12345','Laurel Springs', 'NC') RETURNING pet_id;
+
+INSERT INTO pets (pet_name, pet_breed, pet_color, pet_age, is_available,
+				 pet_description, pet_weight, pet_zip, pet_city, pet_state)
+VALUES ( 'Bobo', 'Pomeranian', 'White', '2', 'TRUE', 'Bobo is Cool', '6',
+	   				'33221','Chicago', 'IL') RETURNING pet_id;
+
+INSERT INTO photos (photo_url, pet_id)
+VALUES ('https://uploads-ssl.webflow.com/63464d3429ecebd6475caaf0/6359c61f36a20512ef5de371_63464d3429eceb3d1f5cb429_16.png', 5);
+
+INSERT INTO photos (photo_url, pet_id)
+VALUES ('https://www.thesprucepets.com/thmb/b_dt6JpFxaD6ROMYy7nVmwuFars=/3504x0/filters:no_upscale():strip_icc()/Pomeranian-GettyImages-1014940472-a6ba0030958a4bbba0eee3e982ee9bc6.jpg', 6);
+
+
+INSERT INTO photos (photo_url, pet_id)
+VALUES ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnyRyrOV_zdA7ywEOIhLofU1ho19ZAbb3L4xPVjHiXm8xRVKMa', 4);
+
+INSERT INTO photos (photo_url, pet_id)
+VALUES ('https://cdn.britannica.com/77/235277-050-E9162647/white-bull-terrier-dog.jpg', 4);
 
 COMMIT TRANSACTION;

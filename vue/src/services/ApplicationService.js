@@ -24,6 +24,14 @@ export default {
     approveApplication(id, volunteer){
         const url = '/Applications/' + id + '/approve'
         return axios.put(url, volunteer)
+    },
+    makeAdmin(id, volunteer){
+        const url = '/Applications/promote/' + id;
+        return axios.put(url, volunteer)
+    },
+    rejectApplication(id, volunteer){
+        const url = '/Applications/' + id + '/reject';
+        return axios.put(url, volunteer)
     }
 
 }
