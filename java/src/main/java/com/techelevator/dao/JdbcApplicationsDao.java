@@ -54,10 +54,16 @@ public class JdbcApplicationsDao implements ApplicationsDao {
         String sql = "INSERT INTO applications(user_id,app_email,app_name,app_phonenumber,application_date)\n" +
                 "VALUES(?,?,?,?, NOW()) RETURNING applicant_id;";
         int applicationId = 0;
+        List<Applications> applicationsList;
+        applicationsList = getAppsByUserId(applications.getUserId());
+
+
         try{
 
-            applicationId = jdbcTemplate.queryForObject(sql, Integer.class, applications.getUserId(),applications.getAppEmail(),applications.getAppName(),applications.getAppPhoneNumber());
+            if (applicationsList.size() < 1) {
 
+                applicationId = jdbcTemplate.queryForObject(sql, Integer.class, applications.getUserId(), applications.getAppEmail(), applications.getAppName(), applications.getAppPhoneNumber());
+            }
 
         } catch (Exception e){
             System.out.println("Something went wrong creating an Application");
