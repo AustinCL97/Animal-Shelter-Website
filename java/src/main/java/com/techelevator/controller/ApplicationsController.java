@@ -52,6 +52,7 @@ public class ApplicationsController {
     public String approveVolunteer(@PathVariable int applicantId,Principal principal){
         applicationsDao.approve(applicantId,principal.getName());
         Applications applications = applicationsDao.getAppByAppId(applicantId);
+        applicationsDao.promoteToVolunteer(applications.getUserId());
         String approved = "The application for " + applications.getAppName() + " has been approved!";
         return approved;
     }
