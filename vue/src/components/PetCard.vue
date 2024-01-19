@@ -28,7 +28,7 @@
 <script>
 import PetService from '../services/PetService.js'
 import PhotoService from '../services/PhotoService.js'
-import AdoptedView from '../views/AdoptedView.vue';
+
 
 export default {
   data() {
