@@ -81,15 +81,17 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .card {
-  border: 2px solid black;
-  border-radius: 5px;
+  border: 4px solid black;
+  border-radius: 10px;
   width: 450px;
   height: 750px;
   margin: 20px;
   text-align: center;
   background: lightgray;
+  
+
 }
 
 .photo-container {
@@ -100,9 +102,9 @@ export default {
 .photo {
   width: 200px;
   height: 300px;
-  border-radius: 5px;
+  border-radius: 30px;
   object-fit: cover;
-  border: 2px black solid;
+  border: 5px rgb(82, 120, 83)solid;
   display: block;
   margin: 0 auto;
 }
@@ -128,5 +130,11 @@ export default {
 
 .arrow:last-child {
   right: 10px;
+}
+
+button{
+  border-radius: 30px;
+  height: 30px;
+  width: 200px;
 }
 </style>
