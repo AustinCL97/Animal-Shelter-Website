@@ -15,7 +15,7 @@
     </div>
     <input type="submit" />
     <div v-if="$store.state.user.authorities && $store.state.user.authorities[0].name === 'ROLE_VOLUNTEER' || $store.state.user.authorities[0].name === 'ROLE_ADMIN'" class="links" v-bind:to="{name: 'admin'}" >
-        <volunteer-table></volunteer-table>
+        <ContactTable></ContactTable>
     </div>
 </form>    
 
@@ -24,9 +24,9 @@
 <script>
 
 import ApplicationService from '../services/ApplicationService.js'
-import VolunteerTable from './VolunteerTable.vue';
+import ContactTable from '../components/ContactTable.vue'
 export default {
-  components: { VolunteerTable },
+    components: {ContactTable},
     data(){
         return{
             volunteer:{}
