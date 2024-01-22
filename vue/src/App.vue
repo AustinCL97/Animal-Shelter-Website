@@ -1,7 +1,14 @@
 <template>
   <div id="capstone-app">
      <header>
-      <img  class="img" src="./images/Animal Shelter Wide.jpg" alt="Shelter Puppies">
+       <div class="header-container">
+      <img  class="img" src="./images/cat.gif" alt="cat gif">
+      <img class="img" src="./images/dog.gif" alt="dog gif">
+      <img class="img" src="./images/puppy400.gif" alt="sad dog gif">
+      <img class="img" src="./images/ferret.gif" alt="ferret gif">
+      <img class="img" src="./images/bird.gif" alt="bird gif">
+      <img class="img" src="./images/llama.gif" alt="llama gif">
+       </div>
     </header>
     <div id="nav">
       <router-link class="links" v-bind:to="{ name: 'home'}">Home</router-link>&nbsp;|&nbsp;
@@ -11,7 +18,9 @@
       <router-link class="links" v-bind:to="{name: 'adopted'}">Adopted Pets</router-link> &nbsp;|&nbsp;
       <router-link class="links" v-bind:to="{ name: 'logout'}" >Logout</router-link>
     </div>
+    
     <router-view />
+    
   </div>
 </template>
 
@@ -28,12 +37,12 @@
 }
 
 .img{
-  height: 20vh;
-  width: 90vw;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
   border: 5px solid black;
-  margin: 5px;
-  
-  padding: 10px;  
+  margin: 0;  
+  padding: 0;  
 }
 
 #nav{
@@ -41,6 +50,7 @@
   background: rgb(82, 120, 83);
   
 }
+
 
 
 
