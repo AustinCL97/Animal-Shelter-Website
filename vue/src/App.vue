@@ -5,9 +5,7 @@
     </header>
     <div id="nav">
       <router-link class="links" v-bind:to="{ name: 'home'}">Home</router-link>&nbsp;|&nbsp;
-      
-      <router-link v-if="$store.state.user.authorities[0].name == 'ROLE_ADMIN'" class="links" v-bind:to="{name: 'admin'}" >Admin</router-link> &nbsp;|&nbsp;
-    
+      <router-link  v-if="$store.state.user.authorities && $store.state.user.authorities[0].name === 'ROLE_ADMIN'" class="links" v-bind:to="{name: 'admin'}" >Admin</router-link> &nbsp;|&nbsp;
       <router-link class="links" v-bind:to="{name: 'volunteer'}">Volunteer</router-link> &nbsp;|&nbsp;
       <router-link class="links" v-bind:to="{name: 'contactUs'}">Contact Us</router-link> &nbsp;|&nbsp;
       <router-link class="links" v-bind:to="{name: 'adopted'}">Adopted Pets</router-link> &nbsp;|&nbsp;
