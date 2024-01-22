@@ -1,14 +1,7 @@
+
 <template>
     <div class="admin-container">
-        <!-- IN PROGRESS - As an admin, I want to see all pending volunteer applications and have the option to approve or decline them.
-        Approving an application should create a new volunteer user (who will then be able to login).
-        DONE - Declining an application should remove the application from list of pending applications, but not remove the data from the database.-->
-        <!-- IN PROGRESS As an admin, I want to be able to search all applications (pending, approved and declined) by name-->
-        <!--STACI IN PROGRESS- As a volunteer or administrator, I want the ability to update all information about a pet, including the photo.-->
-        <!--When a pet has been adopted, I need to be able to add information about who adopted it, and change its status so the listing 
-        no longer appears in the list of available pets (but the data should remain in the database).-->
-        <!--As an admin, I want to be able to promote a volunteer to also be an admin.-->
-        <!--Email Approved/Declined Volunteers-->
+
         <div>Volunteer and Admin List
             <VolunteerTable></VolunteerTable>
         </div>
@@ -19,7 +12,11 @@
             <add-photo-form-vue></add-photo-form-vue>
         </div>
 
-        <div>User/Admin Management</div>
+        <div>User/Admin Management
+
+            <UserTable></UserTable>
+        </div>
+
         <!--second table to VIEW who the admins are - admin only status-->
 
     </div>
@@ -29,20 +26,21 @@
 import NewPetForm from '../components/NewPetForm.vue'
 import VolunteerTable from '../components/VolunteerTable.vue'
 import AddPhotoFormVue from '../components/AddPhotoForm.vue'
+import UserTable from '../components/UserTable.vue'
 
 export default {
     components: {
         NewPetForm,
         VolunteerTable,
-        AddPhotoFormVue
+        AddPhotoFormVue,
+        UserTable
     },
     data() {
         return {
             users: [],
+           
         }
     },
-
-
 
 }
 </script>

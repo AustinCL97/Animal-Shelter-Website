@@ -186,7 +186,7 @@ table thead{
     background: white;
 }
 .search{
-    top: 20px;
+    top: 30px;
     position: sticky;
     background: white;
 }

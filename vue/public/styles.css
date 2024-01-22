@@ -1,7 +1,7 @@
 body { 
     font-family: 'Arial', sans-serif;
-     background-color: rgb(168, 157, 142);
-     color: lightgray;
+     background-color: rgb(82, 120, 83);
+     color: rgb(82, 120, 83);
      margin: 0;
      background-image: url('./images/paw-prints.jpg');
      background-size: cover;
@@ -12,8 +12,8 @@ body {
 
  header {
      text-align: center;
-     background-color: darkslategrey;
-     color: #fff;
+     background-color: black;
+     color: rgb(82, 120, 83);
  }
 
  header img {
@@ -46,10 +46,13 @@ body {
  .container {
      text-align: center;
      padding: 20px;
+     
+  
+   
  }
 
  h1 {
-     color: rgb(107, 107, 107);
+     color: rgb(82, 120, 83);
      font-size: 36px;
      margin-bottom: 20px;
  }
@@ -72,4 +75,10 @@ body {
  }
  .button:hover {
      background-color: #c0392b;
+ }
+ .home{
+    color: black;
+ }
+ .adopt{
+    
  }

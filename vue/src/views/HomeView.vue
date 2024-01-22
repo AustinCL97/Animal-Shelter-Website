@@ -1,14 +1,13 @@
 <template>
   <div class="home">
-    <h1>Welcome to Parker's Pets Animal Shelter</h1>
+    <h1>Explore the Paw-sibilities   <br/>at Parker's Pet Haven!</h1>
     <div v-if="!isLoggedIn">
       <router-link to="/login">Login Now</router-link> |
       <router-link to="/register">Register</router-link> |
-
-
+      
     </div>
 
-    <h2>Available Pets</h2>
+    <h2>Browse our Available Pets</h2>
    <pet-view></pet-view>
 
    <section>
@@ -41,17 +40,21 @@ export default {
 };
 </script>
 
-<style>
-  h1{
-    display: flex;
-    justify-content: center;
-    border: 2px solid black;
-    background-color: green;
-  }
+<style scoped>
+ h1{
+  color: rgb(238, 114, 20);
+  justify-content: center;
+  text-align: center;
+ }
+ h2{
+  text-align: center;
+ }
 
-  h2, p{
-    display: flex;
-    justify-content: center;
-  }
+ p{
+  text-align: center;
+  padding: 15px;
+ }
+
+ 
 </style>
 

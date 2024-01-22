@@ -1,6 +1,7 @@
 <template>
   <div>
-    <PetDetails :pet="findPet"/>
+      <h2>Pet Details</h2>
+      <pet-details></pet-details>
   </div>
 </template>
 
@@ -16,7 +17,7 @@ export default {
     computed: {
         findPet(){
             return this.$store.state.pet.find(pet => pet.id ===
-            this.$route.params.id);
+            this.$route.params.petId);
         }
     }
 }
