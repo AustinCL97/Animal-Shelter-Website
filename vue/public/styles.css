@@ -3,6 +3,7 @@ body {
      background-color: rgb(82, 120, 83);
      color: rgb(82, 120, 83);
      margin: 0;
+     padding: 0;
      background-image: url('./images/paw-prints.jpg');
      background-size: cover;
      background-position: center;
@@ -16,12 +17,23 @@ body {
      color: rgb(82, 120, 83);
  }
 
- header img {
-     width: 95%;
-     height: auto;
-     max-height: 250px;
+ header .header-container {
+     display: flex;
+     justify-content: space-between;
+     align-items: stretch;
+     height: 20vh;
+     width: 100%;
+     overflow: hidden;
+     background-color: rgb(50, 53, 50);
+ }
+
+ header img {     
+     height: 100%;
+     width: calc(100% / 6);
+     object-fit: cover;
      border-radius: 8px;
      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     
  }
 
  #nav {
