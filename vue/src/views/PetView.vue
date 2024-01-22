@@ -1,4 +1,7 @@
 <template>
+  
+  <div class="page">
+
   <div class="search">
     <span>
       <label for="name-filter">Name</label>
@@ -22,6 +25,7 @@
     <PetCard v-for="pet in filteredList" v-bind:key="pet.petId" v-bind:pet="pet"></PetCard>
   </div>
   
+  </div>
 </template>
 
 <script>
@@ -93,6 +97,7 @@ export default {
   justify-content: center;
   width: 100%;
   background-color: #FFE5CA;
+  margin-top: 0%;
 }
 
 .search label{
@@ -101,5 +106,9 @@ export default {
 }
 .search span{
   padding: 10px;
+}
+
+.page{
+  background-color: #FFF3E2;
 }
 </style>
