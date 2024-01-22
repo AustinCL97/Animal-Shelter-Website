@@ -1,9 +1,13 @@
+Adoption Form: - PetCard
+
 <template>
   <div class="card">
   
-    <h2>{{ pet.petName }}</h2>
-    <h3>{{ pet.petBreed }}</h3>
-    <h3>{{ pet.petAge }} Years</h3>
+    <h2>Name: {{ pet.petName }}</h2>
+    <h3 v-if="pet.available === false">Adopted By: {{ pet.adoptedBy }}</h3>
+    <h3>Breed: {{ pet.petBreed }}</h3>
+    <h3>Age: {{ pet.petAge }} Years</h3>
+    <h3>Pet Id: {{ pet.petId }}</h3>
     <div class="photo-container">
       <button @click="prevPhoto" class="arrow">❮</button>
     <div v-for="photo in photos" :key="photo.photoId" v-show="currentPhoto === photo">
@@ -12,10 +16,10 @@
 
     <button @click="nextPhoto" class="arrow">❯</button>
     </div>
-    <h4>{{ pet.petColor }}</h4>
-    <h5>{{ pet.petWeight }}lbs</h5>
-    <p>{{ pet.petCity }}</p>
-    <p>{{ pet.petState }} {{ pet.zipCode }}</p>
+    <h4>Color: {{ pet.petColor }}</h4>
+    <h5>Weight: {{ pet.petWeight }}lbs</h5>
+    <p>City: {{ pet.petCity }}</p>
+    <p>State/Zip: {{ pet.petState }}, {{ pet.zipCode }}</p>
     <div class="description">
       <p>{{ pet.petDescription }}</p>
     </div>
@@ -23,6 +27,7 @@
       <button v-show="pet.available === true" class="adopt" v-on:click="this.$router.push({name: 'details'})">ADOPT ME</button>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -35,10 +40,12 @@ export default {
     return {
       photos: [],
       currentPhoto: null,
-     
+      users: []
     }
   },
-
+  components: {
+    
+  },
   computed: {
      
   },
@@ -56,9 +63,9 @@ export default {
     setToFalse(){
       this.condition = false;
     },
-    adoptPet(){
-
-    }
+    
+   
+    
   },
 
   props: {

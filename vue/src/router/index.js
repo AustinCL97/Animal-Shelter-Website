@@ -114,8 +114,6 @@ const routes = [
     component: PetDetailsView,
 
   },
-
-
 ];
 
 // Create the router

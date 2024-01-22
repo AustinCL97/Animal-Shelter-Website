@@ -26,7 +26,8 @@ CREATE TABLE pets (
 	pet_weight INT,
 	pet_zip INT,
 	pet_city varchar (50),
-	pet_state varchar (10)
+	pet_state varchar (10),
+	adopted_by varchar (100)
 );
 
 CREATE TABLE applications (
