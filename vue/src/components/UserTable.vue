@@ -46,7 +46,7 @@
                 <td>{{ user.id }}</td>
                 <td>{{ user.username }}</td>
                 <td>{{ user.name }}</td>
-                <td>{{ user.authorities }}</td>
+                <td>{{ user.authorities[0].name }}</td>
                 
             </tr>
         </tbody>
