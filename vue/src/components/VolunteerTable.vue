@@ -168,6 +168,7 @@ tr:nth-child(even){
     background-color: #d3d3d3;
 }
 .container{
+    
     border: 2px solid black;
     border-radius: 5px;
     height: 150px;
@@ -180,15 +181,27 @@ tr:nth-child(even){
    
 }
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
 table thead{
     top: 0%;
     position: sticky;
     background: white;
 }
 .search{
-    top: 30px;
+    top: 0;
     position: sticky;
-    background: white;
+    background-color: #fff;
+    z-index: 1;
 }
 
 
