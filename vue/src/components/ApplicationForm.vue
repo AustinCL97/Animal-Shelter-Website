@@ -14,6 +14,9 @@
             <input type="text" v-model="volunteer.appEmail" id="volunteerEmail" class="form-input" />
     </div>
     <input type="submit" class="submit-button" />
+    <div v-if="$store.state.user.authorities && ($store.state.user.authorities[0].name === 'ROLE_VOLUNTEER' || $store.state.user.authorities[0].name === 'ROLE_ADMIN')" class="links" v-bind:to="{name: 'admin'}" >
+        <ContactTable></ContactTable>
+    </div>
 </form>    
 
 </template>
@@ -21,7 +24,9 @@
 <script>
 
 import ApplicationService from '../services/ApplicationService.js'
+import ContactTable from '../components/ContactTable.vue'
 export default {
+    components: {ContactTable},
     data(){
         return{
             volunteer:{}
@@ -37,7 +42,7 @@ export default {
                         )
             
         }
-    }
+    },
 };
 </script>
 
