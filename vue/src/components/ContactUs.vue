@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="display">
         <h1>Contact Us</h1>
         <h2>Address</h2>
         <p>123 Avery Lane <br>
@@ -21,4 +21,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+    .display{
+        background-color: #FFF3E2;
+    }
+</style>

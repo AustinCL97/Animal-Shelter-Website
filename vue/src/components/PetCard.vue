@@ -88,7 +88,7 @@ export default {
   height: 750px;
   margin: 20px;
   text-align: center;
-  background: lightgray;
+  background: #FA9884;
 }
 
 .photo-container {

@@ -15,8 +15,8 @@
 </template>
 
 <style>
-.link{
-  
+.nav{
+  background-color: #FFF3E2;
 }
 
 </style>
