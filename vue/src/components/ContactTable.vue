@@ -134,14 +134,14 @@ tr:nth-child(odd){
     background-color: rgb(157, 171, 134, 0.7);
     border: 2px solid black;
     border-radius: 5px;
-    height: 300px;
+    height: 320px;
     width: 775px;
 
 }
 
 .table {
     overflow-y: scroll;
-    max-height: 300px;
+    max-height: 280px;
     display: flex; 
     justify-content: center;
 }
@@ -164,6 +164,7 @@ table thead {
 }
 
 .search {
+    top: 11%;
     position: sticky;
     background: white;
 }
