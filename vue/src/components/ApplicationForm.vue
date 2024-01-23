@@ -15,8 +15,12 @@
     </div>
     <input type="submit" class="submit-button" />
     
-    <div v-if="$store.state.user.authorities && ($store.state.user.authorities[0].name === 'ROLE_VOLUNTEER' || $store.state.user.authorities[0].name === 'ROLE_ADMIN')" class="links" v-bind:to="{name: 'admin'}" >
-        <ContactTable class="volunteer-table"></ContactTable>
+    <div class="links-container" v-if="$store.state.user.authorities && ($store.state.user.authorities[0].name === 'ROLE_VOLUNTEER' || $store.state.user.authorities[0].name === 'ROLE_ADMIN')">
+        <div class="links" v-bind:to="{name: 'admin'}" >
+        <div class="volunteer-table">
+            <ContactTable></ContactTable>
+        </div>
+    </div>
     </div>
    
 </form>    
@@ -56,13 +60,16 @@ export default {
 }
 
 .volunteer-form {
-    max-width: 400px;
-    margin: 0 auto;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
     }
 
 .form-group {
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .form-label {
@@ -93,9 +100,18 @@ export default {
 .submit-button:hover {
     background-color: #45a049;
 }
+
+.links-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
 .volunteer-table {
-  margin: 0 auto;
-  text-align: center;
-  
+  text-align: center;  
+}
+
+.links {
+    text-align: center;
 }
 </style>
