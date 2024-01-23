@@ -114,7 +114,8 @@ export default {
                 user.userId = userId
            )
            if(user){
-                return user.authorities[0].name;
+                 return user.authorities[0].name;
+
            }
 
            return "Role Not Found"
