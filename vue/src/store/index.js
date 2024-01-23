@@ -61,6 +61,9 @@ export function createStore(currentToken, currentUser) {
       },
       SET_USERS(state, users){
         state.users = users;
+      },
+      UPDATE_PETS(state, status){
+        state.pets.isAvailable = status;
       }
     },
   });

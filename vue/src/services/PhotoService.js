@@ -1,25 +1,21 @@
 import axios from "axios";
 
-const http = axios.create(
-    {baseURL:'http://localhost:9000/photos'}
-)
-
 export default {
     createPhoto(photo){
-        const url = '/add';
-        return http.post(url, photo);
+        const url = '/photos/add';
+        return axios.post(url, photo);
     },
     getPhoto(photoId){
-        const url = '/' + photoId;
-        return http.get(url);
+        const url = '/photos/' + photoId;
+        return axios.get(url);
     },
     listPhotos(petId){
-        const url = '/pet/' + petId;
-        return http.get(url);
+        const url = '/photos/pet/' + petId;
+        return axios.get(url);
     },
     removePhoto(photoId){
-        const url = '/remove/' + photoId;
-        return http.delete(url);
+        const url = '/photos/remove/' + photoId;
+        return axios.delete(url);
     }
 }
 

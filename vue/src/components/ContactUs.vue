@@ -18,10 +18,13 @@
      
         <button id="donate">Donate Now</button>
     </div>
+    <contact-form></contact-form>
 </template>
 
 <script>
+import ContactForm from './ContactForm.vue';
 export default {
+  components: { ContactForm },
 
 }
 </script>

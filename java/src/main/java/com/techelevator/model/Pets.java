@@ -13,8 +13,9 @@ public class Pets {
     private int zipCode;
     private String petCity;
     private String petState;
+    private String adoptedBy;
 
-    public Pets(int petId, String petName, String petBreed, String petColor, int petAge, boolean isAvailable, String petDescription, int petWeight, int zipCode, String petCity, String petState) {
+    public Pets(int petId, String petName, String petBreed, String petColor, int petAge, boolean isAvailable, String petDescription, int petWeight, int zipCode, String petCity, String petState, String adoptedBy) {
 
         this.petName = petName;
         this.petBreed = petBreed;
@@ -26,6 +27,15 @@ public class Pets {
         this.zipCode = zipCode;
         this.petCity = petCity;
         this.petState = petState;
+        this.adoptedBy = adoptedBy;
+    }
+
+    public String getAdoptedBy() {
+        return adoptedBy;
+    }
+
+    public void setAdoptedBy(String adoptedBy) {
+        this.adoptedBy = adoptedBy;
     }
 
     public Pets() {
