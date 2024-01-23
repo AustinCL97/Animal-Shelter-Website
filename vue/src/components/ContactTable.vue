@@ -123,7 +123,7 @@ table thead{
     background: white;
 }
 .search{
-    top: 30px;
+    top: 20px;
     position: sticky;
     background: white;
 }
