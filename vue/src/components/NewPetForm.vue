@@ -174,7 +174,7 @@ input {
 
 #submit {
     display: flex;
-    justify-content: space-evenly;
+   text-align: center;
      padding: 12px 24px;
      margin-top: 20px;
      background:linear-gradient(to right, #e74c3c, #c0392b);
