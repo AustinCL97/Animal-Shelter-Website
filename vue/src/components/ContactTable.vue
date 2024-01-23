@@ -22,6 +22,9 @@
                         <td>
                             <input v-model="filter.phone" id="phoneFilter" type="text">
                         </td>
+                        <td>
+                           
+                        </td>
 
                     </tr>
                     <tr v-for="volunteer in filteredList" v-bind:key="volunteer.userId" v-bind:volunteer="volunteer">
