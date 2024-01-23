@@ -22,6 +22,9 @@
                         <td>
                             <input v-model="filter.phone" id="phoneFilter" type="text">
                         </td>
+                        <td>
+                           
+                        </td>
 
                     </tr>
                     <tr v-for="volunteer in filteredList" v-bind:key="volunteer.userId" v-bind:volunteer="volunteer">
@@ -121,23 +124,37 @@ export default {
 </script>
 
 <style>
-tr:nth-child(even) {
-    background-color: #d3d3d3;
+tr:nth-child(even){
+    background-color: #c2c2c2;
 }
-
-.container {
+tr:nth-child(odd){
+    background-color: #ffffff;
+}
+.container{
+    background-color: rgb(157, 171, 134, 0.7);
     border: 2px solid black;
     border-radius: 5px;
-    height: 250px;
+    height: 320px;
     width: 775px;
 
 }
 
 .table {
     overflow-y: scroll;
-    max-height: 150px;
-    height: 420px;
+    max-height: 280px;
+    display: flex; 
+    justify-content: center;
+}
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
 }
 
 table thead {
@@ -147,13 +164,13 @@ table thead {
 }
 
 .search {
+    top: 11%;
     position: sticky;
     background: white;
 }
 
 h2 {
     text-align: center;
+    margin: 10px;
 }
-
-.table {}
 </style>

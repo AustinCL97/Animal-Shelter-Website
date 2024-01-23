@@ -4,7 +4,7 @@
         <audio autoplay src="../media/who-let-the-dogs-out-song.mp3" type="audio/mp3"></audio>
     </div>
     <div class="pet-list">
-      <pet-card v-for="pet in pets" v-bind:key="pet.id" v-bind:pet="pet" ></pet-card>
+      <pet-card v-for="pet in pets" v-bind:key="pet.id" v-bind:pet="pet" class="slide-in" ></pet-card>
     </div>
   </template>
   <script>
@@ -43,7 +43,24 @@
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    opacity: 0;
+    animation: slideInFromRight 1s forwards;
   }
+
+  @keyframes slideInFromRight {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .slide-in {
+    animation: slideInFromRight 1s forwards;
+  }
+  
   .adopt{
     background-color: red;
   }
