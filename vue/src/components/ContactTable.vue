@@ -1,54 +1,46 @@
 <template>
-  <div class="container">
-    <h2>Volunteer Contact List</h2>
-    <div class="table">
-        <table id="volunteer-contact">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
-                    <th>Role</th>
+    <div class="container">
+        <h2>Volunteer Contact List</h2>
+        <div class="table">
+            <table id="volunteer-contact">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>Roll</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="search">
+                        <td>
+                            <input v-model="filter.name" id="nameFilter" type="text">
+                        </td>
+                        <td>
+                            <input v-model="filter.email" id="emailFilter" type="text">
+                        </td>
+                        <td>
+                            <input v-model="filter.phone" id="phoneFilter" type="text">
+                        </td>
 
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="search">
-                    <td>
-                        <input v-model="filter.name" id="nameFilter" type="text">
-                    </td>
-                    <td>
-                        <input v-model="filter.email" id="emailFilter" type="text">
-                    </td>
-                    <td>
-                        <input v-model="filter.phone" id="phoneFilter" type="text">
-                    </td>
-                    <td>
-                        <div></div>
-                    </td>
-       
-                </tr>
-                <tr
-                v-for="volunteer in filteredList"
-                v-bind:key="volunteer.userId"
-                v-bind:volunteer="volunteer"
-                >
-                    <td>{{ volunteer.appName }}</td>
-                    <td>{{ volunteer.appEmail }}</td>
-                    <td>{{ volunteer.appPhoneNumber }}</td>
-                    <td>{{ getRole(volunteer.userId) }}</td>
-                </tr>
-            </tbody>
-        </table>
+                    </tr>
+                    <tr v-for="volunteer in filteredList" v-bind:key="volunteer.userId" v-bind:volunteer="volunteer">
+                        <td>{{ volunteer.appName }}</td>
+                        <td>{{ volunteer.appEmail }}</td>
+                        <td>{{ volunteer.appPhoneNumber }}</td>
+                        <td>{{ getRole(volunteer.userId) }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
 import ApplicationService from '../services/ApplicationService';
 export default {
-    data(){
-        return{
+    data() {
+        return {
             selectedVolunteerIds: [],
             filter: {
                 name: "",
@@ -56,38 +48,38 @@ export default {
                 phone: "",
 
             },
-           
+
         }
     },
-    created(){
+    created() {
         this.refresh()
     },
     computed: {
-        volunteers(){
-          return this.$store.state.volunteers;
+        volunteers() {
+            return this.$store.state.volunteers;
         },
-        users(){
+        users() {
             return this.$store.state.users;
         },
-        filteredList(){
+        filteredList() {
             let volunteers = this.$store.state.volunteers;
-            let filteredVolunteers = volunteers.filter((volunteer) => 
+            let filteredVolunteers = volunteers.filter((volunteer) =>
                 volunteer.status.toLowerCase().includes("approved")
             )
 
-            if(this.filter.name != ""){
+            if (this.filter.name != "") {
                 filteredVolunteers = filteredVolunteers.filter((volunteer) =>
                     volunteer.appName.toLowerCase().includes(this.filter.name.toLowerCase())
                 )
             }
 
-            if(this.filter.email != ""){
-                filteredVolunteers = filteredVolunteers.filter((volunteer) => 
+            if (this.filter.email != "") {
+                filteredVolunteers = filteredVolunteers.filter((volunteer) =>
                     volunteer.appEmail.toLowerCase().includes(this.filter.email.toLowerCase())
                 )
             }
 
-            if(this.filter.phone != ""){
+            if (this.filter.phone != "") {
                 filteredVolunteers = filteredVolunteers.filter((volunteer) =>
                     volunteer.appPhoneNumber.includes(this.filter.phone)
                 )
@@ -95,14 +87,14 @@ export default {
 
             return filteredVolunteers;
         },
-    
+
     },
     methods: {
-        refresh(){
+        refresh() {
             ApplicationService.getApplications().then(
                 (response) => {
                     this.$store.commit("SET_VOLUNTEERS", response.data)
-                    
+
                     ApplicationService.getUsers().then(
                         (response) => {
                             this.$store.commit("SET_USERS", response.data)
@@ -110,20 +102,20 @@ export default {
                     )
                 }
             )
-           
+
         },
-        getRole(userId){
-           let user = this.users.find((user) =>
+        getRole(userId) {
+            let user = this.users.find((user) =>
                 user.userId = userId
-           )
-           if(user){
-                 return user.authorities[0].name;
+            )
+            if (user) {
+                return user.authorities[0].name;
 
-           }
+            }
 
-           return "Role Not Found"
+            return "Role Not Found"
         }
-       
+
     }
 }
 </script>
@@ -141,9 +133,10 @@ tr:nth-child(odd){
     border-radius: 5px;
     height: 300px;
     width: 775px;
-   
+
 }
-.table{
+
+.table {
     overflow-y: scroll;
     max-height: 300px;
     display: flex; 
@@ -161,19 +154,19 @@ th, td {
     text-align: left;
 }
 
-table thead{
+table thead {
     top: 0%;
     position: sticky;
     background: white;
 }
-.search{
+
+.search {
     position: sticky;
     background: white;
 }
 
-h2{
+h2 {
     text-align: center;
     margin: 10px;
 }
-
 </style>

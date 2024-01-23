@@ -119,6 +119,7 @@ body, html {
   background-color: #FFE5CA;
   margin-top: -10px;
   padding-top: 10px;
+  background: transparent;
 }
 
 .search label{
@@ -129,7 +130,5 @@ body, html {
   padding: 10px;
 }
 
-.page{
-  background-color: #FFF3E2;
-}
+
 </style>

@@ -2,7 +2,7 @@
 <template>
     <div class="admin-container">
 
-        <div>Volunteer and Admin List
+        <div>
             <VolunteerTable></VolunteerTable>
         </div>
 
