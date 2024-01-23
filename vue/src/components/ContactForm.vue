@@ -1,8 +1,8 @@
 <template>
   
 <form>
-    <div>
-        <div>
+    <div class="main">
+        <div class="second">
         <h2>Send us an email!</h2>
         <h5 v-on:click="copyToClipboard()">JustinParker@ParkersPets.com</h5>
         <label>Name </label>
@@ -58,12 +58,25 @@ p{
 h1, h2{
     text-decoration: underline;
 }
+h2{
+    padding: 0px;
+    margin: 0px;
+}
 .message{
   width: 20vw;
   height: 10vh;
   text-align: left;
   resize: none;
   overflow: auto;
+}
+.main{
+    background-color: rgb(157, 171, 134);
+}
+.second{
+    background-color: rgb(222, 215, 177);
+}
+button{
+    margin: 10px;
 }
 
 </style>

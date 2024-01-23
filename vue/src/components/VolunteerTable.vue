@@ -165,21 +165,24 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 tr:nth-child(even){
-    background-color: #d3d3d3;
+    background-color: #c2c2c2;
+}
+tr:nth-child(odd){
+    background-color: #ffffff;
 }
 .container{
-    
+    background-color: rgb(157, 171, 134, 0.7);
     border: 2px solid black;
     border-radius: 5px;
-    height: 150px;
+    height: 300px;
     width: 775px;
    
 }
 .table{
     overflow-y: scroll;
-    max-height: 150px;
+    max-height: 300px;
    
 }
 
@@ -205,7 +208,5 @@ table thead{
     background-color: #fff;
     z-index: 1;
 }
-
-
 
 </style>
