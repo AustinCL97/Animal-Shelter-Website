@@ -8,7 +8,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone Number</th>
-                    <th>Roll</th>
+                    <th>Role</th>
 
                 </tr>
             </thead>
@@ -22,6 +22,9 @@
                     </td>
                     <td>
                         <input v-model="filter.phone" id="phoneFilter" type="text">
+                    </td>
+                    <td>
+                        <div></div>
                     </td>
        
                 </tr>
@@ -127,19 +130,35 @@ export default {
 
 <style>
 tr:nth-child(even){
-    background-color: #d3d3d3;
+    background-color: #c2c2c2;
+}
+tr:nth-child(odd){
+    background-color: #ffffff;
 }
 .container{
+    background-color: rgb(157, 171, 134, 0.7);
     border: 2px solid black;
     border-radius: 5px;
-    height: 250px;
+    height: 300px;
     width: 775px;
    
 }
 .table{
     overflow-y: scroll;
-    max-height: 150px;
-   
+    max-height: 300px;
+    display: flex; 
+    justify-content: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
 }
 
 table thead{
@@ -154,5 +173,7 @@ table thead{
 
 h2{
     text-align: center;
+    margin: 10px;
 }
+
 </style>

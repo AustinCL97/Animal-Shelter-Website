@@ -14,9 +14,11 @@
             <input type="text" v-model="volunteer.appEmail" id="volunteerEmail" class="form-input" />
     </div>
     <input type="submit" class="submit-button" />
+    
     <div v-if="$store.state.user.authorities && ($store.state.user.authorities[0].name === 'ROLE_VOLUNTEER' || $store.state.user.authorities[0].name === 'ROLE_ADMIN')" class="links" v-bind:to="{name: 'admin'}" >
-        <ContactTable></ContactTable>
+        <ContactTable class="volunteer-table"></ContactTable>
     </div>
+   
 </form>    
 
 </template>
@@ -56,7 +58,7 @@ export default {
 .volunteer-form {
     max-width: 400px;
     margin: 0 auto;
-    background:fixed;
+    text-align: center;
     }
 
 .form-group {
@@ -90,5 +92,10 @@ export default {
 }
 .submit-button:hover {
     background-color: #45a049;
+}
+.volunteer-table {
+  margin: 0 auto;
+  text-align: center;
+  
 }
 </style>

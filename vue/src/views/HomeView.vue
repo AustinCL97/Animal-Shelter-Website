@@ -42,9 +42,7 @@ export default {
 </script>
 
 <style scoped>
-.name{
 
-}
  h1{
   color: rgb(118, 69, 59);
   justify-content: center;
