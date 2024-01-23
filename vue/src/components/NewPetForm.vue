@@ -4,27 +4,27 @@
             <div class="add">Add/Update Pet</div>
             <div>
                 <label>Pet Name:</label>
-                <input v-model="pet.petName" type="text">
+                <input class="input" v-model="pet.petName" type="text">
             </div>
 
             <div>
                 <label>Breed:</label>
-                <input v-model="pet.petBreed" type="text">
+                <input class="input" v-model="pet.petBreed" type="text">
             </div>
 
             <div>
                 <label>Color:</label>
-                <input v-model="pet.petColor" type="text">
+                <input class="input" v-model="pet.petColor" type="text">
             </div>
 
             <div>
                 <label>Age in Years:</label>
-                <input v-model="pet.petAge" type="number">
+                <input class="input" v-model="pet.petAge" type="number">
             </div>
-           
+
             <div class="radio">
                 <label for="available">Available</label>
-                <input name="isAvailable" type="radio" id="available" v-model="pet.available" value=true>
+                <input name="isAvailable" type="radio" id="available" v-model="pet.available" value=true> |
 
                 <label for="unavailable">Unavailable</label>
                 <input name="isAvailable" type="radio" id="unavailable" v-model="pet.available" value=false>
@@ -32,29 +32,33 @@
 
             <div>
                 <label>Weight:</label>
-                <input v-model="pet.petWeight" type="number">
+                <input class="input" v-model="pet.petWeight" type="number">
             </div>
+
             <div>
                 <label>ZIP Code:</label>
-                <input v-model="pet.zipCode" type="number">
+                <input class="input" v-model="pet.zipCode" type="number">
             </div>
+
             <div>
                 <label>City:</label>
-                <input v-model="pet.petCity" type="text">
+                <input class="input" v-model="pet.petCity" type="text">
             </div>
             <div>
                 <label>State:</label>
-                <input v-model="pet.petState" type="text">
+                <input class="input" v-model="pet.petState" type="text">
             </div>
             <div>
                 <label class="desc-label">Description:</label>
                 <textarea class="desc" v-model="pet.petDescription" maxlength="500"></textarea>
             </div>
-        
-            Pet Id:<input type="number" v-model.number="pet.petId">
+            <div>
+                Pet Id:<input class="input" type="number" v-model.number="pet.petId">
+            </div>
+
             <div>
                 <label>Adopted by:</label>
-                <input v-model="pet.adoptedBy" type="text">
+                <input class="input" v-model="pet.adoptedBy" type="text">
             </div>
 
             <input id="submit" type="submit" v-on:click.prevent="addPet()">
@@ -81,17 +85,17 @@ export default {
                 }
             )
         },
-        addPet(){
-            if(!this.pet.petId){
+        addPet() {
+            if (!this.pet.petId) {
                 this.createPet();
             } else {
                 this.updatePet();
             }
         },
-        updatePet(){
+        updatePet() {
             PetService.updatePetListing(this.pet, this.pet.petId).then(
-                (response) =>{
-                    this.$router.push({name: 'pets'})
+                (response) => {
+                    this.$router.push({ name: 'pets' })
                 }
             )
         }
@@ -104,7 +108,10 @@ export default {
 </script>
 
 <style scoped>
-div .form{
+div{
+    margin: 5px;
+}
+div .form {
     display: flex;
     align-content: center;
     justify-content: center;
@@ -115,41 +122,73 @@ div .form{
     background-color: rgb(157, 171, 134, 0.7);
     padding: 10px;
     margin: 2px;
-    
+
 }
-div .form input{
+
+div .form input {
     display: flex;
     align-content: center;
     justify-content: center;
 }
-.radio{
+
+.radio {
     display: flex;
     justify-content: center;
     padding: 2px;
+    justify-content: space-evenly;
+    margin: 10px;
 }
-input{
+
+input {
     margin: 2px;
 }
-.desc{
+
+.desc {
     text-align: left;
     resize: none;
     overflow: auto;
-    width: 169px;
     height: 5vh;
-    
+    width: 300px;
+
+
 }
-.desc-label{
+
+.desc-label {
     display: flex;
     align-content: flex-start;
 }
-.add{
+
+.add {
+    display: flex;
+    justify-content: center;
+    align-content: center;
     font-weight: bolder;
     text-decoration: underline;
     margin-bottom: 10px;
-}
-#submit{
-  margin-top: 10px;
+    width: 325px;
+    text-align: center;
+    margin: 5px;
+    font-size: 25px;
+    color: rgb(0, 66, 37)
 }
 
+#submit {
+    display: flex;
+    justify-content: space-evenly;
+     padding: 12px 24px;
+     margin-top: 20px;
+     background:linear-gradient(to right, #e74c3c, #c0392b);
+     color: rgb(222, 215, 177);
+     text-decoration: none;
+     border-radius: 5px;
+     transition: background-color 0.4s ease;
+     border-radius: 25px;
+     width: 200px;
+     font-size: 18px;
+     font-weight: bold;
+}
 
-</style>
+.input {
+    width: 300px;
+    height: 2vh;
+}</style>

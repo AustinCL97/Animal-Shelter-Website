@@ -13,7 +13,7 @@
             <add-photo-form-vue></add-photo-form-vue>
         </div>
 
-        <div>User/Admin Management
+        <div>
 
             <UserTable></UserTable>
         </div>

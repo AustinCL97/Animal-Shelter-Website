@@ -5,6 +5,7 @@
   <div class="search">
     <span>
       <label for="name-filter">Name</label>
+<<<<<<< HEAD
       <input v-model="filter.name" id="name-filter" type="text" class="input-large">
     </span>
     <span>
@@ -18,6 +19,21 @@
     <span>
       <label for="age-filter">Age In Years</label>
       <input v-model="filter.age" type="number" class="input-large">
+=======
+      <input  v-model="filter.name" id="name-filter" type="text" class="input">
+    </span>
+    <span>
+      <label for="breed-filter">Breed</label>
+      <input v-model="filter.breed" id="breed-filter" type="text" class="input">
+    </span>
+    <span>
+      <label for="color-filter">Color</label>
+      <input v-model="filter.color" id="color-filter" type="text" class="input">
+    </span>
+    <span>
+      <label for="age-filter">Age In Years</label>
+      <input v-model="filter.age" type="number" class="input">
+>>>>>>> 4db67bd117ae591d10daad9f04db67f6b1aa996c
     </span>
   </div>
 
@@ -120,9 +136,13 @@ body, html {
   margin-top: -10px;
   padding-top: 10px;
   background: transparent;
+<<<<<<< HEAD
   position: sticky;
   top: 0;
   z-index: 1;
+=======
+
+>>>>>>> 4db67bd117ae591d10daad9f04db67f6b1aa996c
 }
 
 .search label{
@@ -131,6 +151,12 @@ body, html {
 }
 .search span{
   padding: 10px;
+}
+.input{
+  
+  width: 175px;
+  height: 25px;
+  margin:5px;
 }
 
 .input-large {
