@@ -12,7 +12,7 @@
 
    <section>
       <h2>Mission Statement</h2>
-        <p>
+        <p class="mission-statement">
           Parker's Pet Animal Shelter is dedicated to providing a safe and loving <br>
           haven for animals in need. Our mission is to rescue, rehabilitate, and <br>
           re-home pets, fostering a compassionate community that values the well-being of <br>
@@ -50,6 +50,27 @@ export default {
  }
  h2{
   text-align: center;
+ }
+
+ .mission-statement {
+   text-align: center;
+   padding: 15px;
+   display: -webkit-box;
+   -webkit-line-clamp: 5;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   animation: fadeInUp 1s ease-out;
+ }
+
+ @keyframes fadeInUp {
+   from {
+     opacity: 0;
+     transform: translateY(20px);
+   }
+   to {
+     opacity: 1;
+     transform: translateY(0);
+   }
  }
 
  p{
