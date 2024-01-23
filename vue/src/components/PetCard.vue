@@ -76,8 +76,10 @@ export default {
           (response) => {
            
             this.$router.push({name: 'details'});
-            this.$store.commit('UPDATE_PETS', false)
+            this.$store.commit('UPDATE_PETS', false);
+            alert("Thanks for adopting. Come Again!")
           }
+          
         )
     },
 
@@ -99,15 +101,15 @@ export default {
 
 <style scoped>
 .card {
-  border: 4px solid black;
-  border-radius: 10px;
+  border: 5px solid black;
+  border-radius: 30px;
   width: 450px;
-  height: 750px;
+  height: 950px;
   margin: 20px;
   text-align: center;
-  background: lightgray;
-
-
+  background: rgb(157, 171, 134);
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 10px 10px 20px 10px rgb(204, 115, 81);
 }
 
 .photo-container {
@@ -120,9 +122,10 @@ export default {
   height: 300px;
   border-radius: 30px;
   object-fit: cover;
-  border: 5px rgb(82, 120, 83)solid;
+  border: 3px black solid;
   display: block;
   margin: 0 auto;
+  box-shadow: 5px 5px 10px rgb(222, 215, 177);
 }
 
 .description {
@@ -153,5 +156,9 @@ button {
   border-radius: 30px;
   height: 30px;
   width: 200px;
+  
+}
+.description{
+  height: 150px;
 }
 </style>
