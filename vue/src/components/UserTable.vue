@@ -29,12 +29,6 @@
                 <input v-model="filter.role" type="text" id="role">
             </td>
             
-            <td>
-                <p></p>
-            </td>
-            <td>
-                <p></p>
-            </td>
             </tr>
             
             <tr
@@ -115,6 +109,47 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+tr:nth-child(even){
+    background-color: #c2c2c2;
+}
+tr:nth-child(odd){
+    background-color: #ffffff;
+}
+.container{
+    background-color: rgb(157, 171, 134, 0.7);
+    border: 2px solid black;
+    border-radius: 5px;
+    height: 300px;
+    width: 775px;
+   
+}
+.table{
+    overflow-y: scroll;
+    max-height: 300px;
+   
+}
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+table thead{
+    top: 0%;
+    position: sticky;
+    background: white;
+}
+.search{
+    top: 0;
+    position: sticky;
+    background-color: #fff;
+    z-index: 1;
+}
 </style>
