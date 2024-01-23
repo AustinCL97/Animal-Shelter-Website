@@ -8,6 +8,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone Number</th>
+                    <th>Roll</th>
 
                 </tr>
             </thead>
@@ -32,6 +33,7 @@
                     <td>{{ volunteer.appName }}</td>
                     <td>{{ volunteer.appEmail }}</td>
                     <td>{{ volunteer.appPhoneNumber }}</td>
+                    <td>{{ getRole(volunteer.userId) }}</td>
                 </tr>
             </tbody>
         </table>
@@ -50,7 +52,8 @@ export default {
                 email: "",
                 phone: "",
 
-            }
+            },
+           
         }
     },
     created(){
@@ -59,6 +62,9 @@ export default {
     computed: {
         volunteers(){
           return this.$store.state.volunteers;
+        },
+        users(){
+            return this.$store.state.users;
         },
         filteredList(){
             let volunteers = this.$store.state.volunteers;
@@ -85,17 +91,36 @@ export default {
             }
 
             return filteredVolunteers;
-        }
+        },
+    
     },
     methods: {
         refresh(){
             ApplicationService.getApplications().then(
                 (response) => {
                     this.$store.commit("SET_VOLUNTEERS", response.data)
+                    
+                    ApplicationService.getUsers().then(
+                        (response) => {
+                            this.$store.commit("SET_USERS", response.data)
+                        }
+                    )
                 }
             )
+           
         },
-        //NICE TO HAVE: method to copy emails/phone numbers to clip board
+        getRole(userId){
+           let user = this.users.find((user) =>
+                user.userId = userId
+           )
+           if(user){
+                 return user.authorities[0].name;
+
+           }
+
+           return "Role Not Found"
+        }
+       
     }
 }
 </script>
