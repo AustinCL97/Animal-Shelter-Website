@@ -117,8 +117,13 @@ body, html {
   justify-content: center;
   width: 100%;
   background-color: #FFE5CA;
+<<<<<<< HEAD
+  margin-top: 0%;
+
+=======
   margin-top: -10px;
   padding-top: 10px;
+>>>>>>> 64eaf277eaf33134bfc1a558132d52c717594fc2
 }
 
 .search label{

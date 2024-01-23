@@ -3,7 +3,7 @@ Adoption Form: - PetCard
 <template>
   <div class="card">
 
-    <h2>Name: {{ pet.petName }}</h2>
+    <h1>{{ pet.petName }}</h1>
     <h3 v-if="pet.available === false">Adopted By: {{ pet.adoptedBy }}</h3>
     <h3>Breed: {{ pet.petBreed }}</h3>
     <h3>Age: {{ pet.petAge }} Years</h3>
@@ -16,9 +16,9 @@ Adoption Form: - PetCard
       <button @click="nextPhoto" class="arrow">❯</button>
     </div>
     <h4>Color: {{ pet.petColor }}</h4>
-    <h5>Weight: {{ pet.petWeight }}lbs</h5>
-    <p>City: {{ pet.petCity }}</p>
-    <p>State/Zip: {{ pet.petState }}, {{ pet.zipCode }}</p>
+    <h4>Weight: {{ pet.petWeight }}lbs</h4>
+    <h4>City: {{ pet.petCity }}</h4>
+    <h4>State/Zip: {{ pet.petState }}, {{ pet.zipCode }}</h4>
 
     <div class="description">
       <p>{{ pet.petDescription }}</p>
@@ -108,8 +108,9 @@ export default {
   margin: 20px;
   text-align: center;
   background: rgb(157, 171, 134);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial;
   box-shadow: 10px 10px 20px 10px rgb(204, 115, 81);
+  text-decoration-color: black;
 }
 
 .photo-container {
@@ -130,7 +131,8 @@ export default {
 
 .description {
   overflow-y: scroll;
-  height: 100px;
+  height: 120px;
+  padding-bottom: 20px;
 }
 
 .arrow {
@@ -153,11 +155,27 @@ export default {
 }
 
 button {
-  border-radius: 30px;
-  height: 30px;
-  width: 200px;
-  
+
+     display: inline-block;
+     padding: 12px 24px;
+     margin-top: 20px;
+     background:linear-gradient(to right, #e74c3c, #c0392b);
+     color: rgb(222, 215, 177);
+     text-decoration: none;
+     border-radius: 5px;
+     transition: background-color 0.4s ease;
+     border-radius: 25px;
+     width: 200px;
+
 }
+
+ p{
+     font-size: 20px;
+     line-height: 1.4;
+     color: black;
+    font-style: italic;
+ }
+
 .description{
   height: 150px;
 }
