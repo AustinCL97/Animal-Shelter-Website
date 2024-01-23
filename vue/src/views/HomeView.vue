@@ -21,7 +21,6 @@
         </p>
     </section>
   </div>
-
 </template>
 
 <script>
@@ -59,7 +58,7 @@ export default {
    -webkit-line-clamp: 5;
    -webkit-box-orient: vertical;
    overflow: hidden;
-   animation: fadeInUp 1s ease-out;
+   animation: fadeInUp 1s ease-out, pulse 2s infinite;
  }
 
  @keyframes fadeInUp {
@@ -70,6 +69,15 @@ export default {
    to {
      opacity: 1;
      transform: translateY(0);
+   }
+ }
+
+ @keyframes pulse {
+   0%, 100% {
+     transform: scale(1);
+   }
+   50% {
+     transform: scale(1.1);
    }
  }
 
