@@ -60,6 +60,7 @@ h1, h2{
 }
 h2{
     padding: 0px;
+    margin: 0px;
 }
 .message{
   width: 20vw;
@@ -73,6 +74,9 @@ h2{
 }
 .second{
     background-color: rgb(222, 215, 177);
+}
+button{
+    margin: 10px;
 }
 
 </style>
