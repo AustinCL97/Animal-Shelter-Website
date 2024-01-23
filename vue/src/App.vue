@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     showSmiley() {
-      this.smiley = '😁';
+      this.smiley = '😁🐶';
     },
     hideSmiley() {
       this.smiley = '';
@@ -54,8 +54,8 @@ export default {
   align-items: center; 
 }
 
-.footer:hover h1::after {
-  content: "😁";
+.footer:hover h1::before {
+  content: "😻😁";
 }
 
 .img{
