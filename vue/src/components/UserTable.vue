@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <div class="table">
+        <div class="user-container">User/Admin Management</div>
     <table id="users">
         <thead>
             <tr>
@@ -120,9 +121,16 @@ tr:nth-child(odd){
     background-color: rgb(157, 171, 134, 0.7);
     border: 2px solid black;
     border-radius: 5px;
-    height: 300px;
-    width: 775px;
-   
+    height: 350px;
+    width: 1000px;
+    margin: 15px;
+}
+.user-container{
+    font-weight: bolder;
+    margin: 5px;
+    text-decoration: underline;
+    font-size: 25px;
+    color: rgb(0, 66, 37)
 }
 .table{
     overflow-y: scroll;
