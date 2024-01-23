@@ -43,9 +43,10 @@ export default {
 
 <style scoped>
  h1{
-  color: rgb(238, 114, 20);
+  color: rgb(118, 69, 59);
   justify-content: center;
   text-align: center;
+  font-size: 50px;
  }
  h2{
   text-align: center;
