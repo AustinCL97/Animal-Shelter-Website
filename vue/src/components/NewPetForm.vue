@@ -30,7 +30,7 @@
             </div>
 
             <div>
-                <label>Weight</label>
+                <label>Weight:</label>
                 <input v-model="pet.petWeight" type="number">
             </div>
             <div>
@@ -46,12 +46,18 @@
                 <input v-model="pet.petState" type="text">
             </div>
             <div>
-                <label>Description:</label>
-                <input v-model="pet.petDescription" type="textarea" rows="5" cols="33" maxlength="10000">
+                <label class="desc-label">Description:</label>
+                <textarea class="desc" v-model="pet.petDescription" maxlength="500"></textarea>
             </div>
+        
             Pet Id:<input type="number" v-model.number="pet.petId">
+            <div>
+                <label>Adopted by:</label>
+                <input v-model="pet.adoptedBy" type="text">
+            </div>
 
             <input type="submit" v-on:click.prevent="addPet()">
+
         </form>
     </div>
 </template>
@@ -96,4 +102,44 @@ export default {
 
 </script>
 
-<style></style>
+<style scoped>
+div .form{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 5px;
+    background-color: rgb(157, 171, 134, 0.7);
+    padding: 10px;
+    margin: 2px;
+    
+}
+div .form input{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.radio{
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+}
+input{
+    margin: 2px;
+}
+.desc{
+    text-align: left;
+    resize: none;
+    overflow: auto;
+    width: 169px;
+    height: 5vh;
+    
+}
+.desc-label{
+    display: flex;
+    align-content: flex-start;
+}
+
+</style>
