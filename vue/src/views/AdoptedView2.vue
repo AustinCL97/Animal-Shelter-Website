@@ -1,6 +1,7 @@
 <template>
     <div>
         <h1>Celebrate our Adopted Animals</h1>
+        <audio autoplay src="../media/who-let-the-dogs-out-song.mp3" type="audio/mp3"></audio>
     </div>
     <div class="pet-list">
       <pet-card v-for="pet in pets" v-bind:key="pet.id" v-bind:pet="pet" ></pet-card>

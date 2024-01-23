@@ -92,7 +92,7 @@ public class JdbcUserDao implements UserDao {
         int userId = 0;
         String sql = "SELECT user_id\n" +
                 "FROM users\n" +
-                "WHERE username = ?;";
+                "WHERE name = ?;";
         try{
             userId = jdbcTemplate.queryForObject(sql, Integer.class, username);
 

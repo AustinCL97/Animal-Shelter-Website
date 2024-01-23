@@ -43,13 +43,22 @@ export default {
 }
 </script>
 
-<style>
-.photo-form{
-    height: 250px;
-    widows: 400px;
+<style scoped>
+
+div .photo-form{
+    display: flex;
+    align-content: center;
+    justify-content: center;
     border-style: solid;
     border-width: 2px;
     border-color: black;
     border-radius: 5px;
+    background-color: rgb(157, 171, 134, 0.7);
+    padding: 10px;
+    margin: 2px;
+}
+input{
+    display: flex;
+    justify-content: center;
 }
 </style>
