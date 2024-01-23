@@ -123,10 +123,10 @@ table thead{
     background: white;
 }
 .search{
-    top: 20px;
     position: sticky;
     background: white;
 }
+
 h2{
     text-align: center;
 }

@@ -86,19 +86,30 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped> 
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
 .pet-list{
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
+
 .search{
   display: flex;
   justify-content: center;
   width: 100%;
   background-color: #FFE5CA;
+<<<<<<< HEAD
   margin-top: 0%;
 
+=======
+  margin-top: -10px;
+  padding-top: 10px;
+>>>>>>> 64eaf277eaf33134bfc1a558132d52c717594fc2
 }
 
 .search label{
