@@ -1,6 +1,7 @@
 <template>
     <div class="form" v-on:submit.prevent="addPet()">
         <form>
+            <div class="add">Add/Update Pet</div>
             <div>
                 <label>Pet Name:</label>
                 <input v-model="pet.petName" type="text">
@@ -141,5 +142,11 @@ input{
     display: flex;
     align-content: flex-start;
 }
+.add{
+    font-weight: bolder;
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+
 
 </style>

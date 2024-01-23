@@ -7,8 +7,9 @@
         </div>
 
         <div>
-            <div>Add/Update Pet</div>
+    
             <new-pet-form></new-pet-form>
+           
             <add-photo-form-vue></add-photo-form-vue>
         </div>
 

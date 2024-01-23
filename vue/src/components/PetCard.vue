@@ -166,6 +166,8 @@ button {
      transition: background-color 0.4s ease;
      border-radius: 25px;
      width: 200px;
+     font-size: 18px;
+     font-weight: bold;
 
 }
 

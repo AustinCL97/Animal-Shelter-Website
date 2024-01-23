@@ -1,6 +1,8 @@
 <template>
   <div class="photo-form" v-on:submit="addPhoto()">
     <form>
+        <div id="upload">Upload Photos</div>
+        <br>
         <div>
             <label>Photo URL:</label>
             <input type="text" v-model="newPhoto.photoUrl">
@@ -60,5 +62,9 @@ div .photo-form{
 input{
     display: flex;
     justify-content: center;
+}
+#upload{
+  font-weight: bolder;
+  text-decoration: underline;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Explore the Paw-sibilities   <br/>at Parker's Pet Haven!</h1>
+    <h1 class="name">Explore the Paw-sibilities   <br/>at Parker's Pet Haven!</h1>
     <div v-if="!isLoggedIn">
       <router-link to="/login">Login Now</router-link> |
       <router-link to="/register">Register</router-link> |
@@ -36,18 +36,24 @@ export default {
     isLoggedIn(){
       return this.$store.state.token !== '';
     }
-  }
+  },
 
 };
 </script>
 
 <style scoped>
+.name{
+
+}
  h1{
   color: rgb(118, 69, 59);
   justify-content: center;
   text-align: center;
   font-size: 50px;
+
  }
+
+
  h2{
   text-align: center;
  }
@@ -86,6 +92,7 @@ export default {
   text-align: center;
   padding: 15px;
  }
+
 
  
 </style>
