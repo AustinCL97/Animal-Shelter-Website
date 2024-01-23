@@ -21,7 +21,7 @@
     </span>
   </div>
 
-  <div class="pet-list">
+  <div class="pet-list" v-if="showPetList"> 
     <PetCard v-for="pet in filteredList" v-bind:key="pet.petId" v-bind:pet="pet"></PetCard>
   </div>
   
@@ -41,8 +41,9 @@ export default {
         breed: "",
         color: "",
         age: "",
-      }
-    }
+      },
+      showPetList: false,
+    };
   },
   computed: {
     pets(){
@@ -79,10 +80,11 @@ export default {
    created() {
      PetService.getAdoptablePets().then(
        (response) => {
-         this.$store.commit("SET_PETS", response.data)
+         this.$store.commit("SET_PETS", response.data);
+         this.showPetList = true;
        }
      )
-   }
+   },
 }
 </script>
 
@@ -96,6 +98,18 @@ body, html {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  opacity: 0;
+  animation: slideInFromLeft 1s forwards; 
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .search{
