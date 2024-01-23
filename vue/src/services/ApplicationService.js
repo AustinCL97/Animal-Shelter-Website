@@ -34,6 +34,10 @@ export default {
     getUsers(){
         const url = 'users'
         return axios.get(url)
+    },
+    getUserById(id){
+        const url  = '/users/adopted/' + id;
+        return axios.get(url)
     }
 
 }
