@@ -2,7 +2,7 @@
 <template>
     <div class="admin-container">
 
-        <div>Volunteer and Admin List
+        <div>
             <VolunteerTable></VolunteerTable>
         </div>
 
@@ -13,7 +13,7 @@
             <add-photo-form-vue></add-photo-form-vue>
         </div>
 
-        <div>User/Admin Management
+        <div>
 
             <UserTable></UserTable>
         </div>
