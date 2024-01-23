@@ -129,7 +129,5 @@ body, html {
   padding: 10px;
 }
 
-.page{
-  background-color: #FFF3E2;
-}
+
 </style>

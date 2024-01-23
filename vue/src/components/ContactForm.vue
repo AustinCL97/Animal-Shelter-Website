@@ -1,6 +1,7 @@
 <template>
   
 <form>
+    
     <div class="main">
         <div class="second">
         <h2>Send us an email!</h2>
