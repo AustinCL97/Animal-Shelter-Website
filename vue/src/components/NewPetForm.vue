@@ -57,7 +57,7 @@
                 <input v-model="pet.adoptedBy" type="text">
             </div>
 
-            <input type="submit" v-on:click.prevent="addPet()">
+            <input id="submit" type="submit" v-on:click.prevent="addPet()">
 
         </form>
     </div>
@@ -146,6 +146,9 @@ input{
     font-weight: bolder;
     text-decoration: underline;
     margin-bottom: 10px;
+}
+#submit{
+  margin-top: 10px;
 }
 
 

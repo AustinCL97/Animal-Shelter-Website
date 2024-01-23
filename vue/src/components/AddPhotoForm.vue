@@ -11,7 +11,7 @@
             <label>Pet ID</label>
             <input type="text" v-model="newPhoto.petId">
         </div>
-        <input type="submit" v-on:click.prevent="addPhoto()">
+        <input id="submit" type="submit" v-on:click.prevent="addPhoto()">
     </form>
   </div>
 </template>
@@ -62,9 +62,14 @@ div .photo-form{
 input{
     display: flex;
     justify-content: center;
+
 }
 #upload{
   font-weight: bolder;
   text-decoration: underline;
+}
+
+#submit{
+  margin-top: 10px;
 }
 </style>
