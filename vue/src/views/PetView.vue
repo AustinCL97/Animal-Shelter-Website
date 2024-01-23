@@ -98,6 +98,7 @@ export default {
   width: 100%;
   background-color: #FFE5CA;
   margin-top: 0%;
+
 }
 
 .search label{
