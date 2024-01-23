@@ -55,7 +55,7 @@
                 <td>{{ volunteer.status }}</td>
                 <td>
                     <button v-on:click="approve(volunteer)" v-show="volunteer.status != 'Approved'">Approve</button>
-                    <button v-on:click="promote(volunteer.userId)" v-show="volunteer.status == 'Approved'">Make Admin</button>
+                    <button id="promote" v-on:click="promote(volunteer.userId)" v-show="volunteer.status == 'Approved' && !isHidden">Make Admin</button>
                 </td>
                 <td>
                     <button v-on:click="reject(volunteer)" v-show="volunteer.status != 'Approved' && volunteer.status != 'Rejected'">Reject</button>
@@ -81,7 +81,8 @@ export default {
                 email: "",
                 phone: "",
                 status: "",
-            }
+            },
+            isHidden: false
         }
     },
 
@@ -156,6 +157,7 @@ export default {
             ApplicationService.makeAdmin(id).then(
                 (response) => {
                     this.refresh();
+                    alert("Promoted to Admin")
                 }
             )
         }
@@ -186,10 +188,11 @@ table thead{
     background: white;
 }
 .search{
-    top: 30px;
+    top: 20px;
     position: sticky;
     background: white;
 }
+
 
 
 </style>
