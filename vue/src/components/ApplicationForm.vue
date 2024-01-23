@@ -1,15 +1,15 @@
 <template>
 <h1>Please Enter Volunteer Details</h1>
 <form v-on:submit.prevent="createApplication()" class="volunteer-form">
-    <div>
+    <div class="form-group">
         <label for="volunteerName"> Your Name</label>
             <input type="text" v-model="volunteer.appName" id="volunteerName" class="form-input" />
     </div>
-    <div>
+    <div class="form-group">
         <label for="volunteerPhoneNumber">Your Phone Number</label>
             <input type="text" v-model="volunteer.appPhoneNumber" id="volunteerPhoneNumber" class="form-input" />
     </div>
-     <div>
+     <div class="form-group">
         <label for="volunteerEmail">Your Email Address</label>
             <input type="text" v-model="volunteer.appEmail" id="volunteerEmail" class="form-input" />
     </div>
@@ -56,7 +56,8 @@ export default {
 .volunteer-form {
     max-width: 400px;
     margin: 0 auto;
-}
+    background:fixed;
+    }
 
 .form-group {
     margin-bottom: 20px;
