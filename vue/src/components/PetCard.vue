@@ -2,7 +2,7 @@ Adoption Form: - PetCard
 
 <template>
   <div class="card">
-  
+
     <h2>Name: {{ pet.petName }}</h2>
     <h3 v-if="pet.available === false">Adopted By: {{ pet.adoptedBy }}</h3>
     <h3>Breed: {{ pet.petBreed }}</h3>
@@ -10,24 +10,25 @@ Adoption Form: - PetCard
     <h3>Pet Id: {{ pet.petId }}</h3>
     <div class="photo-container">
       <button @click="prevPhoto" class="arrow">❮</button>
-    <div v-for="photo in photos" :key="photo.photoId" v-show="currentPhoto === photo">
-    <img class="photo" :src="photo.photoUrl" alt="pet photo">
-    </div>
-
-    <button @click="nextPhoto" class="arrow">❯</button>
+      <div v-for="photo in photos" :key="photo.photoId" v-show="currentPhoto === photo">
+        <img class="photo" :src="photo.photoUrl" alt="pet photo">
+      </div>
+      <button @click="nextPhoto" class="arrow">❯</button>
     </div>
     <h4>Color: {{ pet.petColor }}</h4>
     <h5>Weight: {{ pet.petWeight }}lbs</h5>
     <p>City: {{ pet.petCity }}</p>
     <p>State/Zip: {{ pet.petState }}, {{ pet.zipCode }}</p>
+
     <div class="description">
       <p>{{ pet.petDescription }}</p>
     </div>
-    <div class="buttons">
-      <button v-show="pet.available === true" class="adopt" v-on:click="this.$router.push({name: 'details'})">ADOPT ME</button>
-    </div>
-  </div>
 
+    <div class="buttons">
+      <button v-show="pet.available === true" class="adopt" v-on:click="adoptPet(pet, pet.petId)">ADOPT ME</button>
+    </div>
+
+  </div>
 </template>
 
 <script>
@@ -40,14 +41,18 @@ export default {
     return {
       photos: [],
       currentPhoto: null,
-      users: []
+      users: [],
+     
     }
   },
+  props:{
+    pet: Object,
+  },
   components: {
-    
+
   },
   computed: {
-     
+
   },
   methods: {
     nextPhoto() {
@@ -60,30 +65,34 @@ export default {
       const prevIndex = (currentIndex - 1 + this.photos.length) % this.photos.length;
       this.currentPhoto = this.photos[prevIndex];
     },
-    setToFalse(){
+    setToFalse() {
       this.condition = false;
     },
-    
-   
-    
-  },
-
-  props: {
-    pet: Object,
-    
+    adoptPet(pet, petId) {
+      
+        pet.available = false;
+        pet.adoptedBy = this.$store.state.user.name;
+        PetService.updatePetListing(pet, petId).then (
+          (response) => {
+           
+            this.$router.push({name: 'details'});
+            this.$store.commit('UPDATE_PETS', false)
+          }
+        )
+    },
 
   },
   created() {
-    if(this.pet.petId !== undefined) {
-    PhotoService.listPhotos(this.pet.petId).then(
-      (response) => {
-        if (response.data.length > 0) {
-          this.photos = response.data;
-          this.currentPhoto = this.photos[0];
+    if (this.pet.petId !== undefined) {
+      PhotoService.listPhotos(this.pet.petId).then(
+        (response) => {
+          if (response.data.length > 0) {
+            this.photos = response.data;
+            this.currentPhoto = this.photos[0];
+          }
         }
-      }
-    )
-  }
+      )
+    }
   }
 }
 </script>
@@ -97,7 +106,7 @@ export default {
   margin: 20px;
   text-align: center;
   background: lightgray;
-  
+
 
 }
 
@@ -115,7 +124,8 @@ export default {
   display: block;
   margin: 0 auto;
 }
-.description{
+
+.description {
   overflow-y: scroll;
   height: 100px;
 }
@@ -139,7 +149,7 @@ export default {
   right: 10px;
 }
 
-button{
+button {
   border-radius: 30px;
   height: 30px;
   width: 200px;

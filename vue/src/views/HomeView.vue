@@ -21,6 +21,7 @@
         </p>
     </section>
   </div>
+
 </template>
 
 <script>
@@ -37,6 +38,7 @@ export default {
       return this.$store.state.token !== '';
     }
   }
+
 };
 </script>
 
