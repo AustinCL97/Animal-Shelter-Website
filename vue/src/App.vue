@@ -20,11 +20,30 @@
     </div>
     
     <router-view />
+    <footer class="footer" @mouseover="showSmiley" @mouseout="hideSmiley">
+    <h1>Adopt, don't shop!{{ smiley }}</h1>
+    <p>© Parker's Pets Animal Shelter</p>
+  </footer>
     
   </div>
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      smiley: '',
+    }
+  },
+  methods: {
+    showSmiley() {
+      this.smiley = '😁';
+    },
+    hideSmiley() {
+      this.smiley = '';
+    }
+  }
+}
 
 </script>
 
@@ -32,8 +51,11 @@
 #capstone-app {
   display: flex;
   flex-direction: column;
-  align-items: center;
- 
+  align-items: center; 
+}
+
+.footer:hover h1::after {
+  content: "😁";
 }
 
 .img{
