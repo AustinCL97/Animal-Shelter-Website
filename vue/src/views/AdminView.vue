@@ -1,6 +1,6 @@
 
 <template>
-    <div  class="admin-container" v-if="$store.state.user.authorities && ($store.state.user.authorities[0].name === 'ROLE_ADMIN' )">
+    <div  class="admin-container" v-if="$store.state.user.authorities && ($store.state.user.authorities[0].name === 'ROLE_ADMIN' ) ">
 
         <div>
             <VolunteerTable></VolunteerTable>
