@@ -5,7 +5,7 @@
     <div class="main">
         <div class="second">
         <h2>Send us an email!</h2>
-        <h5 v-on:click="copyToClipboard()">JustinParker@ParkersPets.com</h5>
+        <h5 v-on:click="copyToClipboard()">parkerspets.shelter@gmail.com</h5>
         <label>Name </label>
             <input class="text" type="text" v-model="contactDetails.name" />
     
