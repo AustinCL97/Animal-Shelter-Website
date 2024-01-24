@@ -5,10 +5,10 @@
             <table id="volunteer-contact">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone Number</th>
-                        <th>Roll</th>
+                        <th>Name:</th>
+                        <th>Email:</th>
+                        <th>Phone Number:</th>
+                        <th>Role:</th>
                     </tr>
                 </thead>
                 <tbody>

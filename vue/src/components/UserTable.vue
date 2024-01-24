@@ -5,7 +5,7 @@
 
             <table id="users">
                 <thead>
-                    <tr>
+                    <tr id="headers">
 
                         <th>User ID</th>
                         <th>Username</th>
@@ -157,10 +157,13 @@ table thead {
     background: white;
 }
 
-.search {
+#users {
     top: 0;
     position: sticky;
     background-color: #fff;
     z-index: 1;
+    margin-left: 30px;
+    margin-left: 30px;
+
 }
 </style>

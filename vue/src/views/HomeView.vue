@@ -69,7 +69,7 @@ export default {
    -webkit-box-orient: vertical;
    overflow: hidden;
    animation: fadeInUp 1s ease-out, pulse 5s infinite;
-
+    font-size: 25px;
  }
 
  @keyframes fadeInUp {
