@@ -5,10 +5,10 @@
             <table id="volunteer-contact">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone Number</th>
-                        <th>Roll</th>
+                        <th>Name:</th>
+                        <th>Email:</th>
+                        <th>Phone Number:</th>
+                        <th>Role:</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -109,8 +109,9 @@ export default {
         },
         getRole(userId) {
             let user = this.users.find((user) =>
-                user.userId = userId
+                user.id == userId
             )
+            console.log(user)
             if (user) {
                 return user.authorities[0].name;
 

@@ -1,6 +1,6 @@
 
 <template>
-    <div class="admin-container">
+    <div  class="admin-container" v-if="$store.state.user.authorities && ($store.state.user.authorities[0].name === 'ROLE_ADMIN' )">
 
         <div>
             <VolunteerTable></VolunteerTable>
@@ -42,6 +42,11 @@ export default {
            
         }
     },
+    // created(){
+    //     if (this.$store.state.user.role !== 'ROLE_ADMIN') {
+    //         this.$router.push('/');
+    //     }
+    // }
 
 }
 </script>

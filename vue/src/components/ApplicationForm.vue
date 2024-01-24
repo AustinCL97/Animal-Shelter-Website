@@ -2,15 +2,15 @@
 <h1>Please Enter Volunteer Details</h1>
 <form v-on:submit.prevent="createApplication()" class="volunteer-form">
     <div class="form-group">
-        <label for="volunteerName"> Your Name</label>
+        <label for="volunteerName">Name:</label>
             <input type="text" v-model="volunteer.appName" id="volunteerName" class="form-input" />
     </div>
     <div class="form-group">
-        <label for="volunteerPhoneNumber">Your Phone Number</label>
+        <label for="volunteerPhoneNumber">Phone Number:</label>
             <input type="text" v-model="volunteer.appPhoneNumber" id="volunteerPhoneNumber" class="form-input" />
     </div>
      <div class="form-group">
-        <label for="volunteerEmail">Your Email Address</label>
+        <label for="volunteerEmail">Email Address:</label>
             <input type="text" v-model="volunteer.appEmail" id="volunteerEmail" class="form-input" />
     </div>
     <input type="submit" class="submit-button" />
