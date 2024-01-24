@@ -8,7 +8,7 @@
             <h2>Phone Number</h2>
             <p>867-5309</p>
             <h2>Email: </h2>
-            <p>JustinParker@ParkersPets.com</p>
+            <p>parkerspets.shelter@gmail.com</p>
         </div>
         <div class="third">
             <iframe id="map"
