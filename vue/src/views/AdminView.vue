@@ -42,6 +42,11 @@ export default {
            
         }
     },
+    created(){
+        if (this.$store.state.user.role !== 'ADMIN') {
+            this.$router.push(' ');
+        }
+    }
 
 }
 </script>
