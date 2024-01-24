@@ -70,6 +70,7 @@
 
 <script>
 import ApplicationService from '../services/ApplicationService'
+import MailService from '../services/MailService';
 export default {
 
     data() {
@@ -130,17 +131,29 @@ export default {
         },
         approve(volunteer) {
             let id = volunteer.applicationId
+            
             ApplicationService.approveApplication(id, volunteer).then(
                 (response) => {
                     this.refresh();
+                    MailService.sendApproval(volunteer).then(
+                        (response) => {
+                            alert(response.data)
+                        } 
+                        )
                 }
             )
         },
         reject(volunteer) {
             let id = volunteer.applicationId
+           
             ApplicationService.rejectApplication(id, volunteer).then(
                 (response) => {
                     this.refresh();
+                    MailService.sendDenial(volunteer).then(
+                        (response) => {
+                            alert(response.data)
+                        }
+                    )
                 }
             )
         },
