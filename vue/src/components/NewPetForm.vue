@@ -2,67 +2,62 @@
     <div class="form" v-on:submit.prevent="addPet()">
         <form>
             <div class="add">Add/Update Pet</div>
-            <div>
-                <label>Pet Name:</label>
-                <input class="input" v-model="pet.petName" type="text">
-            </div>
+            <div class="block">
+                <div>
+                    <label>Pet Name:</label>
+                    <input class="input" v-model="pet.petName" type="text">
+                </div>
+                <div>
+                    <label>Breed:</label>
+                    <input class="input" v-model="pet.petBreed" type="text">
+                </div>
+                <div>
+                    <label>Color:</label>
+                    <input class="input" v-model="pet.petColor" type="text">
+                </div>
+                <div>
+                    <label>Age in Years:</label>
+                    <input class="input" v-model="pet.petAge" type="number">
+                </div>
+                <div class="radio">
+                    <label for="available">Available</label>
+                    <input name="isAvailable" type="radio" id="available" v-model="pet.available" value=true> |
 
-            <div>
-                <label>Breed:</label>
-                <input class="input" v-model="pet.petBreed" type="text">
-            </div>
+                    <label for="unavailable">Unavailable</label>
+                    <input name="isAvailable" type="radio" id="unavailable" v-model="pet.available" value=false>
+                </div>
 
-            <div>
-                <label>Color:</label>
-                <input class="input" v-model="pet.petColor" type="text">
-            </div>
+                <div>
+                    <label>Weight:</label>
+                    <input class="input" v-model="pet.petWeight" type="number">
+                </div>
+                <div>
+                    <label>ZIP Code:</label>
+                    <input class="input" v-model="pet.zipCode" type="number">
+                </div>
 
-            <div>
-                <label>Age in Years:</label>
-                <input class="input" v-model="pet.petAge" type="number">
-            </div>
+                <div>
+                    <label>City:</label>
+                    <input class="input" v-model="pet.petCity" type="text">
+                </div>
+                <div>
+                    <label>State:</label>
+                    <input class="input" v-model="pet.petState" type="text">
+                </div>
+                <div>
+                    <label class="desc-label">Description:</label>
+                    <textarea class="desc" v-model="pet.petDescription" maxlength="500"></textarea>
+                </div>
+                <div>
+                    Pet Id:<input class="input" type="number" v-model.number="pet.petId">
+                </div>
 
-            <div class="radio">
-                <label for="available">Available</label>
-                <input name="isAvailable" type="radio" id="available" v-model="pet.available" value=true> |
-
-                <label for="unavailable">Unavailable</label>
-                <input name="isAvailable" type="radio" id="unavailable" v-model="pet.available" value=false>
+                <div>
+                    <label>Adopted by:</label>
+                    <input class="input" v-model="pet.adoptedBy" type="text">
+                </div>
+                <input class="button" id="submit" type="submit" v-on:click.prevent="addPet()">
             </div>
-
-            <div>
-                <label>Weight:</label>
-                <input class="input" v-model="pet.petWeight" type="number">
-            </div>
-
-            <div>
-                <label>ZIP Code:</label>
-                <input class="input" v-model="pet.zipCode" type="number">
-            </div>
-
-            <div>
-                <label>City:</label>
-                <input class="input" v-model="pet.petCity" type="text">
-            </div>
-            <div>
-                <label>State:</label>
-                <input class="input" v-model="pet.petState" type="text">
-            </div>
-            <div>
-                <label class="desc-label">Description:</label>
-                <textarea class="desc" v-model="pet.petDescription" maxlength="500"></textarea>
-            </div>
-            <div>
-                Pet Id:<input class="input" type="number" v-model.number="pet.petId">
-            </div>
-
-            <div>
-                <label>Adopted by:</label>
-                <input class="input" v-model="pet.adoptedBy" type="text">
-            </div>
-
-            <input id="submit" type="submit" v-on:click.prevent="addPet()">
-
         </form>
     </div>
 </template>
@@ -108,9 +103,10 @@ export default {
 </script>
 
 <style scoped>
-div{
+div {
     margin: 5px;
 }
+
 div .form {
     display: flex;
     align-content: center;
@@ -174,21 +170,29 @@ input {
 
 #submit {
     display: flex;
-   text-align: center;
-     padding: 12px 24px;
-     margin-top: 20px;
-     background:linear-gradient(to right, #e74c3c, #c0392b);
-     color: rgb(222, 215, 177);
-     text-decoration: none;
-     border-radius: 5px;
-     transition: background-color 0.4s ease;
-     border-radius: 25px;
-     width: 200px;
-     font-size: 18px;
-     font-weight: bold;
+    text-align: center;
+    padding: 12px 24px;
+    margin-top: 20px;
+    background: linear-gradient(to right, #e74c3c, #c0392b);
+    color: rgb(222, 215, 177);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.4s ease;
+    border-radius: 25px;
+    width: 200px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .input {
     width: 300px;
     height: 2vh;
-}</style>
+}
+
+.button {
+    display: block;
+    margin: 0 auto;
+}
+
+
+</style>

@@ -7,10 +7,10 @@
         <h2>Send us an email!</h2>
         <h5 v-on:click="copyToClipboard()">JustinParker@ParkersPets.com</h5>
         <label>Name </label>
-            <input type="text" v-model="contactDetails.name" />
+            <input class="text" type="text" v-model="contactDetails.name" />
     
         <label>Email </label>
-            <input type="text" v-model="contactDetails.email" />
+            <input class="text" type="text" v-model="contactDetails.email" />
     
         <label>Message </label>
             <textarea class="message" v-model="contactDetails.message" maxlength="500"></textarea>
@@ -53,7 +53,8 @@ div{
     border-radius: 50px;
 }
 p{
-    color: rgb(238, 114, 20);
+    color: rgb(167, 80, 14);
+ 
 }
 
 h1, h2{
@@ -78,6 +79,24 @@ h2{
 }
 button{
     margin: 10px;
+}
+.text{
+    height: 30px;
+    width: 390px;
+}
+#send{
+    display: inline-block;
+     padding: 12px 24px;
+     margin-top: 20px;
+     background:linear-gradient(to right, #e74c3c, #c0392b);
+     color: rgb(222, 215, 177);
+     text-decoration: none;
+     border-radius: 5px;
+     transition: background-color 0.4s ease;
+     border-radius: 25px;
+     width: 200px;
+     font-size: 18px;
+     font-weight: bold;
 }
 
 </style>

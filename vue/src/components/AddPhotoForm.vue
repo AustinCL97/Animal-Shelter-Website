@@ -11,7 +11,7 @@
         <label>Pet ID</label>
         <input class="input" type="text" v-model="newPhoto.petId">
       </div>
-      <input id="submit" type="submit" v-on:click.prevent="addPhoto()">
+      <input class="button" id="submit" type="submit" v-on:click.prevent="addPhoto()">
     </form>
   </div>
 </template>
@@ -95,14 +95,18 @@ input {
   font-size: 18px;
   font-weight: bold;
 }
-  .input {
-    text-align: left;
-    margin-top: 10px;
-    height: 2vh;
-    width: 10vh;
-    width: 300px;
-    height: 2vh;
-  }
 
+.input {
+  text-align: left;
+  margin-top: 10px;
+  height: 2vh;
+  width: 10vh;
+  width: 300px;
+  height: 2vh;
+}
 
+.button{
+  display: block;
+  margin: 0 auto;
+}
 </style>

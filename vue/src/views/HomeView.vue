@@ -1,9 +1,9 @@
 <template>
   <div class="home">
     <h1 class="name">Explore the Paw-sibilities   <br/>at Parker's Pet Haven!</h1>
-    <div v-if="!isLoggedIn">
+    <div class="login-link" v-if="!isLoggedIn">
       <router-link to="/login">Login Now</router-link> |
-      <router-link to="/register">Register</router-link> |
+      <router-link to="/register">Register</router-link> 
       
     </div>
 
@@ -48,12 +48,17 @@ export default {
   justify-content: center;
   text-align: center;
   font-size: 50px;
+  
 
  }
 
 
  h2{
   text-align: center;
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold; 
+  font-style: normal;
  }
 
  .mission-statement {
@@ -63,7 +68,8 @@ export default {
    -webkit-line-clamp: 5;
    -webkit-box-orient: vertical;
    overflow: hidden;
-   animation: fadeInUp 1s ease-out, pulse 2s infinite;
+   animation: fadeInUp 1s ease-out, pulse 5s infinite;
+
  }
 
  @keyframes fadeInUp {
@@ -89,6 +95,20 @@ export default {
  p{
   text-align: center;
   padding: 15px;
+ }
+ .name{
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold; 
+  font-style: normal;
+ }
+ .login-link{
+  margin-left: 30px;
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold; 
+  font-style: normal;
+
  }
 
 

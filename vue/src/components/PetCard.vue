@@ -3,7 +3,7 @@ Adoption Form: - PetCard
 <template>
   <div class="card">
 
-    <h1>{{ pet.petName }}</h1>
+    <h1 class="pet-name">{{ pet.petName }}</h1>
     <h3 v-if="pet.available === false">Adopted By: {{ pet.adoptedBy }}</h3>
     <h3>Breed: {{ pet.petBreed }}</h3>
     <h3>Age: {{ pet.petAge }} Years</h3>
@@ -107,7 +107,7 @@ export default {
   height: 950px;
   margin: 20px;
   text-align: center;
-  background: rgb(157, 171, 134);
+  background: linear-gradient(to bottom, rgb(157, 171, 134), rgb(52, 109, 50));
   font-family: Arial;
   box-shadow: 10px 10px 20px 10px rgb(204, 115, 81);
   text-decoration-color: black;
@@ -180,5 +180,11 @@ button {
 
 .description{
   height: 150px;
+}
+.pet-name{
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold; /* Replace <weight> with an appropriate value like normal or bold */
+  font-style: normal;
 }
 </style>

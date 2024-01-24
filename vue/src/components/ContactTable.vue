@@ -173,4 +173,8 @@ h2 {
     text-align: center;
     margin: 10px;
 }
+
+#volunteer-contact{
+height: 275px;
+}
 </style>

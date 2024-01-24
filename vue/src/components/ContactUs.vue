@@ -28,12 +28,12 @@ import ContactForm from './ContactForm.vue';
 export default {
     components: { ContactForm },
     methods: {
-    showAlert() {
-            alert('Thank you for donating to Parkers Pets Haven! - You will now be deduct $500.00');
-    }
+        showAlert() {
+            alert('Thank you for donating to Parkers Pets Haven! - You will now be deducted $500.00 from your linked account');
+        }
 
-     
-  }
+
+    }
 
 
 }
@@ -77,4 +77,5 @@ h2 {
 .third {
     background-color: rgb(222, 215, 177);
 
-}</style>
+}
+</style>
