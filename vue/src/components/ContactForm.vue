@@ -1,30 +1,35 @@
 <template>
   
-<form>
+<form v-on:submit.prevent="sendEmail($event)" name="contact">
     
     <div class="main">
         <div class="second">
         <h2>Send us an email!</h2>
         <h5 v-on:click="copyToClipboard()">parkerspets.shelter@gmail.com</h5>
         <label>Name </label>
-            <input class="text" type="text" v-model="contactDetails.name" />
+            <input class="text" type="text" v-model="templateParams.from_name" />
     
         <label>Email </label>
-            <input class="text" type="text" v-model="contactDetails.email" />
+            <input class="text" type="text" v-model="templateParams.reply_to" />
     
         <label>Message </label>
-            <textarea class="message" v-model="contactDetails.message" maxlength="500"></textarea>
-            <button v-on:click.prevent id="send">Send</button>
+            <textarea class="message" v-model="templateParams.message" maxlength="500"></textarea>
+            <button  id="send">Send</button>
         </div>
     </div>
 </form>
 </template>
 
 <script>
+import emailjs from '@emailjs/browser'
 export default {
     data(){
         return{
-            contactDetails:{}
+            templateParams: {
+                from_name: '',
+                reply_to: '',
+                message: ''
+            }
         }
     },
     methods: {
@@ -37,6 +42,14 @@ export default {
       .catch(err => {
         console.error('Failed to copy text: ', err);
       });
+  },
+  sendEmail(e){
+    emailjs.send('service_pvg6gb8', 'template_a6agzxf', this.templateParams,'qRLHw_XqOYBJpIztO')
+    .then(
+        (response) => {
+            alert('success')
+        }
+    )
   }
 }
 }
