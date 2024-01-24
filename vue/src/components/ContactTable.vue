@@ -109,8 +109,9 @@ export default {
         },
         getRole(userId) {
             let user = this.users.find((user) =>
-                user.userId = userId
+                user.id == userId
             )
+            console.log(user)
             if (user) {
                 return user.authorities[0].name;
 
