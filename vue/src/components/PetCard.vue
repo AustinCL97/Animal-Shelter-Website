@@ -75,7 +75,7 @@ export default {
         PetService.updatePetListing(pet, petId).then (
           (response) => {
            
-            this.$router.push({name: 'details'});
+            this.$router.push({name: 'adopted'});
             this.$store.commit('UPDATE_PETS', false);
             alert("Thanks for adopting. Come Again!")
           }
